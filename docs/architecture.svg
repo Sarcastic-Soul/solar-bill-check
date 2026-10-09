@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" font-family="Switzer, Helvetica, Arial, sans-serif" role="img" aria-label="Solar Bill Check architecture on AWS">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#1A1814"/>
+    </marker>
+    <style>
+      .box{fill:#F7F7F4;stroke:#1A1814;stroke-width:2}
+      .aws{fill:#F2A900;stroke:#1A1814;stroke-width:2}
+      .t{font-size:19px;font-weight:700;fill:#1A1814}
+      .s{font-size:14px;fill:#5E584D}
+      .l{stroke:#1A1814;stroke-width:2;fill:none;marker-end:url(#a)}
+      .n{font-size:13px;font-weight:700;fill:#1A1814}
+      .sd{font-size:14px;fill:#1A1814}
+    </style>
+  </defs>
+  <rect width="1200" height="640" fill="#ECEDEA"/>
+  <text x="40" y="58" font-size="30" font-weight="700" fill="#1A1814">Solar Bill Check on AWS</text>
+  <text x="40" y="86" class="s">Everything in ap-south-1 (Mumbai), so bill data stays in India</text>
+  <line x1="40" y1="106" x2="1160" y2="106" stroke="#1A1814" stroke-width="2"/>
+
+  <!-- user -->
+  <rect class="box" x="40" y="250" width="180" height="120"/>
+  <text x="62" y="290" class="t">Phone browser</text>
+  <text x="62" y="316" class="s">Photo of the bill,</text>
+  <text x="62" y="336" class="s">English / Hindi</text>
+
+  <!-- amplify -->
+  <rect class="aws" x="40" y="140" width="180" height="70"/>
+  <text x="62" y="172" class="t">AWS Amplify</text>
+  <text x="62" y="194" class="sd">React site</text>
+  <path class="l" d="M130 210 V246"/>
+
+  <!-- lambda -->
+  <rect class="aws" x="330" y="230" width="230" height="160"/>
+  <text x="352" y="266" class="t">AWS Lambda</text>
+  <text x="352" y="290" class="sd">Python 3.14 · arm64</text>
+  <text x="352" y="314" class="sd">Function URL · AWS SAM</text>
+  <text x="352" y="346" class="n">/upload-url  /extract  /plan</text>
+  <text x="352" y="368" class="n">/speak  /chat</text>
+  <path class="l" d="M220 310 H326"/>
+
+  <!-- s3 -->
+  <rect class="aws" x="40" y="440" width="180" height="110"/>
+  <text x="62" y="474" class="t">Amazon S3</text>
+  <text x="62" y="498" class="sd">Presigned upload,</text>
+  <text x="62" y="518" class="sd">deleted after reading</text>
+  <path class="l" d="M130 370 V436"/>
+  <path class="l" d="M330 380 L224 476"/>
+  <text x="232" y="522" class="s">read, then</text><text x="232" y="540" class="s">delete</text>
+
+  <!-- bedrock extract -->
+  <rect class="aws" x="680" y="130" width="250" height="130"/>
+  <text x="702" y="166" class="t">Amazon Bedrock</text>
+  <text x="702" y="192" class="sd">Kimi K2.5 + Mistral Large 3</text>
+  <text x="702" y="214" class="sd">read the bill in parallel;</text>
+  <text x="702" y="236" class="sd">disagreements go to the user</text>
+  <path class="l" d="M560 270 L676 210"/>
+
+  <!-- strands -->
+  <rect class="aws" x="680" y="290" width="250" height="110"/>
+  <text x="702" y="326" class="t">Strands Agents</text>
+  <text x="702" y="350" class="sd">Chat on Bedrock with tools:</text>
+  <text x="702" y="372" class="sd">plan, what-if, EMI, scheme rules</text>
+  <path class="l" d="M560 330 H676"/>
+
+  <!-- polly -->
+  <rect class="aws" x="680" y="430" width="250" height="80"/>
+  <text x="702" y="464" class="t">Amazon Polly</text>
+  <text x="702" y="488" class="sd">Kajal neural · hi-IN, en-IN</text>
+  <path class="l" d="M560 380 L676 460"/>
+
+  <!-- dynamo -->
+  <rect class="aws" x="330" y="470" width="230" height="110"/>
+  <text x="352" y="506" class="t">Amazon DynamoDB</text>
+  <text x="352" y="530" class="sd">Saved plans (share links),</text>
+  <text x="352" y="552" class="sd">chat history with TTL</text>
+  <path class="l" d="M445 390 V466"/>
+
+  <!-- engine -->
+  <rect class="box" x="990" y="230" width="170" height="160"/>
+  <text x="1010" y="266" class="t">Plan engine</text>
+  <text x="1010" y="292" class="s">DISCOM tariffs</text>
+  <text x="1010" y="314" class="s">PM Surya Ghar slabs</text>
+  <text x="1010" y="336" class="s">Sizing, payback,</text>
+  <text x="1010" y="358" class="s">EMI, CO₂, readiness</text>
+  <path class="l" d="M930 345 H986"/>
+
+  <!-- external -->
+  <rect class="box" x="990" y="430" width="170" height="110" stroke-dasharray="6 5"/>
+  <text x="1010" y="466" class="t">Open data</text>
+  <text x="1010" y="490" class="s">PVGIS sunlight</text>
+  <text x="1010" y="512" class="s">Pincode lookup</text>
+  <path class="l" d="M1075 390 V426"/>
+
+  <rect x="40" y="596" width="18" height="18" class="aws"/>
+  <text x="68" y="611" class="s">AWS service</text>
+  <rect x="180" y="596" width="18" height="18" class="box"/>
+  <text x="208" y="611" class="s">Our code</text>
+</svg>

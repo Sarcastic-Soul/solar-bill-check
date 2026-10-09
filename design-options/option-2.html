@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Option 2 · Public service</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;700;800&family=Noto+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+<style>
+  :root{
+    --bg:#F4F5F0; --surface:#FCFCF8; --ink:#14201A; --ink-2:#4A5650; --line:#D3D8CF;
+    --green:#0B6E4F; --green-dark:#08553D; --green-soft:#E1EFE7; --amber:#9A5B00; --amber-soft:#FBEFD8;
+  }
+  *{box-sizing:border-box;margin:0}
+  body{background:var(--bg);color:var(--ink);font:400 18px/1.6 "Noto Sans",sans-serif}
+  h1,h2,h3,.num{font-family:"Mukta",sans-serif}
+  a{color:var(--green)}
+  :focus-visible{outline:3px solid #E8A317;outline-offset:2px}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+  .topbar{background:var(--ink);color:#EEF1EA;font-size:14px}
+  .topbar .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:8px;padding-bottom:8px}
+  .topbar select{background:transparent;color:inherit;border:1px solid #4A5650;padding:3px 8px;font:inherit}
+  header{background:var(--surface);border-bottom:4px solid var(--green)}
+  header .wrap{display:flex;align-items:center;gap:14px;height:76px}
+  header i{font-size:34px;color:var(--green)}
+  header strong{font:700 24px "Mukta"}
+  header span{color:var(--ink-2);font-size:15px;border-left:1px solid var(--line);padding-left:14px}
+
+  .layout{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:48px;padding:48px 0 72px}
+  .steps{display:flex;gap:8px;list-style:none;padding:0;margin-bottom:28px;font-size:15px}
+  .steps li{flex:1;border-top:5px solid var(--line);padding-top:8px;color:var(--ink-2)}
+  .steps li.done{border-color:var(--green);color:var(--ink)}
+  .steps li.now{border-color:var(--green);color:var(--ink);font-weight:600}
+  h1{font:800 clamp(36px,5vw,56px)/1.08 "Mukta";letter-spacing:-.01em}
+  .lead{font-size:20px;color:var(--ink-2);margin-top:14px;max-width:32em}
+  .lead-hi{font:600 22px/1.4 "Mukta";margin-top:8px}
+
+  .upload{margin-top:32px;background:var(--surface);border:2px solid var(--ink);padding:28px}
+  .upload h2{font:700 24px "Mukta";display:flex;gap:10px;align-items:center}
+  .upload p{color:var(--ink-2);margin:6px 0 20px}
+  .btns{display:flex;gap:12px;flex-wrap:wrap}
+  .btn{min-height:56px;display:inline-flex;align-items:center;gap:10px;padding:0 24px;font:600 18px "Noto Sans";border:2px solid var(--green);cursor:pointer}
+  .btn.primary{background:var(--green);color:#F7FBF8;box-shadow:0 3px 0 var(--green-dark)}
+  .btn.primary:active{transform:translateY(2px);box-shadow:0 1px 0 var(--green-dark)}
+  .btn.secondary{background:var(--surface);color:var(--green)}
+  .btn i{font-size:24px}
+  .privacy{display:flex;gap:12px;margin-top:22px;padding:14px 16px;background:var(--green-soft);font-size:15px}
+  .privacy i{font-size:22px;color:var(--green);flex:none;margin-top:2px}
+
+  .help{margin-top:40px}
+  .help h3{font:700 22px "Mukta";margin-bottom:12px}
+  details{border-top:1px solid var(--line);padding:14px 0}
+  details:last-child{border-bottom:1px solid var(--line)}
+  summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between}
+  summary::after{content:"+";font:700 22px "Mukta";color:var(--green)}
+  details[open] summary::after{content:"−"}
+  details p{color:var(--ink-2);margin-top:8px}
+
+  /* result panel */
+  aside{align-self:start;position:sticky;top:24px}
+  .label{font-size:14px;color:var(--ink-2);text-transform:uppercase;letter-spacing:.06em;font-weight:600}
+  .verdict{background:var(--green);color:#F2F8F4;padding:24px 26px}
+  .verdict .label{color:#E2F2E9}
+  .verdict h2{font:800 34px/1.1 "Mukta";margin-top:6px;display:flex;gap:10px;align-items:center}
+  .verdict p{margin-top:8px;font-size:17px;color:#EAF5EF}
+  dl{background:var(--surface);border:1px solid var(--line);border-top:0}
+  dl div{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:14px 26px;border-top:1px solid var(--line)}
+  dl div:first-child{border-top:0}
+  dt{color:var(--ink-2);font-size:16px}
+  dd{font:700 24px "Mukta";font-variant-numeric:tabular-nums}
+  dd.pay{font-size:32px;color:var(--green)}
+  .ready{margin-top:20px;background:var(--surface);border:1px solid var(--line);padding:20px 26px}
+  .ready h3{font:700 20px "Mukta";margin-bottom:10px}
+  .ready li{list-style:none;display:flex;gap:10px;padding:6px 0;font-size:16px}
+  .ready ul{padding:0}
+  .ready .ok{color:var(--green);font-size:22px}
+  .ready .warn{color:var(--amber);font-size:22px}
+  .ready .fix{background:var(--amber-soft);padding:10px 12px;margin-top:6px;font-size:15px}
+
+  .track{background:var(--surface);border-top:1px solid var(--line);padding:56px 0}
+  .track h2{font:800 34px "Mukta";margin-bottom:24px}
+  .track ol{list-style:none;padding:0;display:grid;grid-template-columns:repeat(7,1fr);gap:0;counter-reset:s}
+  .track li{counter-increment:s;border-left:1px solid var(--line);padding:0 16px 0 20px;font-size:15px}
+  .track li:first-child{border-left:0;padding-left:0}
+  .track li::before{content:counter(s);display:grid;place-items:center;width:36px;height:36px;border:2px solid var(--ink);font:700 18px "Mukta";margin-bottom:10px}
+  .track li.now::before{background:var(--green);border-color:var(--green);color:#F7FBF8}
+  .track b{display:block;font:700 18px "Mukta"}
+  .track span{color:var(--ink-2)}
+
+  footer{padding:28px 0 48px;font-size:14px;color:var(--ink-2)}
+
+  @media (max-width:880px){
+    .wrap{padding:0 16px}
+    .layout{grid-template-columns:1fr;gap:32px;padding:28px 0 48px}
+    aside{position:static}
+    header span{display:none}
+    .track ol{grid-template-columns:1fr;gap:14px}
+    .track li{border-left:0;padding:0;display:grid;grid-template-columns:44px 1fr;column-gap:10px}
+    .track li::before{grid-row:span 2;margin:0}
+    .btn{width:100%;justify-content:center}
+  }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">
+  <span>Free tool · not a government website</span>
+  <label>Language <select><option>English</option><option>हिन्दी</option><option>मराठी</option><option>தமிழ்</option><option>বাংলা</option></select></label>
+</div></div>
+<header><div class="wrap">
+  <i class="ph-bold ph-solar-panel"></i><strong>Solar Bill Check</strong><span>Rooftop solar and PM Surya Ghar, explained from your own bill</span>
+</div></header>
+
+<main>
+<div class="wrap layout">
+  <div>
+    <ol class="steps"><li class="now">1. Your bill</li><li>2. Check the numbers</li><li>3. Your plan</li></ol>
+    <h1>Is rooftop solar worth it for your home?</h1>
+    <p class="lead">Upload your latest electricity bill. We work out the system size, the government subsidy, your real cost and how many years until it pays back.</p>
+    <p class="lead-hi">क्या आपके घर के लिए सोलर सही है? अपना बिजली बिल डालें।</p>
+
+    <div class="upload">
+      <h2><i class="ph-bold ph-file-arrow-up"></i>Add your electricity bill</h2>
+      <p>A clear photo of the front page works best. Any state, any language.</p>
+      <div class="btns">
+        <button class="btn primary"><i class="ph-bold ph-camera"></i>Take a photo</button>
+        <button class="btn secondary"><i class="ph-bold ph-folder-open"></i>Choose file or PDF</button>
+      </div>
+      <div class="privacy"><i class="ph-fill ph-shield-check"></i><span>Your bill photo is deleted right after it's read. Your consumer number is hidden. We never ask for Aadhaar or OTP.</span></div>
+    </div>
+
+    <div class="help">
+      <h3>Common questions</h3>
+      <details><summary>I live in a flat. Can I still get the subsidy?</summary><p>Yes, through your housing society (RWA). It gets ₹18,000 per kW for a shared system.</p></details>
+      <details><summary>My bill is zero because of free units.</summary><p>Then solar may not save you money right now. We'll tell you honestly.</p></details>
+      <details><summary>Do you apply for me?</summary><p>No. The official portal needs your Aadhaar and OTP, so only you should apply. We fill in a sheet you can copy from.</p></details>
+    </div>
+  </div>
+
+  <aside aria-label="Example result">
+    <div class="verdict">
+      <div class="label">Example · BRPL bill, Delhi</div>
+      <h2><i class="ph-fill ph-check-circle"></i>Yes, worth it</h2>
+      <p>A 2.5 kW system covers your whole bill and pays back in under 6 years.</p>
+    </div>
+    <dl>
+      <div><dt>System size</dt><dd>2.5 kW</dd></div>
+      <div><dt>Total cost</dt><dd>₹1,62,500</dd></div>
+      <div><dt>Subsidy (PM Surya Ghar)</dt><dd>− ₹69,000</dd></div>
+      <div><dt>You pay</dt><dd class="pay">₹93,500</dd></div>
+      <div><dt>Saving per month</dt><dd>₹1,367</dd></div>
+      <div><dt>Pays back in</dt><dd>5.7 years</dd></div>
+      <div><dt>CO₂ avoided per year</dt><dd>2,757 kg</dd></div>
+    </dl>
+    <div class="ready">
+      <h3>Before you apply</h3>
+      <ul>
+        <li><i class="ph-fill ph-check-circle ok"></i>Bill is in the residential category</li>
+        <li><i class="ph-fill ph-check-circle ok"></i>Sanctioned load (3 kW) is enough</li>
+        <li><i class="ph-fill ph-warning-circle warn"></i><div>Name on bill must match your bank account<div class="fix">Bill is in your father's name? Get it changed at the DISCOM office first, or the subsidy can't be paid.</div></div></li>
+      </ul>
+    </div>
+  </aside>
+</div>
+
+<section class="track"><div class="wrap">
+  <h2>The 7 steps, from portal to subsidy</h2>
+  <ol>
+    <li class="now"><b>Register</b><span>You · 10 min on pmsuryaghar.gov.in</span></li>
+    <li><b>Feasibility</b><span>DISCOM · auto-approved up to 10 kW</span></li>
+    <li><b>Pick a vendor</b><span>You · check DCR panels</span></li>
+    <li><b>Install</b><span>Vendor · 1–2 days</span></li>
+    <li><b>Net meter</b><span>DISCOM · 1–4 weeks</span></li>
+    <li><b>Inspection</b><span>DISCOM · upload photos</span></li>
+    <li><b>Subsidy paid</b><span>Bank · 15–30 days</span></li>
+  </ol>
+</div></section>
+</main>
+
+<footer><div class="wrap">Figures use PM Surya Ghar rules (to 31 March 2027), PVGIS sunlight data and your DISCOM's tariff order. Built on AWS.</div></footer>
+</body>
+</html>

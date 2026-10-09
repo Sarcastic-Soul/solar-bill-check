@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Option 1 · Bill paper</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+<style>
+  :root{
+    --paper:#F5F0E4; --paper-2:#ECE5D3; --ink:#1F1B16; --ink-2:#5A5246; --rule:#C9BFA8;
+    --stamp:#B23A1E; --stamp-soft:#F3DDD3; --ok:#2F5D3A;
+  }
+  *{box-sizing:border-box;margin:0}
+  body{background:var(--paper);color:var(--ink);font:400 17px/1.55 "IBM Plex Sans",sans-serif;
+    background-image:radial-gradient(rgba(31,27,22,.035) 1px,transparent 1px);background-size:4px 4px}
+  .mono{font-family:"IBM Plex Mono",monospace}
+  .hi{font-family:"Tiro Devanagari Hindi",serif}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+  header{border-bottom:1px solid var(--rule)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{font:600 20px "Newsreader",serif;display:flex;gap:10px;align-items:center}
+  .brand i{color:var(--stamp);font-size:22px}
+  .lang{font:500 14px "IBM Plex Mono";display:flex;gap:4px}
+  .lang button{border:1px solid var(--rule);background:transparent;padding:6px 10px;color:var(--ink-2);cursor:pointer;font:inherit}
+  .lang button[aria-pressed=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+  .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;padding:72px 0 64px;align-items:start}
+  h1{font:400 clamp(44px,6vw,76px)/1.02 "Newsreader",serif;letter-spacing:-.02em}
+  h1 em{font-style:italic;color:var(--stamp)}
+  .sub{margin-top:22px;font-size:19px;color:var(--ink-2);max-width:30em}
+  .sub-hi{margin-top:10px;font-size:19px;color:var(--ink-2)}
+  .drop{margin-top:36px;border:1.5px dashed var(--ink);padding:26px;display:flex;gap:20px;align-items:center;background:rgba(255,252,244,.6);cursor:pointer;transition:background .2s}
+  .drop:hover{background:var(--paper-2)}
+  .drop i{font-size:40px}
+  .drop b{display:block;font-size:19px}
+  .drop span{color:var(--ink-2);font-size:15px}
+  .btn{display:inline-flex;align-items:center;gap:10px;margin-top:18px;background:var(--ink);color:var(--paper);border:0;padding:16px 22px;font:600 17px "IBM Plex Sans";cursor:pointer}
+  .btn:hover{background:#38312A}
+  .fine{margin-top:16px;font-size:14px;color:var(--ink-2);display:flex;gap:8px;align-items:flex-start;max-width:34em}
+
+  /* the receipt */
+  .receipt{position:relative;background:#FBF8F0;border:1px solid var(--rule);padding:28px 28px 34px;box-shadow:0 1px 0 var(--rule),0 18px 40px -24px rgba(31,27,22,.35);transform:rotate(.6deg)}
+  .receipt::after{content:"";position:absolute;left:0;right:0;bottom:-10px;height:10px;
+    background:linear-gradient(-45deg,transparent 6px,#FBF8F0 0) 0 0/12px 10px,linear-gradient(45deg,transparent 6px,#FBF8F0 0) 0 0/12px 10px}
+  .r-head{display:flex;justify-content:space-between;font:500 13px "IBM Plex Mono";color:var(--ink-2);text-transform:uppercase;letter-spacing:.06em}
+  .r-title{font:600 26px "Newsreader",serif;margin:10px 0 2px}
+  .r-meta{font:400 14px "IBM Plex Mono";color:var(--ink-2)}
+  .rule{border:0;border-top:1px dashed var(--rule);margin:18px 0}
+  .row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;font-size:16px;padding:5px 0}
+  .row .v{font:500 17px "IBM Plex Mono"}
+  .row.minus .v{color:var(--ok)}
+  .row.total{font-weight:600;font-size:18px;border-top:1.5px solid var(--ink);margin-top:8px;padding-top:12px}
+  .row.total .v{font:600 22px "IBM Plex Mono"}
+  .stamp{position:absolute;right:-22px;top:-26px;transform:rotate(-12deg);border:3px solid var(--stamp);color:var(--stamp);
+    padding:8px 14px;font:600 22px "IBM Plex Mono";letter-spacing:.08em;text-align:center;background:rgba(251,248,240,.85);mix-blend-mode:multiply}
+  .stamp small{display:block;font-size:12px;letter-spacing:.04em}
+
+  /* sections below */
+  section{padding:64px 0;border-top:1px solid var(--rule)}
+  h2{font:400 40px/1.1 "Newsreader",serif;letter-spacing:-.01em;max-width:18em}
+  .check{display:grid;grid-template-columns:320px 1fr;gap:56px;align-items:start}
+  .check p{color:var(--ink-2);margin-top:14px}
+  table{width:100%;border-collapse:collapse;font-size:16px}
+  th{text-align:left;font:500 12px "IBM Plex Mono";letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);padding:0 12px 10px;border-bottom:1.5px solid var(--ink)}
+  td{padding:14px 12px;border-bottom:1px dashed var(--rule);vertical-align:middle}
+  td.v{font:500 17px "IBM Plex Mono"}
+  .flag{background:var(--stamp-soft)}
+  .flag td:first-child{box-shadow:inset 3px 0 0 var(--stamp)}
+  .pick{display:inline-flex;gap:6px}
+  .pick button{font:500 15px "IBM Plex Mono";border:1px solid var(--ink);background:transparent;padding:6px 10px;cursor:pointer}
+  .pick button.on{background:var(--ink);color:var(--paper)}
+  .tag{font:500 12px "IBM Plex Mono";text-transform:uppercase;letter-spacing:.05em;color:var(--ok)}
+  .tag.warn{color:var(--stamp)}
+
+  .chart{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:end}
+  .bars{display:flex;align-items:flex-end;gap:10px;height:220px;border-bottom:1.5px solid var(--ink);padding-top:10px}
+  .bar{flex:1;position:relative;background:var(--ink);opacity:.85}
+  .bar.sun{background:repeating-linear-gradient(45deg,var(--stamp) 0 4px,transparent 4px 8px);opacity:1;position:absolute;bottom:0;left:0;right:0}
+  .months{display:flex;gap:10px;font:400 12px "IBM Plex Mono";color:var(--ink-2);margin-top:8px}
+  .months span{flex:1;text-align:center}
+  .big{font:400 112px/0.9 "Newsreader",serif;letter-spacing:-.03em}
+  .big small{font-size:32px;letter-spacing:0}
+  .legend{display:flex;gap:20px;font-size:14px;color:var(--ink-2);margin-top:14px}
+  .legend i{display:inline-block;width:12px;height:12px;margin-right:6px;vertical-align:-1px}
+
+  footer{border-top:1px solid var(--rule);padding:28px 0 48px;font-size:14px;color:var(--ink-2)}
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+  @media (max-width:860px){
+    body{font-size:16px}
+    .wrap{padding:0 16px}
+    .hero,.check,.chart{grid-template-columns:1fr;gap:36px}
+    .hero{padding:40px 0}
+    .receipt{transform:none}
+    .stamp{right:-4px;top:-22px;font-size:18px}
+    .r-head span:last-child{display:none}
+    .big{font-size:84px}
+    h2{font-size:32px}
+    .hide-m{display:none}
+  }
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="brand"><i class="ph ph-sun-horizon"></i>Solar Bill Check</div>
+  <div class="lang" role="group" aria-label="Language">
+    <button aria-pressed="true">EN</button><button aria-pressed="false" class="hi">हिं</button><button aria-pressed="false">मरा</button><button aria-pressed="false">தமி</button>
+  </div>
+</div></header>
+
+<main class="wrap">
+  <div class="hero">
+    <div>
+      <h1>Your electricity bill already knows if <em>solar</em> pays.</h1>
+      <p class="sub">Photograph last month's bill. In about 30 seconds you get the right panel size, the PM Surya Ghar subsidy, what you actually pay, and the year it pays you back.</p>
+      <p class="sub-hi hi">बिल की फोटो लें — सोलर फायदेमंद है या नहीं, 30 सेकंड में जानें।</p>
+      <label class="drop">
+        <i class="ph ph-receipt"></i>
+        <div><b>Add your bill photo or PDF</b><span>Any DISCOM, any language. JPG, PNG or PDF up to 8 MB.</span></div>
+      </label>
+      <button class="btn"><i class="ph ph-camera"></i>Take a photo</button>
+      <p class="fine"><i class="ph ph-lock-simple"></i>The photo is deleted as soon as it's read. We hide your consumer number and never ask for Aadhaar.</p>
+    </div>
+
+    <article class="receipt" aria-label="Sample result">
+      <div class="r-head"><span>Sample result</span><span>BRPL · Delhi 110075</span></div>
+      <div class="r-title">2.5 kW rooftop system</div>
+      <div class="r-meta">From your bill: 342 units · ₹1,323 · 3 kW load</div>
+      <hr class="rule">
+      <div class="row"><span>System cost</span><span class="v">₹1,62,500</span></div>
+      <div class="row minus"><span>PM Surya Ghar subsidy</span><span class="v">− ₹69,000</span></div>
+      <div class="row total"><span>You pay</span><span class="v">₹93,500</span></div>
+      <hr class="rule">
+      <div class="row"><span>Bill per year now</span><span class="v">₹14,804</span></div>
+      <div class="row"><span>Bill per year with solar</span><span class="v">₹0</span></div>
+      <div class="row"><span>You save each month</span><span class="v">₹1,367</span></div>
+      <div class="row"><span>Pays for itself in</span><span class="v">5.7 years</span></div>
+      <div class="row"><span>CO₂ avoided each year</span><span class="v">2,757 kg</span></div>
+      <div class="stamp">WORTH IT<small>payback under 6 yrs</small></div>
+    </article>
+  </div>
+
+  <section class="check">
+    <div>
+      <h2>Two AI readers. You check where they disagree.</h2>
+      <p>Every bill is read twice by two different models on Amazon Bedrock. Where both agree, you see a tick. Where they don't, you pick the right number from your paper bill.</p>
+    </div>
+    <table>
+      <thead><tr><th>On your bill</th><th>Value</th><th class="hide-m">Status</th></tr></thead>
+      <tbody>
+        <tr><td>Units this month</td><td class="v">342 kWh</td><td class="hide-m"><span class="tag"><i class="ph ph-check"></i> both agree</span></td></tr>
+        <tr class="flag"><td>Amount payable</td><td><span class="pick"><button class="on">₹1,323.01</button><button>₹1,232.01</button></span></td><td class="hide-m"><span class="tag warn"><i class="ph ph-warning"></i> please check</span></td></tr>
+        <tr><td>Sanctioned load</td><td class="v">3 kW</td><td class="hide-m"><span class="tag"><i class="ph ph-check"></i> both agree</span></td></tr>
+        <tr><td>DISCOM</td><td>BSES Rajdhani (BRPL)</td><td class="hide-m"><span class="tag"><i class="ph ph-check"></i> both agree</span></td></tr>
+        <tr><td>Consumer no.</td><td class="v">XXXXX9471</td><td class="hide-m"><span class="tag"><i class="ph ph-eye-slash"></i> hidden</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="chart">
+    <div>
+      <div class="bars" aria-label="Units used vs solar made, last 7 months">
+        <div class="bar" style="height:46%"><div class="bar sun" style="height:100%"></div></div>
+        <div class="bar" style="height:63%"><div class="bar sun" style="height:85%"></div></div>
+        <div class="bar" style="height:79%"><div class="bar sun" style="height:72%"></div></div>
+        <div class="bar" style="height:100%"><div class="bar sun" style="height:68%"></div></div>
+        <div class="bar" style="height:91%"><div class="bar sun" style="height:74%"></div></div>
+        <div class="bar" style="height:85%"><div class="bar sun" style="height:73%"></div></div>
+        <div class="bar" style="height:75%"><div class="bar sun" style="height:80%"></div></div>
+      </div>
+      <div class="months"><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span></div>
+      <div class="legend"><span><i style="background:var(--ink)"></i>Units you used</span><span><i style="background:var(--stamp)"></i>Units solar makes</span></div>
+    </div>
+    <div>
+      <div class="big mono">5.7<small> yrs</small></div>
+      <h2 style="margin-top:14px">Then 19 years of near-free power. ₹5.7 lakh saved over 25 years.</h2>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">
+  <span>Numbers from the PM Surya Ghar rules, PVGIS sunlight data and your DISCOM's tariff order.</span>
+  <span>Built on AWS for Environmental Hacks 2026</span>
+</div></footer>
+</body>
+</html>

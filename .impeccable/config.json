@@ -1,0 +1,26 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "design-options/option-1.html"
+        ],
+        "createdAt": "2026-10-09T15:03:35.459Z",
+        "reason": "Claude: option 1 direction is printed-bill paper; cream is the reference"
+      },
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "design-options/option-2.html"
+        ],
+        "createdAt": "2026-10-09T15:03:35.465Z",
+        "reason": "Claude: flagged rule is a full-width header underline (GOV.UK pattern), not a card side tab"
+      }
+    ]
+  }
+}

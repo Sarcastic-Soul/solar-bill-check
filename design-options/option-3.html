@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Option 3 · Sun poster</title>
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&f[]=switzer@400,500,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hind:wght@500;600&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+<style>
+  :root{
+    --bg:#ECEDEA; --ink:#1A1814; --ink-2:#5E584D; --line:#1A1814; --sun:#F2A900; --sun-deep:#D98E00; --soft:#E6DFCF;
+  }
+  *{box-sizing:border-box;margin:0}
+  body{background:var(--bg);color:var(--ink);font:400 17px/1.55 "Switzer",sans-serif}
+  .d{font-family:"Clash Display",sans-serif}
+  .hi{font-family:"Hind",sans-serif}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+
+  header{border-bottom:2px solid var(--line)}
+  header .wrap{display:flex;justify-content:space-between;align-items:center;height:72px}
+  .logo{font:600 22px "Clash Display";display:flex;align-items:center;gap:10px}
+  .logo .dot{width:22px;height:22px;border-radius:50%;background:var(--sun);border:2px solid var(--ink)}
+  nav{display:flex;gap:22px;font-weight:500}
+  nav a{color:var(--ink);text-decoration:none}
+  nav a.on{border-bottom:2px solid var(--ink)}
+
+  /* asymmetric hero grid */
+  .hero{display:grid;grid-template-columns:repeat(12,1fr);border-bottom:2px solid var(--line)}
+  .h-left{grid-column:1/8;padding:56px 40px 56px 0;border-right:2px solid var(--line)}
+  .h-right{grid-column:8/13;position:relative;background:var(--sun);overflow:hidden;min-height:520px}
+  h1{font:600 clamp(48px,7.4vw,108px)/.92 "Clash Display";letter-spacing:-.025em;text-transform:none}
+  h1 span{display:block}
+  .h-sub{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:40px}
+  .h-sub p{color:var(--ink-2)}
+  .h-sub .hi{font-size:19px;color:var(--ink)}
+  .cta{margin-top:40px;display:flex;align-items:stretch;border:2px solid var(--ink);max-width:560px}
+  .cta button{flex:1;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:20px 22px;font:600 20px "Clash Display";background:var(--ink);color:var(--bg);border:0;cursor:pointer}
+  .cta button i{font-size:26px;transition:transform .2s ease-out}
+  .cta button:hover i{transform:translateX(4px)}
+  .cta label{display:flex;align-items:center;gap:8px;padding:0 20px;font-weight:500;cursor:pointer;white-space:nowrap}
+  .note{margin-top:14px;font-size:14px;color:var(--ink-2);display:flex;gap:8px}
+
+  /* sun path */
+  .sunpath{position:absolute;inset:0}
+  .bignum{position:absolute;left:28px;bottom:26px;right:28px}
+  .bignum .k{font:700 clamp(120px,15vw,210px)/.8 "Clash Display";letter-spacing:-.04em}
+  .bignum .u{font:600 28px "Clash Display"}
+  .bignum p{margin-top:12px;font-weight:500;max-width:22em}
+  .tag{position:absolute;top:24px;left:28px;font:700 13px "Switzer";letter-spacing:.08em;text-transform:uppercase;border:2px solid var(--ink);padding:6px 10px;background:var(--bg)}
+
+  /* numbers strip */
+  .strip{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:2px solid var(--line)}
+  .strip div{padding:28px 24px 30px;border-left:2px solid var(--line)}
+  .strip div:first-child{border-left:0;padding-left:0}
+  .strip small{display:block;font-weight:500;color:var(--ink-2);font-size:15px}
+  .strip b{white-space:nowrap;display:block;font:600 44px/1.05 "Clash Display";margin-top:8px;font-variant-numeric:tabular-nums}
+  .strip .minus b{color:#7A5200}
+
+  /* how + chart */
+  .split{display:grid;grid-template-columns:5fr 7fr;border-bottom:2px solid var(--line)}
+  .how{padding:48px 40px 48px 0;border-right:2px solid var(--line)}
+  .how h2,.use h2{font:600 40px/1 "Clash Display";letter-spacing:-.01em}
+  .how ol{list-style:none;padding:0;margin-top:28px}
+  .how li{display:grid;grid-template-columns:56px 1fr;padding:16px 0;border-top:1px solid #CFC7B5}
+  .how li b{font:600 30px "Clash Display"}
+  .how li strong{display:block;font-weight:700}
+  .how li span{color:var(--ink-2);font-size:16px}
+  .use{padding:48px 0 48px 40px}
+  .use svg{width:100%;height:auto;margin-top:24px}
+  .key{display:flex;gap:22px;font-size:14px;font-weight:500;margin-top:10px}
+  .key i{display:inline-block;width:14px;height:14px;border:2px solid var(--ink);margin-right:6px;vertical-align:-2px}
+
+  .flagbar{display:flex;align-items:center;gap:18px;padding:26px 0;border-bottom:2px solid var(--line);flex-wrap:wrap}
+  .flagbar i{font-size:30px}
+  .flagbar p{flex:1;min-width:260px}
+  .flagbar .opts{display:flex;border:2px solid var(--ink)}
+  .flagbar .opts button{padding:12px 18px;font:600 18px "Clash Display";background:transparent;border:0;cursor:pointer}
+  .flagbar .opts button+button{border-left:2px solid var(--ink)}
+  .flagbar .opts button.on{background:var(--sun)}
+
+  footer .wrap{padding:28px 28px 48px;display:flex;justify-content:space-between;font-size:14px;color:var(--ink-2);gap:16px;flex-wrap:wrap}
+
+  @media (max-width:900px){
+    .wrap{padding:0 16px}
+    nav{display:none}
+    .hero,.split{grid-template-columns:1fr}
+    .h-left{grid-column:auto;padding:36px 0;border-right:0}
+    .h-right{grid-column:auto;min-height:420px;margin:0 -16px}
+    .h-sub{grid-template-columns:1fr;gap:12px;margin-top:24px}
+    .cta{flex-direction:column}
+    .cta label{padding:14px 20px;border-top:2px solid var(--ink)}
+    .strip{grid-template-columns:1fr 1fr}
+    .strip div{padding:20px 14px}
+    .strip div:nth-child(3){border-left:0;padding-left:0;border-top:2px solid var(--line)}
+    .strip div:nth-child(4){border-top:2px solid var(--line)}
+    .strip b{font-size:clamp(22px,7vw,32px)}
+    .how{padding:36px 0;border-right:0;border-bottom:2px solid var(--line)}
+    .use{padding:36px 0}
+  }
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="logo"><span class="dot"></span>Solar Bill Check</div>
+  <nav><a href="#" class="on">EN</a><a href="#" class="hi">हिन्दी</a><a href="#">मराठी</a><a href="#">தமிழ்</a></nav>
+</div></header>
+
+<main>
+  <div class="wrap">
+    <section class="hero">
+      <div class="h-left">
+        <h1 class="d"><span>One photo of</span><span>your bill.</span><span>One honest answer.</span></h1>
+        <div class="h-sub">
+          <p>Solar size, PM Surya Ghar subsidy, real cost and payback, worked out from your own bill and your own roof's sunlight.</p>
+          <p class="hi">बिल की एक फोटो। सोलर का सीधा जवाब।</p>
+        </div>
+        <div class="cta">
+          <button>Snap your bill <i class="ph-bold ph-arrow-right"></i></button>
+          <label><i class="ph-bold ph-file-pdf"></i>or upload PDF</label>
+        </div>
+        <p class="note"><i class="ph-bold ph-lock-simple"></i>Photo deleted after reading. No login, no Aadhaar.</p>
+      </div>
+      <div class="h-right" aria-label="Example payback">
+        <svg class="sunpath" viewBox="0 0 400 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <path d="M-20 330 A 230 230 0 0 1 420 330" fill="none" stroke="#1A1814" stroke-width="2" stroke-dasharray="2 8"/>
+          <circle cx="292" cy="148" r="46" fill="#ECEDEA" stroke="#1A1814" stroke-width="2"/>
+          <g stroke="#1A1814" stroke-width="2">
+            <line x1="292" y1="80" x2="292" y2="64"/><line x1="292" y1="216" x2="292" y2="232"/>
+            <line x1="224" y1="148" x2="208" y2="148"/><line x1="360" y1="148" x2="376" y2="148"/>
+            <line x1="244" y1="100" x2="233" y2="89"/><line x1="340" y1="196" x2="351" y2="207"/>
+            <line x1="340" y1="100" x2="351" y2="89"/><line x1="244" y1="196" x2="233" y2="207"/>
+          </g>
+        </svg>
+        <span class="tag">Example · Delhi · BRPL</span>
+        <div class="bignum">
+          <div><span class="k">5.7</span><span class="u"> years</span></div>
+          <p>until a 2.5 kW system has paid for itself. After that, about ₹16,400 a year stays in your pocket.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="strip">
+      <div><small>System cost</small><b>₹1,62,500</b></div>
+      <div class="minus"><small>Subsidy</small><b>− ₹69,000</b></div>
+      <div><small>You pay</small><b>₹93,500</b></div>
+      <div><small>CO₂ avoided / yr</small><b>2.76 t</b></div>
+    </section>
+
+    <section class="flagbar">
+      <i class="ph-bold ph-warning-diamond"></i>
+      <p><b>Our two AI readers disagree on the amount payable.</b> Look at your bill and pick the right one.</p>
+      <div class="opts"><button class="on">₹1,323.01</button><button>₹1,232.01</button></div>
+    </section>
+
+    <section class="split">
+      <div class="how">
+        <h2 class="d">How it works</h2>
+        <ol>
+          <li><b>01</b><div><strong>Snap</strong><span>Two Amazon Bedrock models read your bill, in any Indian language.</span></div></li>
+          <li><b>02</b><div><strong>Check</strong><span>You confirm the few numbers they disagree on.</span></div></li>
+          <li><b>03</b><div><strong>Decide</strong><span>Size, subsidy, payback, loan EMI and the 7 steps to apply.</span></div></li>
+        </ol>
+      </div>
+      <div class="use">
+        <h2 class="d">Your year, in units</h2>
+        <svg viewBox="0 0 560 240" role="img" aria-label="Monthly units used vs solar output">
+          <g fill="#1A1814">
+            <rect x="10" y="132" width="34" height="88"/><rect x="90" y="101" width="34" height="119"/>
+            <rect x="170" y="66" width="34" height="154"/><rect x="250" y="34" width="34" height="186"/>
+            <rect x="330" y="57" width="34" height="163"/><rect x="410" y="70" width="34" height="150"/>
+            <rect x="490" y="80" width="34" height="140"/>
+          </g>
+          <g fill="#F2A900" stroke="#1A1814" stroke-width="2">
+            <rect x="46" y="120" width="30" height="100"/><rect x="126" y="104" width="30" height="116"/>
+            <rect x="206" y="98" width="30" height="122"/><rect x="286" y="104" width="30" height="116"/>
+            <rect x="366" y="114" width="30" height="106"/><rect x="446" y="112" width="30" height="108"/>
+            <rect x="526" y="116" width="30" height="104"/>
+          </g>
+          <line x1="0" y1="220" x2="560" y2="220" stroke="#1A1814" stroke-width="2"/>
+          <g font-family="Switzer" font-size="13" fill="#5E584D">
+            <text x="22" y="238">Mar</text><text x="102" y="238">Apr</text><text x="182" y="238">May</text><text x="262" y="238">Jun</text>
+            <text x="344" y="238">Jul</text><text x="422" y="238">Aug</text><text x="502" y="238">Sep</text>
+          </g>
+        </svg>
+        <div class="key"><span><i style="background:#1A1814"></i>Units used</span><span><i style="background:#F2A900"></i>Units solar makes</span></div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer><div class="wrap"><span>PM Surya Ghar rules · PVGIS sunlight data · DISCOM tariff orders</span><span>Built on AWS · Environmental Hacks 2026</span></div></footer>
+</body>
+</html>
