@@ -113,7 +113,9 @@ MODELS: list[ModelCfg] = [
              temperature=False, note="rejects temperature"),
     ModelCfg("nemotron_vl", "nvidia.nemotron-nano-12b-v2", "ap-south-1", "json", 0.24, 0.71, "nvidia", note="ignores toolChoice"),
     ModelCfg("palmyra_vision", "writer.palmyra-vision-7b", "us-east-1", "json", 0.15, 0.60, "writer", system_in_user=True, max_tokens=1000,
-             note="errors when tools or a system prompt are passed; ~4K context so maxTokens 1000"),
+             enabled=False,
+             note="errors when tools or a system prompt are passed; ~4K context so maxTokens 1000. "
+                  "2026-10-09 full run: mean 17.1, often echoes the JSON schema instead of filling it (extra-models.json)"),
     # --- Listed but not usable for this account (2026-10-09 probe). Kept for re-probing with --models <key>.
     ModelCfg("haiku55", "global.anthropic.claude-haiku-5-5", "ap-south-1", "tool", 0.10, 0.50, "anthropic", pdf="document", enabled=False, note="AccessDenied"),
     ModelCfg("sonnet55", "global.anthropic.claude-sonnet-5-5", "ap-south-1", "tool", 2.00, 10.00, "anthropic", pdf="document", enabled=False, note="AccessDenied"),
@@ -125,6 +127,20 @@ MODELS: list[ModelCfg] = [
     ModelCfg("fable51", "global.anthropic.claude-fable-5-1", "ap-south-1", "tool", 0.0, 0.0, "anthropic", pdf="document", enabled=False, note="AccessDenied; price unknown"),
     ModelCfg("gpt61_sol", "global.openai.gpt-6.1-sol", "ap-south-1", "tool", 0.0, 0.0, "openai", enabled=False, note="AccessDenied; price unknown"),
     ModelCfg("grok47", "global.xai.grok-4.7", "ap-south-1", "tool", 0.0, 0.0, "xai", enabled=False, note="AccessDenied; price unknown"),
+    # 2026-10-09 probe of the remaining ap-south-1 profiles: every call (text-only too) returns
+    # AccessDeniedException "<model> is not available for this account". All list TEXT,IMAGE input except GLM 5.3 (TEXT only).
+    ModelCfg("gpt56_terra_in", "in.openai.gpt-5.6-terra", "ap-south-1", "tool", 0.0, 0.0, "openai", enabled=False, note="AccessDenied 2026-10-09; India-only profile; price unknown"),
+    ModelCfg("gpt56_luna_in", "in.openai.gpt-5.6-luna", "ap-south-1", "tool", 0.0, 0.0, "openai", enabled=False, note="AccessDenied 2026-10-09; India-only profile; price unknown"),
+    ModelCfg("gpt56_sol", "global.openai.gpt-5.6-sol", "ap-south-1", "tool", 0.0, 0.0, "openai", enabled=False, note="AccessDenied 2026-10-09; price unknown"),
+    ModelCfg("gpt56_terra", "global.openai.gpt-5.6-terra", "ap-south-1", "tool", 0.0, 0.0, "openai", enabled=False, note="AccessDenied 2026-10-09; price unknown"),
+    ModelCfg("gpt56_luna", "global.openai.gpt-5.6-luna", "ap-south-1", "tool", 0.0, 0.0, "openai", enabled=False, note="AccessDenied 2026-10-09; price unknown"),
+    ModelCfg("gpt6_sol", "global.openai.gpt-6-sol", "ap-south-1", "tool", 0.0, 0.0, "openai", enabled=False, note="AccessDenied 2026-10-09; price unknown"),
+    ModelCfg("gpt6_luna", "global.openai.gpt-6-luna", "ap-south-1", "tool", 0.0, 0.0, "openai", enabled=False, note="AccessDenied 2026-10-09; price unknown"),
+    ModelCfg("gpt6_astra", "global.openai.gpt-6-astra", "ap-south-1", "tool", 0.0, 0.0, "openai", enabled=False, note="AccessDenied 2026-10-09; price unknown"),
+    ModelCfg("gpt55", "global.openai.gpt-5.5", "ap-south-1", "tool", 0.0, 0.0, "openai", enabled=False, note="AccessDenied 2026-10-09; price unknown"),
+    ModelCfg("gpt54", "global.openai.gpt-5.4", "ap-south-1", "tool", 0.0, 0.0, "openai", enabled=False, note="AccessDenied 2026-10-09; price unknown"),
+    ModelCfg("grok46", "global.xai.grok-4.6", "ap-south-1", "tool", 0.0, 0.0, "xai", enabled=False, note="AccessDenied 2026-10-09; price unknown"),
+    ModelCfg("glm53", "global.zai.glm-5.3", "ap-south-1", "tool", 0.0, 0.0, "zai", enabled=False, note="AccessDenied 2026-10-09; no image input (TEXT only per model catalog)"),
     ModelCfg("nova_premier", "us.amazon.nova-premier-v1:0", "us-east-1", "tool", 2.50, 12.50, "amazon", pdf="document", enabled=False, note="end of life"),
     ModelCfg("llama32_90b", "us.meta.llama3-2-90b-instruct-v1:0", "us-east-1", "json", 0.72, 0.72, "meta", enabled=False, note="end of life"),
 ]
