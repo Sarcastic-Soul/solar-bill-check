@@ -33,7 +33,7 @@ backend/
 ## API
 
 All bodies are JSON. Errors look like `{"error": "CODE", "message": "plain English"}`.
-CORS is set only on the Function URL (`AllowedOrigin` parameter, default `*`).
+CORS is set only on the Function URL and the S3 bucket (`AllowedOrigins` parameter: the Amplify site plus localhost ports 5173 and 4173).
 
 | Route | Body | Returns |
 |---|---|---|
@@ -158,7 +158,7 @@ sam deploy --region ap-south-1 --stack-name solar-bill-check-dev --capabilities 
 ```
 
 Parameters (`--parameter-overrides`):
-- `AllowedOrigin`: set to the Amplify domain later.
+- `AllowedOrigins`: comma-separated browser origins. Defaults to the Amplify site and local dev.
 - `ExtractModels`
 - `ChatModelId`, `ChatModelRegion`
 - `PlanTtlDays`
@@ -167,7 +167,7 @@ Parameters (`--parameter-overrides`):
 Example:
 
 ```bash
-sam deploy --parameter-overrides AllowedOrigin=https://main.xxxx.amplifyapp.com
+sam deploy --parameter-overrides AllowedOrigins=https://main.xxxx.amplifyapp.com,http://localhost:5173
 ```
 
 ## End-to-end check

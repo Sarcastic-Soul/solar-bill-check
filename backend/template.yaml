@@ -5,10 +5,10 @@ Description: >-
   an S3 bucket for short-lived bill uploads, and two on-demand DynamoDB tables.
 
 Parameters:
-  AllowedOrigin:
-    Type: String
-    Default: "*"
-    Description: Browser origin allowed by the Function URL and S3 CORS (lock to the Amplify domain later).
+  AllowedOrigins:
+    Type: CommaDelimitedList
+    Default: "https://main.d2y09rdd9synq1.amplifyapp.com,http://localhost:5173,http://localhost:4173"
+    Description: Browser origins allowed by the Function URL and S3 CORS (the Amplify site and local dev).
   ExtractModels:
     Type: String
     Default: ""
@@ -64,7 +64,7 @@ Resources:
               SSEAlgorithm: AES256
       CorsConfiguration:
         CorsRules:
-          - AllowedOrigins: [!Ref AllowedOrigin]
+          - AllowedOrigins: !Ref AllowedOrigins
             AllowedMethods: [PUT, POST]
             AllowedHeaders: ["*"]
             ExposedHeaders: [ETag]
@@ -162,7 +162,7 @@ Resources:
         AuthType: NONE
         InvokeMode: BUFFERED
         Cors:
-          AllowOrigins: [!Ref AllowedOrigin]
+          AllowOrigins: !Ref AllowedOrigins
           AllowMethods: [GET, POST]
           AllowHeaders: [content-type]
           MaxAge: 300

@@ -1,0 +1,179 @@
+@import "tailwindcss";
+@import "@fontsource/hind/500.css";
+@import "@fontsource/hind/600.css";
+
+@theme {
+  --color-paper: #ecedea;
+  --color-paper-2: #e1e2de;
+  --color-card: #f4f5f2;
+  --color-ink: #1a1814;
+  --color-ink-2: #4f4b44;
+  --color-rule: #c4c4bd;
+  --color-sun: #f2a900;
+  --color-sun-ink: #6e4a00;
+  --color-sun-soft: #f6dfa3;
+  --color-alert: #9b2c1f;
+
+  --font-display: "Clash Display", "Hind", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Switzer", "Hind", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-none: 0;
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  /* Devanagari needs a little more line height */
+  :lang(hi) body {
+    line-height: 1.65;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-ink);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 6px var(--color-sun);
+  }
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+    color: inherit;
+  }
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  ::selection {
+    background: var(--color-sun);
+    color: var(--color-ink);
+  }
+}
+
+@layer components {
+  .wrap {
+    width: 100%;
+    max-width: 1240px;
+    margin-inline: auto;
+    padding-inline: 28px;
+  }
+  @media (max-width: 900px) {
+    .wrap {
+      padding-inline: 16px;
+    }
+  }
+  .display {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 56px;
+    padding: 0 22px;
+    border: 2px solid var(--color-ink);
+    font-weight: 600;
+    font-size: 17px;
+    cursor: pointer;
+    transition:
+      background-color 150ms var(--ease-out-quint),
+      transform 150ms var(--ease-out-quint);
+  }
+  .btn:active {
+    transform: translateY(1px);
+  }
+  .btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+  }
+  .btn-ink {
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
+  .btn-ink:hover:not(:disabled) {
+    background: #34302a;
+  }
+  .btn-sun {
+    background: var(--color-sun);
+    color: var(--color-ink);
+  }
+  .btn-sun:hover:not(:disabled) {
+    background: #ffb912;
+  }
+  .btn-line {
+    background: transparent;
+    color: var(--color-ink);
+  }
+  .btn-line:hover:not(:disabled) {
+    background: var(--color-paper-2);
+  }
+  .input {
+    width: 100%;
+    min-height: 52px;
+    padding: 10px 14px;
+    background: var(--color-card);
+    border: 2px solid var(--color-ink);
+    font-size: 18px;
+    font-variant-numeric: tabular-nums;
+  }
+  .input:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px var(--color-sun);
+  }
+  .label {
+    display: block;
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+  .help {
+    font-size: 15px;
+    color: var(--color-ink-2);
+    margin-top: 6px;
+  }
+  .eyebrow {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  :lang(hi) .eyebrow {
+    letter-spacing: 0;
+    text-transform: none;
+    font-size: 15px;
+  }
+  .rule-b {
+    border-bottom: 2px solid var(--color-ink);
+  }
+  .rule-t {
+    border-top: 2px solid var(--color-ink);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
