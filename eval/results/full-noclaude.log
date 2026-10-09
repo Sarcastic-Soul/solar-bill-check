@@ -1,0 +1,455 @@
+18 models x 24 bills x 1 = 432 calls, estimated cost $3.52
+[  1/432] ministral3b      tnpdcl-tamil-bimonthly-01     70.3    2.9s  4459/343 tok  $0.0006  tool_forced
+[  2/432] nemotron_vl      msedcl-solar-official-01      47.1    3.6s  5241/292 tok  $0.0015  json_text
+[  3/432] nova_pro         adani-mumbai-solar-english-01 100.0    5.4s  4445/373 tok  $0.0056  tool_forced
+[  4/432] nova_pro         bescom-kannada-01-photo       75.0    3.7s  4283/290 tok  $0.0051  tool_forced
+[  5/432] gemma3_27b       ugvcl-gujarati-bimonthly-01   75.0    7.3s  2368/451 tok  $0.0008  json_text
+[  6/432] magistral_small  tgspdcl-telugu-commercial-01  80.0    4.7s  4760/421 tok  $0.0035  json_text
+[  7/432] ministral8b      adani-mumbai-solar-english-01 100.0    2.0s  4569/375 tok  $0.0009  tool_forced
+[  8/432] nova_pro         cesc-bengali-01               77.1    4.3s  4253/340 tok  $0.0053  tool_forced
+[  9/432] ministral8b      tgspdcl-telugu-commercial-01  77.1    2.1s  4514/411 tok  $0.0009  tool_forced
+[ 10/432] nova2_lite       ugvcl-gujarati-bimonthly-01   77.5    3.3s  2627/319 tok  $0.0019  tool_forced
+[ 11/432] gemma3_4b        delhi-bypl-zero-subsidy-01    50.0    1.9s  2368/355 tok  $0.0001  json_text
+[ 12/432] nova_pro         delhi-brpl-hindi-clean-01     77.5    4.0s  3524/351 tok  $0.0046  tool_forced
+[ 13/432] qwen3_vl         adani-mumbai-solar-english-01-photo 100.0    6.9s  5098/369 tok  $0.0043  tool_forced
+[ 14/432] gemma3_27b       adani-mumbai-solar-english-01  95.0    7.2s  2368/480 tok  $0.0009  json_text
+[ 15/432] mistral_large3   nonbill-water-bill-01        100.0    2.3s  4566/161 tok  $0.0030  tool_forced
+[ 16/432] qwen3_vl         msedcl-marathi-estimated-01  100.0   10.0s  4912/549 tok  $0.0048  tool_forced
+[ 17/432] ministral8b      bescom-kannada-01             97.5    1.5s  3029/327 tok  $0.0006  tool_forced
+[ 18/432] llama4_scout     bescom-kannada-01             77.5    3.7s  6582/271 tok  $0.0013  tool_auto
+[ 19/432] nova2_lite       msedcl-solar-official-01      71.2    5.4s  2627/521 tok  $0.0025  tool_forced
+[ 20/432] ministral14b     delhi-bypl-zero-subsidy-01    96.7    2.4s  4184/366 tok  $0.0011  tool_forced
+[ 21/432] nova2_lite       delhi-brpl-hindi-clean-01    100.0    4.0s  2627/402 tok  $0.0021  tool_forced
+[ 22/432] ministral3b      delhi-tpddl-3phase-7kw-01    100.0    2.0s  3964/390 tok  $0.0005  tool_forced
+[ 23/432] ministral3b      tgspdcl-telugu-commercial-01  73.8    2.1s  4514/417 tok  $0.0006  tool_forced
+[ 24/432] ministral14b     uppcl-hindi-arrears-01-photo  67.5    2.5s  4678/383 tok  $0.0012  tool_forced
+[ 25/432] kimi_k25         cesc-bengali-01              100.0    5.0s  6050/291 tok  $0.0054  json_text
+[ 26/432] nova2_lite       uppcl-hindi-arrears-01        65.0    3.5s  2627/348 tok  $0.0019  tool_forced
+[ 27/432] pixtral_large    adani-mumbai-solar-english-01-photo  95.0    8.5s  5972/509 tok  $0.0150  json_text
+[ 28/432] llama4_maverick  delhi-brpl-hindi-clean-01-photo  95.0    4.7s  6872/550 tok  $0.0022  tool_auto
+[ 29/432] nemotron_vl      tatapower-mumbai-nohistory-01  96.2    2.1s  5241/255 tok  $0.0014  json_text
+[ 30/432] gemma3_12b       msedcl-marathi-devanagari-01-photo  22.5    3.8s  2368/489 tok  $0.0004  json_text
+[ 31/432] ministral3b      ugvcl-gujarati-bimonthly-01   50.5    1.8s  4118/366 tok  $0.0005  tool_forced
+[ 32/432] qwen3_vl         tpddl-handbook-official-01    51.7   10.3s  4738/351 tok  $0.0040  tool_forced
+[ 33/432] gemma3_12b       tatapower-mumbai-nohistory-01 100.0    2.5s  2368/285 tok  $0.0004  json_text
+[ 34/432] gemma3_12b       msedcl-solar-official-01      34.6    3.9s  2368/277 tok  $0.0004  json_text
+[ 35/432] gemma3_4b        tpddl-handbook-official-01    33.8    2.4s  2368/354 tok  $0.0001  json_text
+[ 36/432] llama4_maverick  msedcl-marathi-devanagari-01-photo  56.7    3.7s  6872/448 tok  $0.0021  tool_auto
+[ 37/432] nova_lite        delhi-brpl-hindi-clean-01-photo  89.7    3.3s  3524/385 tok  $0.0004  tool_forced
+[ 38/432] nova_pro         msedcl-solar-official-01      40.0    5.8s  3709/536 tok  $0.0055  tool_forced
+[ 39/432] magistral_small  uppcl-hindi-arrears-01        95.0    8.3s  4700/418 tok  $0.0035  json_text
+[ 40/432] nova2_lite       tgspdcl-telugu-commercial-01 100.0    3.6s  2627/413 tok  $0.0021  tool_forced
+[ 41/432] nova2_lite       delhi-tpddl-3phase-7kw-01    100.0    3.5s  2627/410 tok  $0.0021  tool_forced
+[ 42/432] nova2_lite       tnpdcl-tamil-bimonthly-01-photo  50.0    3.6s  2627/404 tok  $0.0021  tool_forced
+[ 43/432] ministral8b      tnpdcl-tamil-bimonthly-01     97.5    2.0s  4459/384 tok  $0.0009  tool_forced
+[ 44/432] nemotron_vl      msedcl-marathi-devanagari-01  20.0    2.9s  5241/362 tok  $0.0015  json_text
+[ 45/432] pixtral_large    uppcl-hindi-arrears-01        60.0    9.4s  6030/537 tok  $0.0153  json_text
+[ 46/432] llama4_maverick  ugvcl-gujarati-bimonthly-01  100.0    4.1s  6872/561 tok  $0.0022  tool_auto
+[ 47/432] nemotron_vl      kseb-malayalam-bimonthly-01   77.5    2.7s  4729/352 tok  $0.0014  json_text
+[ 48/432] nova_lite        nonbill-water-bill-01         54.6    3.0s  4442/336 tok  $0.0004  tool_forced
+[ 49/432] ministral8b      adani-mumbai-solar-english-01-photo 100.0    1.9s  4404/381 tok  $0.0009  tool_forced
+[ 50/432] kimi_k25         uppcl-hindi-arrears-01        95.0    3.0s  5260/315 tok  $0.0049  json_text
+[ 51/432] magistral_small  delhi-bypl-zero-subsidy-01   100.0    4.5s  4430/401 tok  $0.0033  json_text
+[ 52/432] ministral14b     msedcl-marathi-devanagari-01-photo  56.2    3.0s  4569/546 tok  $0.0012  tool_forced
+[ 53/432] llama4_maverick  msedcl-solar-official-01      85.5    5.2s  6582/402 tok  $0.0020  tool_auto
+[ 54/432] pixtral_large    msedcl-solar-official-01      43.8   14.5s  5250/615 tok  $0.0142  json_text
+[ 55/432] nemotron_vl      tnpdcl-tamil-bimonthly-01-photo  71.2    2.6s  4473/324 tok  $0.0013  json_text
+[ 56/432] gemma3_4b        msedcl-lt-official-01         15.4    4.5s  2368/597 tok  $0.0002  json_text
+[ 57/432] nemotron_vl      tnpdcl-tamil-bimonthly-01     81.5    3.1s  4473/416 tok  $0.0014  json_text
+[ 58/432] gemma3_12b       kseb-malayalam-bimonthly-01   54.2    3.2s  2368/399 tok  $0.0004  json_text
+[ 59/432] ministral14b     tpddl-handbook-official-01    56.2    2.3s  4239/357 tok  $0.0011  tool_forced
+[ 60/432] ministral8b      msedcl-marathi-estimated-01   95.0    2.3s  4239/512 tok  $0.0009  tool_forced
+[ 61/432] gemma3_27b       adani-mumbai-solar-english-01-photo  65.8    6.5s  2368/495 tok  $0.0009  json_text
+[ 62/432] mistral_large3   delhi-brpl-hindi-clean-01-photo  95.0    2.2s  4184/365 tok  $0.0031  tool_forced
+[ 63/432] llama4_maverick  tgspdcl-telugu-commercial-01 100.0    3.8s  6872/560 tok  $0.0022  tool_auto
+[ 64/432] nova_lite        cesc-bengali-01               93.5    3.1s  4253/363 tok  $0.0004  tool_forced
+[ 65/432] gemma3_12b       uppcl-hindi-arrears-01-photo  60.0    3.8s  2368/470 tok  $0.0004  json_text
+[ 66/432] ministral3b      cesc-bengali-01              100.0    1.9s  4349/384 tok  $0.0006  tool_forced
+[ 67/432] magistral_small  delhi-brpl-hindi-clean-01-photo  80.8    4.7s  4430/397 tok  $0.0033  json_text
+[ 68/432] kimi_k3          msedcl-marathi-estimated-01  100.0   42.1s  5914/2146 tok  $0.0549  tool_forced
+[ 69/432] gemma3_4b        bescom-kannada-01-photo       56.7    2.4s  2368/397 tok  $0.0002  json_text
+[ 70/432] magistral_small  adani-mumbai-solar-english-01 100.0    4.8s  4815/414 tok  $0.0036  json_text
+[ 71/432] nova_lite        adani-mumbai-solar-english-01-photo  50.8    2.7s  4301/324 tok  $0.0004  tool_forced
+[ 72/432] llama4_scout     msedcl-marathi-devanagari-01-photo  46.0    4.0s  6872/434 tok  $0.0015  tool_auto
+[ 73/432] magistral_small  msedcl-marathi-devanagari-01  17.5    5.9s  4595/580 tok  $0.0037  json_text
+[ 74/432] qwen3_vl         ugvcl-gujarati-bimonthly-01   96.0    5.6s  3956/375 tok  $0.0036  tool_forced
+[ 75/432] gemma3_12b       tpddl-handbook-official-01    35.0    7.2s  2368/439 tok  $0.0004  json_text
+[ 76/432] pixtral_large    msedcl-marathi-devanagari-01  21.2   12.3s  5908/780 tok  $0.0165  json_text
+[ 77/432] nova_lite        uppcl-hindi-arrears-01        39.6    2.5s  4344/246 tok  $0.0004  tool_forced
+[ 78/432] nova2_lite       tpddl-handbook-official-01    45.0    3.6s  2627/389 tok  $0.0021  tool_forced
+[ 79/432] kimi_k25         ugvcl-gujarati-bimonthly-01   97.5    2.7s  4888/249 tok  $0.0044  json_text
+[ 80/432] gemma3_4b        tnpdcl-tamil-bimonthly-01-photo  33.8    2.3s  2368/348 tok  $0.0001  json_text
+[ 81/432] llama4_maverick  kseb-malayalam-bimonthly-01   97.5    2.9s  6582/264 tok  $0.0018  tool_auto
+[ 82/432] nova2_lite       msedcl-lt-official-01         53.8    4.1s  2627/459 tok  $0.0023  tool_forced
+[ 83/432] llama4_scout     delhi-bypl-zero-subsidy-01   100.0    4.2s  6872/336 tok  $0.0014  tool_auto
+[ 84/432] nemotron_vl      adani-mumbai-solar-english-01  98.8    3.0s  4473/409 tok  $0.0014  json_text
+[ 85/432] llama4_scout     kseb-malayalam-bimonthly-01   95.0    2.5s  6582/265 tok  $0.0013  tool_auto
+[ 86/432] nemotron_vl      bescom-kannada-01             77.5    2.1s  4729/277 tok  $0.0013  json_text
+[ 87/432] kimi_k25         tnpdcl-tamil-bimonthly-01    100.0    2.7s  5998/297 tok  $0.0054  json_text
+[ 88/432] kimi_k3          ugvcl-gujarati-bimonthly-01  100.0   34.3s  4632/1253 tok  $0.0360  tool_forced
+[ 89/432] qwen3_vl         nonbill-water-bill-01         65.8    5.5s  4388/221 tok  $0.0034  tool_forced
+[ 90/432] mistral_large3   msedcl-marathi-estimated-01  100.0    3.5s  4239/516 tok  $0.0034  tool_forced
+[ 91/432] gemma3_12b       delhi-brpl-hindi-clean-01-photo  72.5    6.6s  2368/489 tok  $0.0004  json_text
+[ 92/432] kimi_k3          kseb-malayalam-bimonthly-01  100.0   51.9s  3603/2924 tok  $0.0601  tool_forced
+[ 93/432] pixtral_large    delhi-bypl-zero-subsidy-01   100.0    8.6s  5716/498 tok  $0.0144  json_text
+[ 94/432] nova_pro         bescom-kannada-01             77.5    3.1s  4029/284 tok  $0.0049  tool_forced
+[ 95/432] gemma3_12b       bescom-kannada-01             68.8    3.1s  2368/376 tok  $0.0004  json_text
+[ 96/432] kimi_k3          nonbill-water-bill-01        100.0   15.8s  5190/468 tok  $0.0248  tool_forced
+[ 97/432] nova_lite        delhi-brpl-hindi-clean-01     97.5    4.1s  3524/346 tok  $0.0003  tool_forced
+[ 98/432] llama4_scout     tpddl-handbook-official-01    52.5    3.7s  6872/293 tok  $0.0014  tool_auto
+[ 99/432] llama4_scout     tnpdcl-tamil-bimonthly-01-photo  58.8    4.4s  6872/371 tok  $0.0014  tool_auto
+[100/432] nemotron_vl      msedcl-lt-official-01         35.0    2.7s  3705/372 tok  $0.0012  json_text
+[101/432] gemma3_12b       msedcl-marathi-devanagari-01  22.5    6.0s  2368/503 tok  $0.0004  json_text
+[102/432] llama4_maverick  msedcl-lt-official-01         94.1    3.7s  6582/402 tok  $0.0020  tool_auto
+[103/432] gemma3_27b       msedcl-solar-official-01      35.0    5.1s  2368/348 tok  $0.0008  json_text
+[104/432] gemma3_27b       cesc-bengali-01               76.2    4.7s  2368/337 tok  $0.0008  json_text
+[105/432] gemma3_4b        tatapower-mumbai-nohistory-01  96.2    1.7s  2368/339 tok  $0.0001  json_text
+[106/432] ministral14b     tnpdcl-tamil-bimonthly-01     83.0    2.3s  4459/357 tok  $0.0012  tool_forced
+[107/432] nova_lite        tgspdcl-telugu-commercial-01  69.6    3.1s  4397/352 tok  $0.0004  tool_forced
+[108/432] kimi_k25         tpddl-handbook-official-01    56.2    2.9s  5910/321 tok  $0.0054  json_text
+[109/432] gemma3_12b       bescom-kannada-01-photo       47.1    2.8s  2368/335 tok  $0.0004  json_text
+[110/432] magistral_small  bescom-kannada-01             97.5    6.1s  3275/329 tok  $0.0025  json_text
+[111/432] llama4_scout     delhi-brpl-hindi-clean-01    100.0    4.2s  6872/304 tok  $0.0014  tool_auto
+[112/432] ministral8b      delhi-bypl-zero-subsidy-01   100.0    1.9s  4184/376 tok  $0.0008  tool_forced
+[113/432] gemma3_27b       delhi-bypl-zero-subsidy-01    73.8    4.4s  2368/310 tok  $0.0008  json_text
+[114/432] nova_lite        bescom-kannada-01             48.3    2.6s  4029/288 tok  $0.0004  tool_forced
+[115/432] qwen3_vl         adani-mumbai-solar-english-01 100.0    8.6s  4878/369 tok  $0.0042  tool_forced
+[116/432] kimi_k3          uppcl-hindi-arrears-01-photo  95.0   43.0s  6562/2161 tok  $0.0573  tool_forced
+[117/432] pixtral_large    tgspdcl-telugu-commercial-01  98.3    9.4s  6164/522 tok  $0.0155  json_text
+[118/432] pixtral_large    kseb-malayalam-bimonthly-01   57.5    7.4s  4180/413 tok  $0.0108  json_text
+[119/432] llama4_scout     uppcl-hindi-arrears-01        95.0    3.8s  6872/349 tok  $0.0014  tool_auto
+[120/432] llama4_scout     msedcl-marathi-estimated-01   78.8    4.6s  6872/446 tok  $0.0015  tool_auto
+[121/432] mistral_large3   bescom-kannada-01            100.0    1.9s  3029/314 tok  $0.0023  tool_forced
+[122/432] nova2_lite       msedcl-marathi-devanagari-01-photo  21.2    4.5s  2627/329 tok  $0.0019  tool_forced
+[123/432] qwen3_vl         uppcl-hindi-arrears-01-photo  85.0    8.4s  5408/431 tok  $0.0047  tool_forced
+[124/432] llama4_maverick  tatapower-mumbai-nohistory-01 100.0    2.4s  6582/442 tok  $0.0020  tool_auto
+[125/432] ministral8b      delhi-brpl-hindi-clean-01-photo  75.0    1.9s  4184/389 tok  $0.0008  tool_forced
+[126/432] llama4_maverick  delhi-brpl-hindi-clean-01    100.0    4.3s  6872/546 tok  $0.0022  tool_auto
+[127/432] pixtral_large    delhi-brpl-hindi-clean-01    100.0    8.9s  5716/499 tok  $0.0144  json_text
+[128/432] nova_lite        msedcl-lt-official-01         43.8    3.6s  3755/462 tok  $0.0004  tool_forced
+[129/432] nemotron_vl      delhi-bypl-zero-subsidy-01   100.0    3.3s  5241/426 tok  $0.0016  json_text
+[130/432] magistral_small  msedcl-marathi-estimated-01   98.3    6.1s  4485/593 tok  $0.0037  json_text
+[131/432] pixtral_large    tatapower-mumbai-nohistory-01 100.0    6.0s  5315/306 tok  $0.0125  json_text
+[132/432] mistral_large3   kseb-malayalam-bimonthly-01  100.0    1.8s  3084/309 tok  $0.0024  tool_forced
+[133/432] nova2_lite       delhi-brpl-hindi-clean-01-photo  73.8    4.2s  2627/422 tok  $0.0022  tool_forced
+[134/432] ministral14b     kseb-malayalam-bimonthly-01   80.0    1.9s  3084/332 tok  $0.0008  tool_forced
+[135/432] llama4_maverick  delhi-tpddl-3phase-7kw-01     97.5    3.9s  6582/325 tok  $0.0019  tool_auto
+[136/432] mistral_large3   tpddl-handbook-official-01    43.8    3.3s  4239/446 tok  $0.0033  tool_forced
+[137/432] mistral_large3   ugvcl-gujarati-bimonthly-01  100.0    2.9s  4118/362 tok  $0.0031  tool_forced
+[138/432] ministral8b      msedcl-solar-official-01      65.4    2.5s  3894/588 tok  $0.0008  tool_forced
+[139/432] ministral14b     tgspdcl-telugu-commercial-01  80.8    2.5s  4514/428 tok  $0.0012  tool_forced
+[140/432] nova_lite        ugvcl-gujarati-bimonthly-01   70.8    2.4s  3581/253 tok  $0.0003  tool_forced
+[141/432] gemma3_27b       uppcl-hindi-arrears-01-photo  60.8    6.3s  2368/472 tok  $0.0009  json_text
+[142/432] nemotron_vl      cesc-bengali-01               80.8    3.2s  5241/426 tok  $0.0016  json_text
+[143/432] mistral_large3   uppcl-hindi-arrears-01-photo 100.0    2.7s  4678/383 tok  $0.0034  tool_forced
+[144/432] kimi_k3          tnpdcl-tamil-bimonthly-01-photo 100.0   74.2s  6346/2175 tok  $0.0568  tool_forced
+[145/432] nova_lite        msedcl-marathi-devanagari-01-photo  19.6    3.5s  4445/438 tok  $0.0004  tool_forced
+[146/432] llama4_scout     uppcl-hindi-arrears-01-photo  82.5    3.9s  6872/356 tok  $0.0014  tool_auto
+[147/432] ministral14b     tatapower-mumbai-nohistory-01 100.0    1.6s  3950/233 tok  $0.0010  tool_forced
+[148/432] llama4_maverick  msedcl-marathi-devanagari-01  93.3    4.5s  6872/661 tok  $0.0023  tool_auto
+[149/432] nova_lite        kseb-malayalam-bimonthly-01   48.3    3.0s  4157/286 tok  $0.0004  tool_forced
+[150/432] magistral_small  tatapower-mumbai-nohistory-01 100.0    3.0s  4196/253 tok  $0.0029  json_text
+[151/432] ministral8b      tatapower-mumbai-nohistory-01 100.0    1.1s  3950/233 tok  $0.0008  tool_forced
+[152/432] pixtral_large    delhi-brpl-hindi-clean-01-photo  95.0   12.8s  5716/503 tok  $0.0144  json_text
+[153/432] ministral3b      msedcl-marathi-devanagari-01-photo  23.8    2.3s  4569/518 tok  $0.0006  tool_forced
+[154/432] gemma3_27b       nonbill-water-bill-01         28.3    5.9s  2368/444 tok  $0.0008  json_text
+[155/432] mistral_large3   tatapower-mumbai-nohistory-01 100.0    2.2s  3950/233 tok  $0.0027  tool_forced
+[156/432] ministral3b      bescom-kannada-01-photo       60.4    1.6s  3304/339 tok  $0.0004  tool_forced
+[157/432] gemma3_27b       tatapower-mumbai-nohistory-01 100.0    3.9s  2368/264 tok  $0.0008  json_text
+[158/432] gemma3_12b       tnpdcl-tamil-bimonthly-01-photo  53.8    5.8s  2368/473 tok  $0.0004  json_text
+[159/432] magistral_small  tnpdcl-tamil-bimonthly-01-photo  72.5    4.5s  4760/410 tok  $0.0035  json_text
+[160/432] gemma3_4b        kseb-malayalam-bimonthly-01   38.8    1.8s  2368/381 tok  $0.0002  json_text
+[161/432] gemma3_27b       tnpdcl-tamil-bimonthly-01-photo  77.5    4.4s  2368/315 tok  $0.0008  json_text
+[162/432] ministral8b      tnpdcl-tamil-bimonthly-01-photo  76.2    1.9s  4514/372 tok  $0.0009  tool_forced
+[163/432] llama4_scout     delhi-brpl-hindi-clean-01-photo  92.5    3.6s  6872/321 tok  $0.0014  tool_auto
+[164/432] kimi_k3          bescom-kannada-01-photo      100.0   40.2s  4258/2068 tok  $0.0482  tool_forced
+[165/432] qwen3_vl         delhi-brpl-hindi-clean-01-photo 100.0    9.9s  4850/394 tok  $0.0042  tool_forced
+[166/432] gemma3_12b       delhi-brpl-hindi-clean-01     75.0    2.8s  2368/302 tok  $0.0004  json_text
+[167/432] gemma3_27b       msedcl-marathi-devanagari-01  23.8    6.5s  2368/481 tok  $0.0009  json_text
+[168/432] gemma3_4b        tgspdcl-telugu-commercial-01  58.8    2.2s  2368/365 tok  $0.0002  json_text
+[169/432] gemma3_4b        uppcl-hindi-arrears-01        52.5    1.8s  2368/357 tok  $0.0002  json_text
+[170/432] llama4_scout     tnpdcl-tamil-bimonthly-01     90.8    4.0s  6872/352 tok  $0.0014  tool_auto
+[171/432] ministral3b      tpddl-handbook-official-01    45.0    1.6s  4239/286 tok  $0.0005  tool_forced
+[172/432] nova2_lite       kseb-malayalam-bimonthly-01   43.3    3.0s  2627/297 tok  $0.0018  tool_forced
+[173/432] ministral3b      tatapower-mumbai-nohistory-01 100.0    1.2s  3950/266 tok  $0.0005  tool_forced
+[174/432] ministral8b      msedcl-lt-official-01         76.7    2.0s  3854/468 tok  $0.0008  tool_forced
+[175/432] nova2_lite       adani-mumbai-solar-english-01-photo  80.0    3.2s  2627/408 tok  $0.0021  tool_forced
+[176/432] ministral3b      kseb-malayalam-bimonthly-01   75.0    1.5s  3084/344 tok  $0.0004  tool_forced
+[177/432] kimi_k25         nonbill-water-bill-01        100.0    2.4s  5446/124 tok  $0.0044  json_text
+[178/432] ministral8b      msedcl-marathi-devanagari-01  73.3    2.3s  4349/510 tok  $0.0009  tool_forced
+[179/432] nemotron_vl      uppcl-hindi-arrears-01        52.5    2.4s  4473/291 tok  $0.0013  json_text
+[180/432] llama4_scout     msedcl-lt-official-01         84.1    3.9s  6582/370 tok  $0.0014  tool_auto
+[181/432] ministral8b      tpddl-handbook-official-01    46.2    1.8s  4239/349 tok  $0.0008  tool_forced
+[182/432] nemotron_vl      msedcl-marathi-devanagari-01-photo  22.5    2.5s  4473/315 tok  $0.0013  json_text
+[183/432] nemotron_vl      ugvcl-gujarati-bimonthly-01   78.0    3.1s  5241/404 tok  $0.0015  json_text
+[184/432] kimi_k3          msedcl-lt-official-01         95.7  205.4s  4906/9565 tok  $0.1740  tool_forced
+[185/432] nova_pro         kseb-malayalam-bimonthly-01   71.2    3.4s  4157/284 tok  $0.0050  tool_forced
+[186/432] gemma3_4b        bescom-kannada-01             59.2    2.3s  2368/396 tok  $0.0002  json_text
+[187/432] mistral_large3   delhi-bypl-zero-subsidy-01   100.0    2.8s  4184/365 tok  $0.0031  tool_forced
+[188/432] ministral8b      ugvcl-gujarati-bimonthly-01  100.0    1.8s  4118/392 tok  $0.0008  tool_forced
+[189/432] ministral3b      uppcl-hindi-arrears-01        69.3    2.0s  4454/430 tok  $0.0006  tool_forced
+[190/432] llama4_maverick  adani-mumbai-solar-english-01-photo 100.0    3.2s  6872/552 tok  $0.0022  tool_auto
+[191/432] mistral_large3   msedcl-marathi-devanagari-01-photo  50.0    3.3s  4569/425 tok  $0.0034  tool_forced
+[192/432] gemma3_4b        adani-mumbai-solar-english-01  53.8    2.6s  2368/664 tok  $0.0002  json_text
+[193/432] llama4_maverick  tnpdcl-tamil-bimonthly-01     96.2    4.6s  6872/589 tok  $0.0022  tool_auto
+[194/432] ministral8b      bescom-kannada-01-photo       77.5    1.5s  3304/322 tok  $0.0007  tool_forced
+[195/432] nova_pro         msedcl-lt-official-01         57.9    4.7s  3755/474 tok  $0.0053  tool_forced
+[196/432] qwen3_vl         tgspdcl-telugu-commercial-01  80.0    7.0s  4820/387 tok  $0.0042  tool_forced
+[197/432] nemotron_vl      delhi-brpl-hindi-clean-01-photo  98.8    2.9s  5241/381 tok  $0.0015  json_text
+[198/432] gemma3_12b       delhi-bypl-zero-subsidy-01    75.0    4.0s  2368/290 tok  $0.0004  json_text
+[199/432] kimi_k25         tnpdcl-tamil-bimonthly-01-photo 100.0    3.0s  6066/331 tok  $0.0056  json_text
+[200/432] pixtral_large    tnpdcl-tamil-bimonthly-01-photo  54.8    8.5s  6100/481 tok  $0.0151  json_text
+[201/432] magistral_small  nonbill-water-bill-01        100.0    2.4s  4812/158 tok  $0.0031  json_text
+[202/432] llama4_maverick  msedcl-marathi-estimated-01  100.0    3.8s  6872/662 tok  $0.0023  tool_auto
+[203/432] kimi_k25         bescom-kannada-01             97.5    2.0s  3980/213 tok  $0.0036  json_text
+[204/432] ministral3b      delhi-brpl-hindi-clean-01     96.7    1.9s  4239/386 tok  $0.0006  tool_forced
+[205/432] llama4_scout     ugvcl-gujarati-bimonthly-01  100.0    3.6s  6872/307 tok  $0.0014  tool_auto
+[206/432] ministral14b     delhi-tpddl-3phase-7kw-01     96.7    2.3s  3964/375 tok  $0.0010  tool_forced
+[207/432] nova_pro         nonbill-water-bill-01        100.0    2.7s  4442/151 tok  $0.0047  tool_forced
+[208/432] kimi_k25         tgspdcl-telugu-commercial-01 100.0    3.0s  6004/342 tok  $0.0056  json_text
+[209/432] ministral14b     adani-mumbai-solar-english-01 100.0    2.3s  4569/375 tok  $0.0012  tool_forced
+[210/432] pixtral_large    uppcl-hindi-arrears-01-photo  82.5    9.7s  6290/526 tok  $0.0157  json_text
+[211/432] kimi_k3          msedcl-marathi-devanagari-01  95.0   73.0s  5996/3163 tok  $0.0720  tool_forced
+[212/432] nemotron_vl      tgspdcl-telugu-commercial-01  71.2    3.0s  4473/276 tok  $0.0013  json_text
+[213/432] gemma3_27b       tnpdcl-tamil-bimonthly-01     77.5    5.3s  2368/348 tok  $0.0008  json_text
+[214/432] llama4_maverick  delhi-bypl-zero-subsidy-01   100.0    3.9s  6872/548 tok  $0.0022  tool_auto
+[215/432] qwen3_vl         msedcl-lt-official-01         89.9   10.3s  4208/497 tok  $0.0042  tool_forced
+[216/432] gemma3_4b        msedcl-marathi-devanagari-01  22.5    2.4s  2368/388 tok  $0.0002  json_text
+[217/432] ministral14b     delhi-brpl-hindi-clean-01-photo  80.0    2.4s  4184/402 tok  $0.0011  tool_forced
+[218/432] pixtral_large    msedcl-lt-official-01         67.5   10.2s  5204/602 tok  $0.0140  json_text
+[219/432] nova_lite        bescom-kannada-01-photo       48.3    2.5s  4283/285 tok  $0.0004  tool_forced
+[220/432] nova_pro         tpddl-handbook-official-01    41.2    3.0s  3524/226 tok  $0.0042  tool_forced
+[221/432] qwen3_vl         delhi-bypl-zero-subsidy-01   100.0    9.2s  4850/367 tok  $0.0042  tool_forced
+[222/432] magistral_small  uppcl-hindi-arrears-01-photo  60.0    4.8s  4924/437 tok  $0.0037  json_text
+[223/432] gemma3_27b       delhi-brpl-hindi-clean-01     77.5    6.4s  2368/469 tok  $0.0008  json_text
+[224/432] nova_pro         delhi-brpl-hindi-clean-01-photo  96.0    3.9s  3524/376 tok  $0.0047  tool_forced
+[225/432] nova2_lite       tatapower-mumbai-nohistory-01  97.5    3.0s  2627/297 tok  $0.0018  tool_forced
+[226/432] pixtral_large    nonbill-water-bill-01        100.0    5.6s  6160/227 tok  $0.0137  json_text
+[227/432] magistral_small  msedcl-solar-official-01      66.5   12.8s  4140/688 tok  $0.0037  json_text
+[228/432] gemma3_4b        adani-mumbai-solar-english-01-photo  50.0    2.2s  2368/505 tok  $0.0002  json_text
+[229/432] ministral3b      adani-mumbai-solar-english-01 100.0    1.9s  4569/391 tok  $0.0006  tool_forced
+[230/432] gemma3_12b       msedcl-lt-official-01         67.5    4.0s  2368/508 tok  $0.0004  json_text
+[231/432] ministral14b     delhi-brpl-hindi-clean-01     96.7    2.3s  4239/382 tok  $0.0011  tool_forced
+[232/432] nova_pro         tatapower-mumbai-nohistory-01  77.5    2.8s  3677/233 tok  $0.0043  tool_forced
+[233/432] ministral8b      kseb-malayalam-bimonthly-01   76.0    1.4s  3084/305 tok  $0.0006  tool_forced
+[234/432] ministral8b      cesc-bengali-01              100.0    1.8s  4349/372 tok  $0.0008  tool_forced
+[235/432] nova_lite        msedcl-solar-official-01      37.9    3.6s  3709/504 tok  $0.0004  tool_forced
+[236/432] ministral14b     cesc-bengali-01              100.0    2.3s  4349/366 tok  $0.0011  tool_forced
+[237/432] nova2_lite       cesc-bengali-01               80.0    3.5s  2627/397 tok  $0.0021  tool_forced
+[238/432] ministral14b     msedcl-lt-official-01         77.4    2.5s  3854/463 tok  $0.0010  tool_forced
+[239/432] nova_pro         tnpdcl-tamil-bimonthly-01-photo  73.8    3.8s  4397/341 tok  $0.0054  tool_forced
+[240/432] mistral_large3   adani-mumbai-solar-english-01-photo 100.0    2.9s  4404/375 tok  $0.0033  tool_forced
+[241/432] ministral3b      tnpdcl-tamil-bimonthly-01-photo  72.5    1.9s  4514/361 tok  $0.0006  tool_forced
+[242/432] gemma3_27b       uppcl-hindi-arrears-01        72.3    6.0s  2368/428 tok  $0.0008  json_text
+[243/432] gemma3_12b       tnpdcl-tamil-bimonthly-01     52.5    5.8s  2368/465 tok  $0.0004  json_text
+[244/432] nemotron_vl      bescom-kannada-01-photo       76.2    2.3s  4217/267 tok  $0.0012  json_text
+[245/432] ministral14b     tnpdcl-tamil-bimonthly-01-photo  73.8    2.4s  4514/375 tok  $0.0012  tool_forced
+[246/432] ministral3b      nonbill-water-bill-01        100.0    1.1s  4566/61 tok  $0.0006  tool->text_fallback
+[247/432] llama4_maverick  tnpdcl-tamil-bimonthly-01-photo  98.8    4.1s  6872/571 tok  $0.0022  tool_auto
+[248/432] gemma3_12b       msedcl-marathi-estimated-01   68.3    4.3s  2368/580 tok  $0.0005  json_text
+[249/432] nemotron_vl      delhi-brpl-hindi-clean-01     98.8    3.2s  5241/426 tok  $0.0016  json_text
+[250/432] llama4_scout     cesc-bengali-01               80.0    3.5s  6872/290 tok  $0.0014  tool_auto
+[251/432] gemma3_4b        ugvcl-gujarati-bimonthly-01   58.3    1.8s  2368/362 tok  $0.0002  json_text
+[252/432] mistral_large3   delhi-tpddl-3phase-7kw-01    100.0    2.8s  3964/377 tok  $0.0030  tool_forced
+[253/432] nova_pro         adani-mumbai-solar-english-01-photo  67.5    4.0s  4301/367 tok  $0.0054  tool_forced
+[254/432] nemotron_vl      tpddl-handbook-official-01    31.2    2.3s  5241/249 tok  $0.0014  json_text
+[255/432] ministral3b      uppcl-hindi-arrears-01-photo  37.5    2.0s  4678/393 tok  $0.0006  tool_forced
+[256/432] llama4_maverick  tpddl-handbook-official-01    66.2    4.1s  6872/539 tok  $0.0022  tool_auto
+[257/432] ministral3b      delhi-bypl-zero-subsidy-01    92.5    1.9s  4184/376 tok  $0.0005  tool_forced
+[258/432] qwen3_vl         delhi-brpl-hindi-clean-01    100.0    8.9s  4850/358 tok  $0.0041  tool_forced
+[259/432] ministral14b     msedcl-marathi-devanagari-01  84.6    3.0s  4349/530 tok  $0.0012  tool_forced
+[260/432] gemma3_4b        tnpdcl-tamil-bimonthly-01     41.2    1.8s  2368/367 tok  $0.0002  json_text
+[261/432] kimi_k25         delhi-brpl-hindi-clean-01    100.0    2.9s  6039/294 tok  $0.0054  json_text
+[262/432] nova_pro         msedcl-marathi-devanagari-01-photo  25.0    5.0s  4445/562 tok  $0.0063  tool_forced
+[263/432] gemma3_12b       tgspdcl-telugu-commercial-01  58.8    2.8s  2368/319 tok  $0.0004  json_text
+[264/432] kimi_k25         delhi-brpl-hindi-clean-01-photo 100.0    3.4s  6026/297 tok  $0.0054  json_text
+[265/432] ministral3b      adani-mumbai-solar-english-01-photo  72.2    1.8s  4404/350 tok  $0.0006  tool_forced
+[266/432] qwen3_vl         msedcl-marathi-devanagari-01  32.5   15.0s  5036/542 tok  $0.0048  tool_forced
+[267/432] gemma3_27b       bescom-kannada-01-photo       75.0    5.2s  2368/379 tok  $0.0008  json_text
+[268/432] llama4_scout     msedcl-marathi-devanagari-01  88.3    3.9s  6872/443 tok  $0.0015  tool_auto
+[269/432] kimi_k3          msedcl-solar-official-01      98.8  129.8s  5338/4597 tok  $0.0935  tool_forced
+[270/432] magistral_small  delhi-brpl-hindi-clean-01    100.0    8.0s  4485/403 tok  $0.0034  json_text
+[271/432] gemma3_12b       uppcl-hindi-arrears-01        70.0    5.7s  2368/470 tok  $0.0004  json_text
+[272/432] qwen3_vl         tnpdcl-tamil-bimonthly-01-photo  92.0    8.2s  5222/362 tok  $0.0044  tool_forced
+[273/432] llama4_scout     bescom-kannada-01-photo       97.5    2.9s  6582/261 tok  $0.0013  tool_auto
+[274/432] nova_lite        msedcl-marathi-devanagari-01  19.6    3.6s  4301/460 tok  $0.0004  tool_forced
+[275/432] nova_lite        tnpdcl-tamil-bimonthly-01     36.7    3.5s  4349/299 tok  $0.0004  tool_forced
+[276/432] ministral14b     ugvcl-gujarati-bimonthly-01   88.0    2.2s  4118/364 tok  $0.0011  tool_forced
+[277/432] gemma3_27b       kseb-malayalam-bimonthly-01   76.7    5.0s  2368/363 tok  $0.0008  json_text
+[278/432] gemma3_4b        delhi-brpl-hindi-clean-01     38.8    2.3s  2368/359 tok  $0.0002  json_text
+[279/432] kimi_k25         tatapower-mumbai-nohistory-01 100.0    2.3s  4811/156 tok  $0.0040  json_text
+[280/432] nova2_lite       msedcl-marathi-estimated-01   68.3    4.2s  2627/510 tok  $0.0024  tool_forced
+[281/432] gemma3_12b       ugvcl-gujarati-bimonthly-01   77.5    3.8s  2368/466 tok  $0.0004  json_text
+[282/432] gemma3_4b        nonbill-water-bill-01         56.2    2.1s  2368/276 tok  $0.0001  json_text
+[283/432] nova_lite        msedcl-marathi-estimated-01   43.3    3.6s  3524/489 tok  $0.0004  tool_forced
+[284/432] qwen3_vl         kseb-malayalam-bimonthly-01   84.2    6.2s  3196/302 tok  $0.0029  tool_forced
+[285/432] kimi_k3          tpddl-handbook-official-01    93.3  214.6s  5654/9498 tok  $0.1754  tool_forced
+[286/432] nova_lite        uppcl-hindi-arrears-01-photo  24.6    2.3s  4491/210 tok  $0.0004  tool_forced
+[287/432] llama4_maverick  bescom-kannada-01             97.5    3.0s  6582/269 tok  $0.0018  tool_auto
+[288/432] nemotron_vl      nonbill-water-bill-01          0.0   22.9s  4473/4096 tok  $0.0040  json_text
+[289/432] kimi_k3          delhi-bypl-zero-subsidy-01   100.0   67.8s  5842/1636 tok  $0.0463  tool_forced
+[290/432] ministral3b      bescom-kannada-01             96.2    1.3s  3029/318 tok  $0.0004  tool_forced
+[291/432] kimi_k3          delhi-tpddl-3phase-7kw-01    100.0   37.4s  5482/1423 tok  $0.0416  tool_forced
+[292/432] gemma3_4b        msedcl-marathi-estimated-01   65.0    1.9s  2368/403 tok  $0.0002  json_text
+[293/432] ministral14b     uppcl-hindi-arrears-01        93.5    2.4s  4454/405 tok  $0.0012  tool_forced
+[294/432] llama4_maverick  nonbill-water-bill-01        100.0    2.7s  6872/396 tok  $0.0020  tool_auto
+[295/432] gemma3_4b        cesc-bengali-01               72.5    2.5s  2368/348 tok  $0.0001  json_text
+[296/432] llama4_scout     tatapower-mumbai-nohistory-01 100.0    3.8s  6582/201 tok  $0.0013  tool_auto
+[297/432] nova_lite        delhi-tpddl-3phase-7kw-01     91.2    3.2s  3656/355 tok  $0.0004  tool_forced
+[298/432] kimi_k25         msedcl-marathi-devanagari-01  32.5    4.7s  5990/456 tok  $0.0060  json_text
+[299/432] pixtral_large    tnpdcl-tamil-bimonthly-01     80.0    9.7s  6036/498 tok  $0.0151  json_text
+[300/432] ministral14b     bescom-kannada-01-photo       76.2    1.8s  3304/305 tok  $0.0009  tool_forced
+[301/432] kimi_k25         delhi-bypl-zero-subsidy-01   100.0    4.0s  6026/302 tok  $0.0054  json_text
+[302/432] gemma3_4b        delhi-tpddl-3phase-7kw-01     48.8    2.4s  2368/356 tok  $0.0001  json_text
+[303/432] magistral_small  kseb-malayalam-bimonthly-01   77.5    3.3s  3330/328 tok  $0.0025  json_text
+[304/432] nova2_lite       msedcl-marathi-devanagari-01  21.2    4.0s  2627/530 tok  $0.0025  tool_forced
+[305/432] kimi_k25         msedcl-lt-official-01         95.7    4.0s  5162/411 tok  $0.0052  json_text
+[306/432] nova_pro         tnpdcl-tamil-bimonthly-01     76.2    4.1s  4349/336 tok  $0.0054  tool_forced
+[307/432] ministral14b     msedcl-solar-official-01      65.7    3.0s  3894/579 tok  $0.0011  tool_forced
+[308/432] ministral3b      msedcl-solar-official-01      57.3    2.7s  3894/701 tok  $0.0006  tool_forced
+[309/432] pixtral_large    tpddl-handbook-official-01    38.8    8.9s  5716/493 tok  $0.0144  json_text
+[310/432] gemma3_27b       delhi-tpddl-3phase-7kw-01     75.0    4.8s  2368/342 tok  $0.0008  json_text
+[311/432] ministral8b      uppcl-hindi-arrears-01        93.5    2.0s  4454/415 tok  $0.0009  tool_forced
+[312/432] gemma3_27b       msedcl-marathi-estimated-01   73.1    6.7s  2368/488 tok  $0.0009  json_text
+[313/432] llama4_scout     msedcl-solar-official-01      68.8    4.7s  6582/443 tok  $0.0014  tool_auto
+[314/432] pixtral_large    adani-mumbai-solar-english-01  95.0    9.0s  6228/514 tok  $0.0155  json_text
+[315/432] qwen3_vl         bescom-kannada-01-photo       84.2   11.6s  3672/302 tok  $0.0032  tool_forced
+[316/432] pixtral_large    ugvcl-gujarati-bimonthly-01   58.8    8.6s  5575/502 tok  $0.0142  json_text
+[317/432] qwen3_vl         cesc-bengali-01              100.0    8.4s  5036/373 tok  $0.0043  tool_forced
+[318/432] ministral8b      delhi-tpddl-3phase-7kw-01    100.0    1.9s  3964/378 tok  $0.0008  tool_forced
+[319/432] gemma3_4b        msedcl-marathi-devanagari-01-photo  20.0    2.2s  2368/343 tok  $0.0001  json_text
+[320/432] gemma3_4b        uppcl-hindi-arrears-01-photo  50.0    2.4s  2368/389 tok  $0.0002  json_text
+[321/432] kimi_k3          msedcl-marathi-devanagari-01-photo  93.3  107.0s  6418/3962 tok  $0.0866  tool_forced
+[322/432] nova_lite        tnpdcl-tamil-bimonthly-01-photo  49.6    3.3s  4397/391 tok  $0.0004  tool_forced
+[323/432] llama4_maverick  cesc-bengali-01              100.0    4.1s  6872/545 tok  $0.0022  tool_auto
+[324/432] nova2_lite       tnpdcl-tamil-bimonthly-01     79.0    3.7s  2627/397 tok  $0.0021  tool_forced
+[325/432] nova_pro         ugvcl-gujarati-bimonthly-01   72.5    4.4s  3581/325 tok  $0.0046  tool_forced
+[326/432] nova_pro         msedcl-marathi-devanagari-01  23.8    5.5s  4301/542 tok  $0.0061  tool_forced
+[327/432] magistral_small  bescom-kannada-01-photo       84.2    3.6s  3550/339 tok  $0.0027  json_text
+[328/432] kimi_k25         msedcl-solar-official-01      98.8    3.9s  5594/455 tok  $0.0057  json_text
+[329/432] nova_lite        tatapower-mumbai-nohistory-01  97.5    2.2s  3677/220 tok  $0.0003  tool_forced
+[330/432] llama4_maverick  uppcl-hindi-arrears-01-photo  85.0   11.9s  6872/603 tok  $0.0022  tool_auto
+[331/432] llama4_scout     adani-mumbai-solar-english-01 100.0    3.6s  6872/316 tok  $0.0014  tool_auto
+[332/432] llama4_maverick  uppcl-hindi-arrears-01        95.0    4.8s  6872/625 tok  $0.0023  tool_auto
+[333/432] mistral_large3   cesc-bengali-01               95.0    2.9s  4349/367 tok  $0.0032  tool_forced
+[334/432] kimi_k3          tnpdcl-tamil-bimonthly-01    100.0   47.6s  5872/1939 tok  $0.0514  tool_forced
+[335/432] pixtral_large    bescom-kannada-01-photo       95.0    7.5s  4436/415 tok  $0.0114  json_text
+[336/432] mistral_large3   tnpdcl-tamil-bimonthly-01     95.0    2.4s  4459/359 tok  $0.0033  tool_forced
+[337/432] gemma3_27b       delhi-brpl-hindi-clean-01-photo  76.2    6.0s  2368/448 tok  $0.0008  json_text
+[338/432] nemotron_vl      uppcl-hindi-arrears-01-photo  37.5    3.3s  4473/441 tok  $0.0014  json_text
+[339/432] kimi_k25         kseb-malayalam-bimonthly-01  100.0    2.7s  3860/246 tok  $0.0037  json_text
+[340/432] ministral3b      msedcl-marathi-devanagari-01  67.9    2.3s  4349/515 tok  $0.0006  tool_forced
+[341/432] gemma3_27b       tgspdcl-telugu-commercial-01  76.2    6.3s  2368/453 tok  $0.0008  json_text
+[342/432] mistral_large3   bescom-kannada-01-photo       97.5    1.8s  3304/312 tok  $0.0025  tool_forced
+[343/432] gemma3_27b       msedcl-marathi-devanagari-01-photo  20.8    6.8s  2368/509 tok  $0.0009  json_text
+[344/432] kimi_k3          adani-mumbai-solar-english-01-photo 100.0   27.6s  6130/1112 tok  $0.0386  tool_forced
+[345/432] kimi_k3          tatapower-mumbai-nohistory-01 100.0   21.4s  4555/1105 tok  $0.0333  tool_forced
+[346/432] qwen3_vl         msedcl-marathi-devanagari-01-photo  32.5   11.7s  5284/582 tok  $0.0051  tool_forced
+[347/432] kimi_k25         msedcl-marathi-devanagari-01-photo  42.5    4.6s  6071/456 tok  $0.0060  json_text
+[348/432] kimi_k25         uppcl-hindi-arrears-01-photo  95.0    4.0s  6074/350 tok  $0.0056  json_text
+[349/432] nova2_lite       nonbill-water-bill-01        100.0    2.7s  2627/252 tok  $0.0017  tool_forced
+[350/432] mistral_large3   delhi-brpl-hindi-clean-01    100.0    2.8s  4239/367 tok  $0.0031  tool_forced
+[351/432] kimi_k3          uppcl-hindi-arrears-01        95.0   57.7s  5004/1615 tok  $0.0432  tool_forced
+[352/432] mistral_large3   msedcl-lt-official-01         79.5    3.3s  3854/478 tok  $0.0031  tool_forced
+[353/432] nova2_lite       delhi-bypl-zero-subsidy-01   100.0    4.1s  2627/406 tok  $0.0021  tool_forced
+[354/432] kimi_k3          adani-mumbai-solar-english-01   0.0  269.3s  5815/9003 tok  $0.1677  tool->text_fallback
+[355/432] magistral_small  msedcl-lt-official-01         80.9    5.5s  4100/504 tok  $0.0033  json_text
+[356/432] magistral_small  tpddl-handbook-official-01    43.8    4.1s  4485/362 tok  $0.0033  json_text
+[357/432] mistral_large3   tnpdcl-tamil-bimonthly-01-photo  80.0    2.4s  4514/353 tok  $0.0033  tool_forced
+[358/432] nova_pro         tgspdcl-telugu-commercial-01  75.0    4.4s  4397/372 tok  $0.0055  tool_forced
+[359/432] nova_pro         uppcl-hindi-arrears-01        59.6    4.7s  4344/462 tok  $0.0058  tool_forced
+[360/432] ministral3b      msedcl-marathi-estimated-01   83.8    2.2s  4239/515 tok  $0.0006  tool_forced
+[361/432] kimi_k3          delhi-brpl-hindi-clean-01-photo 100.0   23.9s  5842/1457 tok  $0.0433  tool_forced
+[362/432] llama4_maverick  adani-mumbai-solar-english-01 100.0    3.0s  6872/315 tok  $0.0020  tool_auto
+[363/432] llama4_scout     tgspdcl-telugu-commercial-01 100.0    3.4s  6872/316 tok  $0.0014  tool_auto
+[364/432] pixtral_large    bescom-kannada-01            100.0    7.2s  4116/410 tok  $0.0107  json_text
+[365/432] kimi_k3          delhi-brpl-hindi-clean-01    100.0   20.1s  5842/937 tok  $0.0347  tool_forced
+[366/432] gemma3_27b       bescom-kannada-01             80.0    4.6s  2368/344 tok  $0.0008  json_text
+[367/432] qwen3_vl         msedcl-solar-official-01      78.8   13.2s  4478/515 tok  $0.0044  tool_forced
+[368/432] llama4_scout     adani-mumbai-solar-english-01-photo  90.0    3.6s  6872/326 tok  $0.0014  tool_auto
+[369/432] nova_pro         delhi-tpddl-3phase-7kw-01     96.0    4.1s  3656/371 tok  $0.0048  tool_forced
+[370/432] mistral_large3   uppcl-hindi-arrears-01        92.5    2.5s  4454/383 tok  $0.0033  tool_forced
+[371/432] kimi_k25         adani-mumbai-solar-english-01 100.0    3.5s  6071/302 tok  $0.0055  json_text
+[372/432] ministral14b     bescom-kannada-01             97.5    1.8s  3029/314 tok  $0.0008  tool_forced
+[373/432] nova_lite        adani-mumbai-solar-english-01  92.5    3.1s  4445/342 tok  $0.0004  tool_forced
+[374/432] gemma3_12b       adani-mumbai-solar-english-01-photo  59.9    4.4s  2368/527 tok  $0.0004  json_text
+[375/432] magistral_small  msedcl-marathi-devanagari-01-photo  27.5    5.7s  4815/550 tok  $0.0038  json_text
+[376/432] gemma3_4b        delhi-brpl-hindi-clean-01-photo  55.0    1.9s  2368/352 tok  $0.0001  json_text
+[377/432] pixtral_large    cesc-bengali-01               80.0    8.5s  5844/454 tok  $0.0144  json_text
+[378/432] gemma3_12b       delhi-tpddl-3phase-7kw-01     80.0    4.0s  2368/464 tok  $0.0004  json_text
+[379/432] kimi_k25         bescom-kannada-01-photo       97.5    3.2s  4514/257 tok  $0.0042  json_text
+[380/432] ministral8b      msedcl-marathi-devanagari-01-photo  61.7    2.5s  4569/525 tok  $0.0009  tool_forced
+[381/432] kimi_k25         delhi-tpddl-3phase-7kw-01    100.0    3.6s  5738/296 tok  $0.0052  json_text
+[382/432] nova_lite        delhi-bypl-zero-subsidy-01    87.5    3.3s  3524/347 tok  $0.0003  tool_forced
+[383/432] nova_pro         uppcl-hindi-arrears-01-photo  37.5    4.6s  4491/448 tok  $0.0059  tool_forced
+[384/432] nova_pro         delhi-bypl-zero-subsidy-01    72.5    4.3s  3524/392 tok  $0.0048  tool_forced
+[385/432] qwen3_vl         tatapower-mumbai-nohistory-01 100.0    7.1s  3888/234 tok  $0.0031  tool_forced
+[386/432] ministral3b      msedcl-lt-official-01         74.1    1.6s  3854/294 tok  $0.0005  tool_forced
+[387/432] qwen3_vl         bescom-kannada-01             84.2    7.1s  3300/326 tok  $0.0031  tool_forced
+[388/432] nemotron_vl      msedcl-marathi-estimated-01   89.6    4.4s  5241/622 tok  $0.0017  json_text
+[389/432] llama4_scout     delhi-tpddl-3phase-7kw-01    100.0    2.7s  6582/339 tok  $0.0013  tool_auto
+[390/432] qwen3_vl         tnpdcl-tamil-bimonthly-01     77.5    7.5s  4928/400 tok  $0.0043  tool_forced
+[391/432] gemma3_12b       nonbill-water-bill-01         47.9    4.0s  2368/451 tok  $0.0004  json_text
+[392/432] ministral3b      delhi-brpl-hindi-clean-01-photo  77.5    1.6s  4184/287 tok  $0.0005  tool_forced
+[393/432] mistral_large3   tgspdcl-telugu-commercial-01  77.5    2.6s  4514/394 tok  $0.0034  tool_forced
+[394/432] gemma3_12b       adani-mumbai-solar-english-01  83.3    4.5s  2368/506 tok  $0.0004  json_text
+[395/432] ministral14b     msedcl-marathi-estimated-01   98.8    2.9s  4239/521 tok  $0.0011  tool_forced
+[396/432] nova2_lite       bescom-kannada-01-photo       72.5    3.3s  2627/364 tok  $0.0020  tool_forced
+[397/432] ministral14b     adani-mumbai-solar-english-01-photo 100.0    2.3s  4404/388 tok  $0.0011  tool_forced
+[398/432] pixtral_large    msedcl-marathi-estimated-01   82.9   16.2s  5780/720 tok  $0.0159  json_text
+[399/432] gemma3_4b        msedcl-solar-official-01      33.3    2.3s  2368/354 tok  $0.0001  json_text
+[400/432] qwen3_vl         uppcl-hindi-arrears-01        95.0    9.4s  4280/429 tok  $0.0040  tool_forced
+[401/432] magistral_small  adani-mumbai-solar-english-01-photo  77.5    8.1s  4650/408 tok  $0.0035  json_text
+[402/432] kimi_k25         msedcl-marathi-estimated-01  100.0    3.7s  6039/453 tok  $0.0060  json_text
+[403/432] nova_pro         msedcl-marathi-estimated-01   70.8    4.6s  3524/498 tok  $0.0052  tool_forced
+[404/432] nova2_lite       bescom-kannada-01             64.2    3.3s  2627/363 tok  $0.0020  tool_forced
+[405/432] mistral_large3   msedcl-solar-official-01      63.8    2.9s  3894/539 tok  $0.0032  tool_forced
+[406/432] llama4_maverick  bescom-kannada-01-photo       97.5    3.0s  6582/272 tok  $0.0018  tool_auto
+[407/432] kimi_k25         adani-mumbai-solar-english-01-photo 100.0    2.4s  6059/244 tok  $0.0052  json_text
+[408/432] gemma3_27b       tpddl-handbook-official-01    32.5    6.6s  2368/485 tok  $0.0009  json_text
+[409/432] nemotron_vl      adani-mumbai-solar-english-01-photo  71.2    3.1s  4473/426 tok  $0.0014  json_text
+[410/432] qwen3_vl         delhi-tpddl-3phase-7kw-01    100.0    6.6s  4540/365 tok  $0.0040  tool_forced
+[411/432] gemma3_12b       cesc-bengali-01               77.5    2.5s  2368/266 tok  $0.0004  json_text
+[412/432] nova2_lite       adani-mumbai-solar-english-01 100.0    3.5s  2627/402 tok  $0.0021  tool_forced
+[413/432] nemotron_vl      delhi-tpddl-3phase-7kw-01     77.5    2.5s  5241/285 tok  $0.0015  json_text
+[414/432] mistral_large3   adani-mumbai-solar-english-01 100.0    2.5s  4569/375 tok  $0.0034  tool_forced
+[415/432] nova2_lite       uppcl-hindi-arrears-01-photo  45.0    3.2s  2627/316 tok  $0.0019  tool_forced
+[416/432] llama4_scout     nonbill-water-bill-01         47.1    3.5s  6872/309 tok  $0.0014  tool_auto
+[417/432] pixtral_large    delhi-tpddl-3phase-7kw-01    100.0    8.7s  5396/505 tok  $0.0138  json_text
+[418/432] ministral14b     nonbill-water-bill-01         69.2    2.3s  4566/359 tok  $0.0012  tool_forced
+[419/432] magistral_small  tnpdcl-tamil-bimonthly-01     70.8    7.9s  4705/394 tok  $0.0035  json_text
+[420/432] mistral_large3   msedcl-marathi-devanagari-01  49.2    3.6s  4349/511 tok  $0.0035  tool_forced
+[421/432] gemma3_27b       msedcl-lt-official-01         62.5    6.4s  2368/477 tok  $0.0009  json_text
+[422/432] magistral_small  cesc-bengali-01              100.0    4.4s  4595/399 tok  $0.0034  json_text
+[423/432] ministral8b      nonbill-water-bill-01        100.0    1.4s  4566/161 tok  $0.0009  tool_forced
+[424/432] magistral_small  delhi-tpddl-3phase-7kw-01    100.0    4.7s  4210/411 tok  $0.0032  json_text
+[425/432] magistral_small  ugvcl-gujarati-bimonthly-01   96.0    4.1s  4364/387 tok  $0.0033  json_text
+[426/432] nova_lite        tpddl-handbook-official-01    34.6    3.5s  3524/482 tok  $0.0004  tool_forced
+[427/432] ministral8b      uppcl-hindi-arrears-01-photo  88.8    2.0s  4678/399 tok  $0.0009  tool_forced
+[428/432] pixtral_large    msedcl-marathi-devanagari-01-photo  23.8    6.5s  6164/315 tok  $0.0142  json_text
+[429/432] ministral8b      delhi-brpl-hindi-clean-01    100.0    1.9s  4239/376 tok  $0.0008  tool_forced
+[430/432] kimi_k3          bescom-kannada-01            100.0   46.6s  3723/2405 tok  $0.0520  tool_forced
+[431/432] kimi_k3          tgspdcl-telugu-commercial-01 100.0   44.3s  5748/1546 tok  $0.0445  tool_forced
+[432/432] kimi_k3          cesc-bengali-01              100.0   40.8s  6058/1256 tok  $0.0407  tool_forced
+
+spent $2.6884 in 1026.7s. results: eval/results/full-noclaude.json  summary: /home/anish-kumar/Code/Hackathons/wemakedevs/environmental-hacks/eval/results/SUMMARY.md
+
+weakest fields per model:
+  ministral3b      mean  74.8  weakest: consumption_history (59%, -8.1 pts), units_billed_kwh (67%, -6.7 pts), bill_amount_rs (75%, -2.5 pts)
+  nemotron_vl      mean  66.3  weakest: consumption_history (28%, -14.4 pts), units_billed_kwh (75%, -5.0 pts), bill_amount_rs (71%, -2.9 pts)
+  nova_pro         mean  68.4  weakest: consumption_history (27%, -14.6 pts), units_billed_kwh (67%, -6.7 pts), bill_amount_rs (79%, -2.1 pts)
+  gemma3_27b       mean  66.1  weakest: consumption_history (15%, -17.0 pts), units_billed_kwh (79%, -4.2 pts), bill_amount_rs (71%, -2.9 pts)
+  magistral_small  mean  80.3  weakest: consumption_history (68%, -6.4 pts), units_billed_kwh (71%, -5.8 pts), bill_amount_rs (79%, -2.1 pts)
+  ministral8b      mean  86.6  weakest: consumption_history (72%, -5.6 pts), bill_amount_rs (79%, -2.1 pts), units_billed_kwh (92%, -1.7 pts)
+  nova2_lite       mean  71.2  weakest: consumption_history (44%, -11.2 pts), units_billed_kwh (58%, -8.3 pts), bill_amount_rs (75%, -2.5 pts)
+  gemma3_4b        mean  48.3  weakest: consumption_history (13%, -17.4 pts), units_billed_kwh (38%, -12.5 pts), sanctioned_load_kw (58%, -4.2 pts)
+  qwen3_vl         mean  84.5  weakest: consumption_history (69%, -6.2 pts), units_billed_kwh (88%, -2.5 pts), bill_amount_rs (79%, -2.1 pts)
+  mistral_large3   mean  88.3  weakest: consumption_history (83%, -3.4 pts), units_billed_kwh (88%, -2.5 pts), bill_amount_rs (83%, -1.7 pts)
+  llama4_scout     mean  84.4  weakest: consumption_history (70%, -6.1 pts), units_billed_kwh (92%, -1.7 pts), bill_amount_rs (83%, -1.7 pts)
+  ministral14b     mean  84.1  weakest: consumption_history (56%, -8.9 pts), bill_amount_rs (83%, -1.7 pts), consumer_number (54%, -1.1 pts)
+  kimi_k25         mean  92.0  weakest: consumption_history (87%, -2.6 pts), units_billed_kwh (88%, -2.5 pts), sanctioned_load_kw (92%, -0.8 pts)
+  pixtral_large    mean  76.2  weakest: consumption_history (52%, -9.6 pts), units_billed_kwh (75%, -5.0 pts), bill_amount_rs (75%, -2.5 pts)
+  llama4_maverick  mean  94.0  weakest: consumption_history (92%, -1.5 pts), bill_amount_rs (88%, -1.2 pts), consumer_number (79%, -0.5 pts)
+  gemma3_12b       mean  61.0  weakest: consumption_history (8%, -18.5 pts), units_billed_kwh (62%, -7.5 pts), bill_amount_rs (71%, -2.9 pts)
+  nova_lite        mean  57.9  weakest: consumption_history (31%, -13.9 pts), units_billed_kwh (50%, -10.0 pts), bill_amount_rs (71%, -2.9 pts)
+  kimi_k3          mean  94.4  weakest: consumption_history (94%, -1.3 pts), units_billed_kwh (96%, -0.8 pts), tariff_category (88%, -0.6 pts)

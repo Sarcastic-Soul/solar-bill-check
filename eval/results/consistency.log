@@ -1,0 +1,297 @@
+4 models x 24 bills x 3 = 288 calls, estimated cost $1.68
+[  1/288] mistral_large3   cesc-bengali-01               98.8    4.5s  4349/366 tok  $0.0032  tool_forced
+[  2/288] mistral_large3   uppcl-hindi-arrears-01-photo 100.0    4.6s  4678/383 tok  $0.0034  tool_forced
+[  3/288] llama4_maverick  tnpdcl-tamil-bimonthly-01     96.2    5.0s  6872/589 tok  $0.0022  tool_auto
+[  4/288] llama4_maverick  ugvcl-gujarati-bimonthly-01  100.0    5.1s  6872/561 tok  $0.0022  tool_auto
+[  5/288] llama4_maverick  tpddl-handbook-official-01    66.2    3.5s  6872/551 tok  $0.0022  tool_auto
+[  6/288] kimi_k25         adani-mumbai-solar-english-01-photo 100.0    4.4s  6059/302 tok  $0.0054  json_text
+[  7/288] mistral_large3   tgspdcl-telugu-commercial-01  77.5    4.1s  4514/394 tok  $0.0034  tool_forced
+[  8/288] mistral_large3   tnpdcl-tamil-bimonthly-01     97.5    4.4s  4459/360 tok  $0.0033  tool_forced
+[  9/288] llama4_maverick  ugvcl-gujarati-bimonthly-01  100.0    4.2s  6872/561 tok  $0.0022  tool_auto
+[ 10/288] mistral_large3   msedcl-marathi-devanagari-01-photo  50.0    4.6s  4569/443 tok  $0.0035  tool_forced
+[ 11/288] kimi_k25         msedcl-marathi-devanagari-01  42.5    5.5s  5990/334 tok  $0.0055  json_text
+[ 12/288] llama4_maverick  uppcl-hindi-arrears-01        95.0    4.8s  6872/625 tok  $0.0023  tool_auto
+[ 13/288] llama4_maverick  delhi-brpl-hindi-clean-01-photo  92.5    2.9s  6872/300 tok  $0.0019  tool_auto
+[ 14/288] ministral8b      delhi-tpddl-3phase-7kw-01    100.0    3.2s  3964/378 tok  $0.0008  tool_forced
+[ 15/288] mistral_large3   msedcl-marathi-devanagari-01  49.2    5.0s  4349/512 tok  $0.0035  tool_forced
+[ 16/288] mistral_large3   delhi-brpl-hindi-clean-01    100.0    4.3s  4239/367 tok  $0.0031  tool_forced
+[ 17/288] ministral8b      delhi-bypl-zero-subsidy-01   100.0    2.7s  4184/376 tok  $0.0008  tool_forced
+[ 18/288] kimi_k25         nonbill-water-bill-01        100.0    3.8s  5446/124 tok  $0.0044  json_text
+[ 19/288] mistral_large3   bescom-kannada-01             97.5    3.4s  3029/316 tok  $0.0023  tool_forced
+[ 20/288] llama4_maverick  tgspdcl-telugu-commercial-01 100.0    3.8s  6872/560 tok  $0.0022  tool_auto
+[ 21/288] mistral_large3   delhi-tpddl-3phase-7kw-01    100.0    3.4s  3964/375 tok  $0.0030  tool_forced
+[ 22/288] llama4_maverick  bescom-kannada-01-photo       97.5    3.0s  6582/272 tok  $0.0018  tool_auto
+[ 23/288] llama4_maverick  adani-mumbai-solar-english-01-photo 100.0    3.8s  6872/552 tok  $0.0022  tool_auto
+[ 24/288] kimi_k25         ugvcl-gujarati-bimonthly-01  100.0    5.2s  4888/336 tok  $0.0047  json_text
+[ 25/288] mistral_large3   nonbill-water-bill-01        100.0    3.3s  4566/161 tok  $0.0030  tool_forced
+[ 26/288] ministral8b      nonbill-water-bill-01         54.2    3.2s  4566/347 tok  $0.0009  tool_forced
+[ 27/288] ministral8b      tgspdcl-telugu-commercial-01  77.1    3.8s  4514/411 tok  $0.0009  tool_forced
+[ 28/288] kimi_k25         cesc-bengali-01              100.0    4.4s  6050/291 tok  $0.0054  json_text
+[ 29/288] llama4_maverick  cesc-bengali-01              100.0    4.0s  6872/545 tok  $0.0022  tool_auto
+[ 30/288] kimi_k25         uppcl-hindi-arrears-01        95.0    3.6s  5260/258 tok  $0.0047  json_text
+[ 31/288] llama4_maverick  tatapower-mumbai-nohistory-01 100.0    3.2s  6582/442 tok  $0.0020  tool_auto
+[ 32/288] mistral_large3   delhi-tpddl-3phase-7kw-01    100.0    4.6s  3964/377 tok  $0.0030  tool_forced
+[ 33/288] llama4_maverick  tpddl-handbook-official-01    66.2    4.0s  6872/539 tok  $0.0022  tool_auto
+[ 34/288] kimi_k25         cesc-bengali-01              100.0    4.4s  6050/291 tok  $0.0054  json_text
+[ 35/288] kimi_k25         tnpdcl-tamil-bimonthly-01-photo 100.0    4.1s  6066/297 tok  $0.0054  json_text
+[ 36/288] mistral_large3   msedcl-lt-official-01         68.1    4.0s  3854/455 tok  $0.0031  tool_forced
+[ 37/288] mistral_large3   delhi-brpl-hindi-clean-01-photo  83.3    3.7s  4184/367 tok  $0.0031  tool_forced
+[ 38/288] llama4_maverick  kseb-malayalam-bimonthly-01   97.5    3.1s  6582/264 tok  $0.0018  tool_auto
+[ 39/288] mistral_large3   kseb-malayalam-bimonthly-01  100.0    3.5s  3084/309 tok  $0.0024  tool_forced
+[ 40/288] mistral_large3   msedcl-marathi-devanagari-01-photo  50.0    4.5s  4569/402 tok  $0.0034  tool_forced
+[ 41/288] mistral_large3   kseb-malayalam-bimonthly-01   93.3    3.0s  3084/311 tok  $0.0024  tool_forced
+[ 42/288] kimi_k25         msedcl-marathi-estimated-01  100.0    5.2s  6039/453 tok  $0.0060  json_text
+[ 43/288] mistral_large3   delhi-brpl-hindi-clean-01    100.0    4.2s  4239/367 tok  $0.0031  tool_forced
+[ 44/288] ministral8b      tnpdcl-tamil-bimonthly-01     97.5    2.9s  4459/383 tok  $0.0009  tool_forced
+[ 45/288] kimi_k25         delhi-tpddl-3phase-7kw-01    100.0    4.8s  5738/239 tok  $0.0050  json_text
+[ 46/288] ministral8b      nonbill-water-bill-01        100.0    2.5s  4566/161 tok  $0.0009  tool_forced
+[ 47/288] llama4_maverick  delhi-tpddl-3phase-7kw-01     97.5    3.7s  6582/325 tok  $0.0019  tool_auto
+[ 48/288] kimi_k25         tgspdcl-telugu-commercial-01 100.0    3.9s  6004/342 tok  $0.0056  json_text
+[ 49/288] llama4_maverick  tnpdcl-tamil-bimonthly-01-photo  98.8    5.3s  6872/571 tok  $0.0022  tool_auto
+[ 50/288] kimi_k25         msedcl-marathi-estimated-01  100.0    6.5s  6039/453 tok  $0.0060  json_text
+[ 51/288] ministral8b      delhi-brpl-hindi-clean-01-photo  75.0    3.3s  4184/389 tok  $0.0008  tool_forced
+[ 52/288] mistral_large3   nonbill-water-bill-01        100.0    4.5s  4566/161 tok  $0.0030  tool_forced
+[ 53/288] llama4_maverick  adani-mumbai-solar-english-01 100.0    3.1s  6872/315 tok  $0.0020  tool_auto
+[ 54/288] llama4_maverick  tnpdcl-tamil-bimonthly-01-photo  98.8    4.4s  6872/571 tok  $0.0022  tool_auto
+[ 55/288] ministral8b      tpddl-handbook-official-01    46.2    5.3s  4239/370 tok  $0.0008  tool_forced
+[ 56/288] llama4_maverick  adani-mumbai-solar-english-01 100.0    3.6s  6872/315 tok  $0.0020  tool_auto
+[ 57/288] mistral_large3   bescom-kannada-01            100.0    3.0s  3029/316 tok  $0.0023  tool_forced
+[ 58/288] mistral_large3   ugvcl-gujarati-bimonthly-01  100.0    4.6s  4118/362 tok  $0.0031  tool_forced
+[ 59/288] mistral_large3   msedcl-marathi-estimated-01  100.0    4.4s  4239/519 tok  $0.0034  tool_forced
+[ 60/288] ministral8b      msedcl-solar-official-01      65.4    5.0s  3894/577 tok  $0.0008  tool_forced
+[ 61/288] ministral8b      msedcl-solar-official-01      65.4    4.8s  3894/577 tok  $0.0008  tool_forced
+[ 62/288] kimi_k25         msedcl-marathi-devanagari-01  32.5    5.3s  5990/456 tok  $0.0060  json_text
+[ 63/288] llama4_maverick  tnpdcl-tamil-bimonthly-01     96.2    4.6s  6872/589 tok  $0.0022  tool_auto
+[ 64/288] kimi_k25         bescom-kannada-01-photo      100.0    3.9s  4514/253 tok  $0.0042  json_text
+[ 65/288] mistral_large3   msedcl-solar-official-01      70.0    5.5s  3894/530 tok  $0.0032  tool_forced
+[ 66/288] kimi_k25         tnpdcl-tamil-bimonthly-01-photo 100.0    5.5s  6066/331 tok  $0.0056  json_text
+[ 67/288] kimi_k25         msedcl-solar-official-01      88.8   12.0s  5594/461 tok  $0.0057  json_text
+[ 68/288] ministral8b      tnpdcl-tamil-bimonthly-01     77.5    3.4s  4459/368 tok  $0.0009  tool_forced
+[ 69/288] kimi_k25         delhi-brpl-hindi-clean-01-photo 100.0    4.5s  6026/329 tok  $0.0055  json_text
+[ 70/288] mistral_large3   tnpdcl-tamil-bimonthly-01-photo  60.0    4.7s  4514/382 tok  $0.0033  tool_forced
+[ 71/288] ministral8b      msedcl-marathi-devanagari-01  73.3    3.5s  4349/509 tok  $0.0009  tool_forced
+[ 72/288] kimi_k25         msedcl-marathi-estimated-01  100.0    5.0s  6039/331 tok  $0.0055  json_text
+[ 73/288] ministral8b      ugvcl-gujarati-bimonthly-01   96.0    2.8s  4118/377 tok  $0.0008  tool_forced
+[ 74/288] ministral8b      delhi-bypl-zero-subsidy-01   100.0    3.5s  4184/376 tok  $0.0008  tool_forced
+[ 75/288] kimi_k25         ugvcl-gujarati-bimonthly-01  100.0    4.3s  4888/336 tok  $0.0047  json_text
+[ 76/288] kimi_k25         adani-mumbai-solar-english-01 100.0    3.9s  6071/244 tok  $0.0053  json_text
+[ 77/288] mistral_large3   delhi-brpl-hindi-clean-01-photo 100.0    4.3s  4184/367 tok  $0.0031  tool_forced
+[ 78/288] llama4_maverick  delhi-bypl-zero-subsidy-01   100.0    4.4s  6872/548 tok  $0.0022  tool_auto
+[ 79/288] mistral_large3   uppcl-hindi-arrears-01-photo 100.0    4.2s  4678/383 tok  $0.0034  tool_forced
+[ 80/288] ministral8b      adani-mumbai-solar-english-01 100.0    3.0s  4569/375 tok  $0.0009  tool_forced
+[ 81/288] mistral_large3   ugvcl-gujarati-bimonthly-01  100.0    4.4s  4118/362 tok  $0.0031  tool_forced
+[ 82/288] kimi_k25         uppcl-hindi-arrears-01        95.0    4.5s  5260/350 tok  $0.0050  json_text
+[ 83/288] ministral8b      adani-mumbai-solar-english-01-photo 100.0    2.8s  4404/381 tok  $0.0009  tool_forced
+[ 84/288] kimi_k25         msedcl-lt-official-01         95.7    6.9s  5162/411 tok  $0.0052  json_text
+[ 85/288] llama4_maverick  tatapower-mumbai-nohistory-01 100.0    3.2s  6582/442 tok  $0.0020  tool_auto
+[ 86/288] llama4_maverick  msedcl-marathi-devanagari-01  93.3    4.4s  6872/661 tok  $0.0023  tool_auto
+[ 87/288] mistral_large3   tatapower-mumbai-nohistory-01 100.0    3.6s  3950/233 tok  $0.0027  tool_forced
+[ 88/288] llama4_maverick  msedcl-solar-official-01      90.5    3.9s  6582/402 tok  $0.0020  tool_auto
+[ 89/288] llama4_maverick  adani-mumbai-solar-english-01-photo 100.0    3.6s  6872/552 tok  $0.0022  tool_auto
+[ 90/288] ministral8b      delhi-brpl-hindi-clean-01-photo  75.0    2.5s  4184/381 tok  $0.0008  tool_forced
+[ 91/288] mistral_large3   adani-mumbai-solar-english-01 100.0    3.8s  4569/375 tok  $0.0034  tool_forced
+[ 92/288] llama4_maverick  uppcl-hindi-arrears-01        95.0    4.3s  6872/625 tok  $0.0023  tool_auto
+[ 93/288] ministral8b      delhi-brpl-hindi-clean-01    100.0    2.5s  4239/376 tok  $0.0008  tool_forced
+[ 94/288] ministral8b      msedcl-marathi-estimated-01   95.0    3.9s  4239/512 tok  $0.0009  tool_forced
+[ 95/288] ministral8b      tnpdcl-tamil-bimonthly-01-photo  68.2    2.6s  4514/388 tok  $0.0009  tool_forced
+[ 96/288] kimi_k25         nonbill-water-bill-01        100.0    3.6s  5446/143 tok  $0.0044  json_text
+[ 97/288] llama4_maverick  delhi-brpl-hindi-clean-01    100.0    4.2s  6872/546 tok  $0.0022  tool_auto
+[ 98/288] llama4_maverick  tgspdcl-telugu-commercial-01 100.0    4.3s  6872/560 tok  $0.0022  tool_auto
+[ 99/288] ministral8b      delhi-bypl-zero-subsidy-01   100.0    2.7s  4184/365 tok  $0.0008  tool_forced
+[100/288] mistral_large3   delhi-brpl-hindi-clean-01    100.0    3.1s  4239/367 tok  $0.0031  tool_forced
+[101/288] mistral_large3   adani-mumbai-solar-english-01-photo 100.0    4.2s  4404/375 tok  $0.0033  tool_forced
+[102/288] llama4_maverick  adani-mumbai-solar-english-01-photo 100.0    3.8s  6872/552 tok  $0.0022  tool_auto
+[103/288] kimi_k25         ugvcl-gujarati-bimonthly-01  100.0    3.8s  4888/302 tok  $0.0046  json_text
+[104/288] kimi_k25         tnpdcl-tamil-bimonthly-01-photo 100.0    4.5s  6066/331 tok  $0.0056  json_text
+[105/288] mistral_large3   tatapower-mumbai-nohistory-01 100.0    3.4s  3950/233 tok  $0.0027  tool_forced
+[106/288] ministral8b      kseb-malayalam-bimonthly-01   73.3    2.7s  3084/330 tok  $0.0006  tool_forced
+[107/288] ministral8b      msedcl-lt-official-01         76.7    3.6s  3854/497 tok  $0.0008  tool_forced
+[108/288] mistral_large3   bescom-kannada-01-photo       97.5    3.4s  3304/312 tok  $0.0025  tool_forced
+[109/288] llama4_maverick  tpddl-handbook-official-01    66.2    3.9s  6872/539 tok  $0.0022  tool_auto
+[110/288] kimi_k25         msedcl-solar-official-01      98.8    6.1s  5594/448 tok  $0.0056  json_text
+[111/288] mistral_large3   tnpdcl-tamil-bimonthly-01-photo  90.0    3.6s  4514/351 tok  $0.0033  tool_forced
+[112/288] ministral8b      tatapower-mumbai-nohistory-01 100.0    2.6s  3950/233 tok  $0.0008  tool_forced
+[113/288] kimi_k25         kseb-malayalam-bimonthly-01  100.0    3.4s  3860/246 tok  $0.0037  json_text
+[114/288] llama4_maverick  msedcl-marathi-devanagari-01-photo  61.7    4.3s  6872/664 tok  $0.0023  tool_auto
+[115/288] mistral_large3   msedcl-marathi-devanagari-01  49.2    5.1s  4349/511 tok  $0.0035  tool_forced
+[116/288] kimi_k25         cesc-bengali-01              100.0    3.5s  6050/326 tok  $0.0055  json_text
+[117/288] mistral_large3   bescom-kannada-01            100.0    3.0s  3029/312 tok  $0.0023  tool_forced
+[118/288] ministral8b      bescom-kannada-01-photo       77.5    2.7s  3304/326 tok  $0.0007  tool_forced
+[119/288] kimi_k25         tnpdcl-tamil-bimonthly-01    100.0    4.2s  5998/297 tok  $0.0054  json_text
+[120/288] mistral_large3   cesc-bengali-01               96.2    3.9s  4349/367 tok  $0.0032  tool_forced
+[121/288] mistral_large3   nonbill-water-bill-01        100.0    2.8s  4566/161 tok  $0.0030  tool_forced
+[122/288] kimi_k25         adani-mumbai-solar-english-01 100.0    5.0s  6071/302 tok  $0.0055  json_text
+[123/288] llama4_maverick  msedcl-marathi-estimated-01  100.0    4.4s  6872/662 tok  $0.0023  tool_auto
+[124/288] mistral_large3   delhi-bypl-zero-subsidy-01    13.8    3.4s  4184/379 tok  $0.0031  tool_forced
+[125/288] llama4_maverick  msedcl-marathi-devanagari-01  93.3    5.0s  6872/661 tok  $0.0023  tool_auto
+[126/288] kimi_k25         delhi-tpddl-3phase-7kw-01    100.0    4.7s  5738/296 tok  $0.0052  json_text
+[127/288] ministral8b      tatapower-mumbai-nohistory-01 100.0    2.4s  3950/233 tok  $0.0008  tool_forced
+[128/288] llama4_maverick  uppcl-hindi-arrears-01-photo  85.0    4.7s  6872/603 tok  $0.0022  tool_auto
+[129/288] kimi_k25         tatapower-mumbai-nohistory-01 100.0    3.1s  4811/190 tok  $0.0041  json_text
+[130/288] llama4_maverick  msedcl-marathi-devanagari-01-photo  56.7    4.0s  6872/448 tok  $0.0021  tool_auto
+[131/288] kimi_k25         adani-mumbai-solar-english-01-photo 100.0    3.1s  6059/244 tok  $0.0052  json_text
+[132/288] ministral8b      msedcl-marathi-devanagari-01-photo  59.2    3.5s  4569/524 tok  $0.0009  tool_forced
+[133/288] ministral8b      tnpdcl-tamil-bimonthly-01-photo  76.2    2.5s  4514/385 tok  $0.0009  tool_forced
+[134/288] mistral_large3   delhi-bypl-zero-subsidy-01   100.0    4.3s  4184/365 tok  $0.0031  tool_forced
+[135/288] ministral8b      tnpdcl-tamil-bimonthly-01-photo  76.2    2.7s  4514/385 tok  $0.0009  tool_forced
+[136/288] ministral8b      msedcl-marathi-devanagari-01  73.3    3.5s  4349/509 tok  $0.0009  tool_forced
+[137/288] kimi_k25         msedcl-lt-official-01         95.7    5.3s  5162/411 tok  $0.0052  json_text
+[138/288] ministral8b      uppcl-hindi-arrears-01-photo  90.0    2.6s  4678/395 tok  $0.0009  tool_forced
+[139/288] llama4_maverick  uppcl-hindi-arrears-01        95.0    4.5s  6872/625 tok  $0.0023  tool_auto
+[140/288] kimi_k25         bescom-kannada-01             97.5    3.5s  3980/257 tok  $0.0038  json_text
+[141/288] mistral_large3   ugvcl-gujarati-bimonthly-01  100.0    3.7s  4118/362 tok  $0.0031  tool_forced
+[142/288] ministral8b      bescom-kannada-01             97.5    2.6s  3029/327 tok  $0.0006  tool_forced
+[143/288] kimi_k25         delhi-brpl-hindi-clean-01-photo 100.0    4.9s  6026/294 tok  $0.0054  json_text
+[144/288] kimi_k25         bescom-kannada-01-photo       97.5    4.0s  4514/257 tok  $0.0042  json_text
+[145/288] llama4_maverick  tgspdcl-telugu-commercial-01 100.0    4.2s  6872/560 tok  $0.0022  tool_auto
+[146/288] kimi_k25         delhi-tpddl-3phase-7kw-01    100.0    4.2s  5738/296 tok  $0.0052  json_text
+[147/288] kimi_k25         delhi-brpl-hindi-clean-01    100.0    3.9s  6039/237 tok  $0.0052  json_text
+[148/288] mistral_large3   msedcl-marathi-devanagari-01-photo  50.0    5.0s  4569/491 tok  $0.0036  tool_forced
+[149/288] ministral8b      cesc-bengali-01              100.0    3.8s  4349/372 tok  $0.0008  tool_forced
+[150/288] mistral_large3   delhi-bypl-zero-subsidy-01   100.0    4.1s  4184/365 tok  $0.0031  tool_forced
+[151/288] llama4_maverick  delhi-brpl-hindi-clean-01    100.0    4.1s  6872/546 tok  $0.0022  tool_auto
+[152/288] kimi_k25         msedcl-solar-official-01      78.8    6.1s  5594/464 tok  $0.0057  json_text
+[153/288] llama4_maverick  msedcl-lt-official-01         94.1    4.8s  6582/403 tok  $0.0020  tool_auto
+[154/288] kimi_k25         uppcl-hindi-arrears-01-photo  95.0    4.3s  6074/350 tok  $0.0056  json_text
+[155/288] ministral8b      tatapower-mumbai-nohistory-01 100.0    2.4s  3950/233 tok  $0.0008  tool_forced
+[156/288] kimi_k25         adani-mumbai-solar-english-01-photo 100.0    3.9s  6059/244 tok  $0.0052  json_text
+[157/288] llama4_maverick  delhi-bypl-zero-subsidy-01   100.0    4.2s  6872/548 tok  $0.0022  tool_auto
+[158/288] ministral8b      uppcl-hindi-arrears-01        95.0    3.2s  4454/397 tok  $0.0009  tool_forced
+[159/288] llama4_maverick  msedcl-lt-official-01         94.1    3.1s  6582/402 tok  $0.0020  tool_auto
+[160/288] kimi_k25         kseb-malayalam-bimonthly-01  100.0    2.8s  3860/201 tok  $0.0035  json_text
+[161/288] ministral8b      nonbill-water-bill-01        100.0    1.9s  4566/161 tok  $0.0009  tool_forced
+[162/288] mistral_large3   tgspdcl-telugu-commercial-01  77.5    4.6s  4514/395 tok  $0.0034  tool_forced
+[163/288] llama4_maverick  delhi-bypl-zero-subsidy-01   100.0    3.8s  6872/548 tok  $0.0022  tool_auto
+[164/288] mistral_large3   delhi-brpl-hindi-clean-01-photo 100.0    2.9s  4184/369 tok  $0.0031  tool_forced
+[165/288] kimi_k25         delhi-bypl-zero-subsidy-01   100.0    4.0s  6026/236 tok  $0.0052  json_text
+[166/288] ministral8b      delhi-brpl-hindi-clean-01-photo  75.0    3.2s  4184/389 tok  $0.0008  tool_forced
+[167/288] llama4_maverick  kseb-malayalam-bimonthly-01   97.5    2.8s  6582/264 tok  $0.0018  tool_auto
+[168/288] ministral8b      adani-mumbai-solar-english-01-photo 100.0    2.3s  4404/381 tok  $0.0009  tool_forced
+[169/288] ministral8b      msedcl-lt-official-01         75.4    3.4s  3854/490 tok  $0.0008  tool_forced
+[170/288] mistral_large3   msedcl-solar-official-01      63.8    3.9s  3894/539 tok  $0.0032  tool_forced
+[171/288] llama4_maverick  bescom-kannada-01-photo       97.5    2.9s  6582/272 tok  $0.0018  tool_auto
+[172/288] mistral_large3   msedcl-marathi-devanagari-01  54.2    4.2s  4349/508 tok  $0.0035  tool_forced
+[173/288] kimi_k25         tnpdcl-tamil-bimonthly-01    100.0    4.1s  5998/331 tok  $0.0055  json_text
+[174/288] kimi_k25         tpddl-handbook-official-01    56.2    4.1s  5910/286 tok  $0.0053  json_text
+[175/288] llama4_maverick  msedcl-marathi-estimated-01  100.0    4.1s  6872/662 tok  $0.0023  tool_auto
+[176/288] mistral_large3   kseb-malayalam-bimonthly-01  100.0    3.0s  3084/309 tok  $0.0024  tool_forced
+[177/288] mistral_large3   tpddl-handbook-official-01    45.0    4.0s  4239/473 tok  $0.0033  tool_forced
+[178/288] ministral8b      msedcl-lt-official-01         86.4    3.6s  3854/489 tok  $0.0008  tool_forced
+[179/288] kimi_k25         uppcl-hindi-arrears-01-photo  95.0    6.0s  6074/315 tok  $0.0055  json_text
+[180/288] ministral8b      uppcl-hindi-arrears-01        95.0    2.9s  4454/397 tok  $0.0009  tool_forced
+[181/288] llama4_maverick  bescom-kannada-01             97.5    2.9s  6582/269 tok  $0.0018  tool_auto
+[182/288] ministral8b      msedcl-marathi-devanagari-01  73.3    3.2s  4349/509 tok  $0.0009  tool_forced
+[183/288] kimi_k25         bescom-kannada-01-photo       97.5    4.2s  4514/257 tok  $0.0042  json_text
+[184/288] ministral8b      kseb-malayalam-bimonthly-01   73.3    2.3s  3084/327 tok  $0.0006  tool_forced
+[185/288] kimi_k25         msedcl-marathi-devanagari-01-photo  52.5    5.7s  6071/415 tok  $0.0059  json_text
+[186/288] mistral_large3   tatapower-mumbai-nohistory-01 100.0    2.5s  3950/233 tok  $0.0027  tool_forced
+[187/288] kimi_k25         delhi-bypl-zero-subsidy-01   100.0    4.3s  6026/299 tok  $0.0054  json_text
+[188/288] kimi_k25         msedcl-marathi-devanagari-01  32.5    6.3s  5990/456 tok  $0.0060  json_text
+[189/288] ministral8b      delhi-tpddl-3phase-7kw-01    100.0    3.1s  3964/378 tok  $0.0008  tool_forced
+[190/288] llama4_maverick  msedcl-solar-official-01      85.5    4.2s  6582/402 tok  $0.0020  tool_auto
+[191/288] kimi_k25         delhi-brpl-hindi-clean-01    100.0    4.8s  6039/300 tok  $0.0054  json_text
+[192/288] kimi_k25         uppcl-hindi-arrears-01        95.0    4.5s  5260/315 tok  $0.0049  json_text
+[193/288] ministral8b      tgspdcl-telugu-commercial-01  77.1    3.5s  4514/417 tok  $0.0009  tool_forced
+[194/288] llama4_maverick  delhi-brpl-hindi-clean-01    100.0    4.0s  6872/546 tok  $0.0022  tool_auto
+[195/288] kimi_k25         nonbill-water-bill-01        100.0    4.2s  5446/124 tok  $0.0044  json_text
+[196/288] kimi_k25         bescom-kannada-01             97.5    5.5s  3980/257 tok  $0.0038  json_text
+[197/288] ministral8b      adani-mumbai-solar-english-01-photo 100.0    2.9s  4404/381 tok  $0.0009  tool_forced
+[198/288] llama4_maverick  adani-mumbai-solar-english-01 100.0    4.0s  6872/557 tok  $0.0022  tool_auto
+[199/288] llama4_maverick  cesc-bengali-01              100.0    3.6s  6872/545 tok  $0.0022  tool_auto
+[200/288] ministral8b      bescom-kannada-01             97.5    2.7s  3029/327 tok  $0.0006  tool_forced
+[201/288] mistral_large3   delhi-tpddl-3phase-7kw-01    100.0    3.1s  3964/377 tok  $0.0030  tool_forced
+[202/288] llama4_maverick  bescom-kannada-01             97.5    2.9s  6582/269 tok  $0.0018  tool_auto
+[203/288] llama4_maverick  delhi-brpl-hindi-clean-01-photo  95.0    3.2s  6872/302 tok  $0.0019  tool_auto
+[204/288] ministral8b      bescom-kannada-01             97.5    2.6s  3029/327 tok  $0.0006  tool_forced
+[205/288] mistral_large3   msedcl-marathi-estimated-01  100.0    3.6s  4239/516 tok  $0.0034  tool_forced
+[206/288] ministral8b      uppcl-hindi-arrears-01-photo  90.0    3.1s  4678/395 tok  $0.0009  tool_forced
+[207/288] mistral_large3   adani-mumbai-solar-english-01 100.0    3.4s  4569/375 tok  $0.0034  tool_forced
+[208/288] ministral8b      bescom-kannada-01-photo       77.5    1.8s  3304/326 tok  $0.0007  tool_forced
+[209/288] ministral8b      tpddl-handbook-official-01    46.2    2.8s  4239/373 tok  $0.0008  tool_forced
+[210/288] ministral8b      ugvcl-gujarati-bimonthly-01  100.0    2.3s  4118/392 tok  $0.0008  tool_forced
+[211/288] kimi_k25         tgspdcl-telugu-commercial-01  98.5    4.1s  6004/324 tok  $0.0055  json_text
+[212/288] mistral_large3   uppcl-hindi-arrears-01        92.5    4.5s  4454/383 tok  $0.0033  tool_forced
+[213/288] llama4_maverick  delhi-tpddl-3phase-7kw-01     97.5    4.0s  6582/325 tok  $0.0019  tool_auto
+[214/288] mistral_large3   uppcl-hindi-arrears-01        92.5    3.3s  4454/383 tok  $0.0033  tool_forced
+[215/288] llama4_maverick  msedcl-marathi-estimated-01  100.0    4.5s  6872/662 tok  $0.0023  tool_auto
+[216/288] llama4_maverick  delhi-brpl-hindi-clean-01-photo  95.0    2.3s  6872/303 tok  $0.0019  tool_auto
+[217/288] mistral_large3   adani-mumbai-solar-english-01 100.0    4.5s  4569/375 tok  $0.0034  tool_forced
+[218/288] mistral_large3   uppcl-hindi-arrears-01-photo  95.0    4.4s  4678/384 tok  $0.0034  tool_forced
+[219/288] kimi_k25         kseb-malayalam-bimonthly-01  100.0    3.5s  3860/246 tok  $0.0037  json_text
+[220/288] mistral_large3   adani-mumbai-solar-english-01-photo 100.0    3.5s  4404/375 tok  $0.0033  tool_forced
+[221/288] mistral_large3   tgspdcl-telugu-commercial-01  97.5    4.0s  4514/394 tok  $0.0034  tool_forced
+[222/288] mistral_large3   tnpdcl-tamil-bimonthly-01-photo  70.0    3.6s  4514/356 tok  $0.0033  tool_forced
+[223/288] mistral_large3   bescom-kannada-01-photo       95.0    3.1s  3304/313 tok  $0.0025  tool_forced
+[224/288] llama4_maverick  msedcl-marathi-devanagari-01-photo  56.7    3.7s  6872/448 tok  $0.0021  tool_auto
+[225/288] llama4_maverick  uppcl-hindi-arrears-01-photo  85.0    4.5s  6872/601 tok  $0.0022  tool_auto
+[226/288] mistral_large3   uppcl-hindi-arrears-01        92.5    3.7s  4454/383 tok  $0.0033  tool_forced
+[227/288] mistral_large3   msedcl-solar-official-01      65.0    4.5s  3894/544 tok  $0.0033  tool_forced
+[228/288] llama4_maverick  cesc-bengali-01              100.0    4.0s  6872/545 tok  $0.0022  tool_auto
+[229/288] kimi_k25         msedcl-marathi-devanagari-01-photo  42.5    5.6s  6071/415 tok  $0.0059  json_text
+[230/288] ministral8b      tpddl-handbook-official-01    46.2    3.0s  4239/370 tok  $0.0008  tool_forced
+[231/288] ministral8b      adani-mumbai-solar-english-01 100.0    3.0s  4569/375 tok  $0.0009  tool_forced
+[232/288] kimi_k25         tpddl-handbook-official-01    56.2    5.3s  5910/321 tok  $0.0054  json_text
+[233/288] kimi_k25         tnpdcl-tamil-bimonthly-01    100.0    3.9s  5998/244 tok  $0.0052  json_text
+[234/288] llama4_maverick  tnpdcl-tamil-bimonthly-01     96.2    4.7s  6872/589 tok  $0.0022  tool_auto
+[235/288] llama4_maverick  tatapower-mumbai-nohistory-01 100.0    3.6s  6582/442 tok  $0.0020  tool_auto
+[236/288] kimi_k25         delhi-brpl-hindi-clean-01    100.0    3.6s  6039/237 tok  $0.0052  json_text
+[237/288] ministral8b      msedcl-marathi-devanagari-01-photo  59.2    3.0s  4569/524 tok  $0.0009  tool_forced
+[238/288] mistral_large3   bescom-kannada-01-photo       97.5    3.0s  3304/312 tok  $0.0025  tool_forced
+[239/288] mistral_large3   cesc-bengali-01               98.8    3.6s  4349/368 tok  $0.0032  tool_forced
+[240/288] kimi_k25         tpddl-handbook-official-01    56.2    3.8s  5910/321 tok  $0.0054  json_text
+[241/288] ministral8b      msedcl-solar-official-01      64.4    4.0s  3894/533 tok  $0.0008  tool_forced
+[242/288] llama4_maverick  nonbill-water-bill-01        100.0    3.2s  6872/396 tok  $0.0020  tool_auto
+[243/288] ministral8b      cesc-bengali-01              100.0    2.5s  4349/372 tok  $0.0008  tool_forced
+[244/288] llama4_maverick  msedcl-marathi-devanagari-01  93.3    4.2s  6872/661 tok  $0.0023  tool_auto
+[245/288] kimi_k25         adani-mumbai-solar-english-01 100.0    3.9s  6071/244 tok  $0.0053  json_text
+[246/288] mistral_large3   tnpdcl-tamil-bimonthly-01     98.8    4.4s  4459/360 tok  $0.0033  tool_forced
+[247/288] ministral8b      delhi-brpl-hindi-clean-01    100.0    2.5s  4239/376 tok  $0.0008  tool_forced
+[248/288] ministral8b      kseb-malayalam-bimonthly-01   73.3    2.5s  3084/327 tok  $0.0006  tool_forced
+[249/288] ministral8b      tnpdcl-tamil-bimonthly-01     97.5    2.5s  4459/383 tok  $0.0009  tool_forced
+[250/288] llama4_maverick  nonbill-water-bill-01        100.0    2.6s  6872/159 tok  $0.0018  tool_auto
+[251/288] ministral8b      uppcl-hindi-arrears-01        95.0    2.3s  4454/393 tok  $0.0009  tool_forced
+[252/288] ministral8b      msedcl-marathi-estimated-01   93.8    2.9s  4239/521 tok  $0.0009  tool_forced
+[253/288] mistral_large3   msedcl-lt-official-01         73.2    4.5s  3854/412 tok  $0.0030  tool_forced
+[254/288] llama4_maverick  uppcl-hindi-arrears-01-photo  85.0    4.3s  6872/601 tok  $0.0022  tool_auto
+[255/288] kimi_k25         delhi-bypl-zero-subsidy-01   100.0    4.7s  6026/302 tok  $0.0054  json_text
+[256/288] kimi_k25         bescom-kannada-01             97.5    2.9s  3980/213 tok  $0.0036  json_text
+[257/288] llama4_maverick  bescom-kannada-01-photo       97.5    3.1s  6582/272 tok  $0.0018  tool_auto
+[258/288] mistral_large3   tpddl-handbook-official-01    46.2    4.7s  4239/442 tok  $0.0033  tool_forced
+[259/288] llama4_maverick  ugvcl-gujarati-bimonthly-01  100.0    3.9s  6872/561 tok  $0.0022  tool_auto
+[260/288] kimi_k25         msedcl-lt-official-01         95.7    4.9s  5162/411 tok  $0.0052  json_text
+[261/288] ministral8b      delhi-brpl-hindi-clean-01    100.0    3.2s  4239/376 tok  $0.0008  tool_forced
+[262/288] llama4_maverick  bescom-kannada-01             97.5    2.5s  6582/269 tok  $0.0018  tool_auto
+[263/288] mistral_large3   msedcl-lt-official-01         84.9    3.9s  3854/475 tok  $0.0031  tool_forced
+[264/288] ministral8b      msedcl-marathi-devanagari-01-photo  52.7    3.7s  4569/506 tok  $0.0009  tool_forced
+[265/288] llama4_maverick  delhi-tpddl-3phase-7kw-01     97.5    2.8s  6582/325 tok  $0.0019  tool_auto
+[266/288] ministral8b      delhi-tpddl-3phase-7kw-01    100.0    2.8s  3964/375 tok  $0.0008  tool_forced
+[267/288] kimi_k25         tgspdcl-telugu-commercial-01 100.0    3.8s  6004/342 tok  $0.0056  json_text
+[268/288] ministral8b      cesc-bengali-01              100.0    2.6s  4349/372 tok  $0.0008  tool_forced
+[269/288] kimi_k25         msedcl-marathi-devanagari-01-photo  35.0    5.1s  6071/455 tok  $0.0060  json_text
+[270/288] kimi_k25         tatapower-mumbai-nohistory-01 100.0    3.5s  4811/190 tok  $0.0041  json_text
+[271/288] mistral_large3   adani-mumbai-solar-english-01-photo 100.0    3.9s  4404/375 tok  $0.0033  tool_forced
+[272/288] mistral_large3   tnpdcl-tamil-bimonthly-01     97.5    3.3s  4459/361 tok  $0.0033  tool_forced
+[273/288] kimi_k25         tatapower-mumbai-nohistory-01 100.0    3.0s  4811/190 tok  $0.0041  json_text
+[274/288] ministral8b      adani-mumbai-solar-english-01 100.0    3.4s  4569/375 tok  $0.0009  tool_forced
+[275/288] llama4_maverick  tnpdcl-tamil-bimonthly-01-photo  98.8    4.4s  6872/571 tok  $0.0022  tool_auto
+[276/288] kimi_k25         uppcl-hindi-arrears-01-photo  95.0    4.0s  6074/350 tok  $0.0056  json_text
+[277/288] llama4_maverick  msedcl-solar-official-01      85.5    4.2s  6582/402 tok  $0.0020  tool_auto
+[278/288] ministral8b      msedcl-marathi-estimated-01   93.8    3.5s  4239/521 tok  $0.0009  tool_forced
+[279/288] mistral_large3   msedcl-marathi-estimated-01   97.5    4.4s  4239/517 tok  $0.0034  tool_forced
+[280/288] llama4_maverick  kseb-malayalam-bimonthly-01   97.5    2.7s  6582/256 tok  $0.0018  tool_auto
+[281/288] ministral8b      bescom-kannada-01-photo       77.5    2.8s  3304/326 tok  $0.0007  tool_forced
+[282/288] ministral8b      ugvcl-gujarati-bimonthly-01  100.0    2.8s  4118/392 tok  $0.0008  tool_forced
+[283/288] llama4_maverick  nonbill-water-bill-01        100.0    2.9s  6872/396 tok  $0.0020  tool_auto
+[284/288] llama4_maverick  msedcl-lt-official-01         76.8    3.5s  6582/390 tok  $0.0020  tool_auto
+[285/288] mistral_large3   tpddl-handbook-official-01    42.5    4.3s  4239/378 tok  $0.0032  tool_forced
+[286/288] kimi_k25         delhi-brpl-hindi-clean-01-photo 100.0    4.0s  6026/329 tok  $0.0055  json_text
+[287/288] ministral8b      tgspdcl-telugu-commercial-01  77.1    3.2s  4514/417 tok  $0.0009  tool_forced
+[288/288] ministral8b      uppcl-hindi-arrears-01-photo  90.0    3.6s  4678/422 tok  $0.0009  tool_forced
+
+spent $0.8022 in 293.8s. results: eval/results/consistency.json  summary: eval/results/CONSISTENCY.md
+
+weakest fields per model:
+  mistral_large3   mean  87.1  weakest: consumption_history (80%, -4.0 pts), units_billed_kwh (88%, -2.5 pts), bill_amount_rs (83%, -1.7 pts)
+  llama4_maverick  mean  93.9  weakest: consumption_history (91%, -1.8 pts), bill_amount_rs (88%, -1.2 pts), consumer_number (79%, -0.5 pts)
+  kimi_k25         mean  91.9  weakest: consumption_history (87%, -2.6 pts), units_billed_kwh (88%, -2.5 pts), sanctioned_load_kw (93%, -0.7 pts)
+  ministral8b      mean  85.4  weakest: consumption_history (71%, -5.8 pts), units_billed_kwh (89%, -2.2 pts), bill_amount_rs (78%, -2.2 pts)
