@@ -25,3 +25,6 @@ eval/results/raw/
 
 # OS
 .DS_Store
+
+# local screen recordings (show the AWS account ID)
+Screencast*.mp4
