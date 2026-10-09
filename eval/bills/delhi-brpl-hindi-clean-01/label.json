@@ -1,0 +1,58 @@
+{
+  "id": "delhi-brpl-hindi-clean-01",
+  "source": "mock",
+  "source_url": null,
+  "languages": [
+    "hi",
+    "en"
+  ],
+  "difficulty": "clean",
+  "fields": {
+    "is_electricity_bill": true,
+    "discom": "BSES Rajdhani Power Limited (BRPL)",
+    "state": "Delhi",
+    "consumer_number": "152839471",
+    "consumer_name": "SUNITA MALHOTRA",
+    "tariff_category": "Domestic (DX)",
+    "is_residential": true,
+    "sanctioned_load_kw": 3.0,
+    "connection_phase": "single",
+    "billing_period_start": "2026-08-06",
+    "billing_period_end": "2026-09-05",
+    "billing_days": 30,
+    "billing_cycle": "monthly",
+    "units_billed_kwh": 342,
+    "bill_amount_rs": 1323.01,
+    "consumption_history": [
+      {
+        "month": "2026-08",
+        "units_kwh": 389
+      },
+      {
+        "month": "2026-07",
+        "units_kwh": 412
+      },
+      {
+        "month": "2026-06",
+        "units_kwh": 455
+      },
+      {
+        "month": "2026-05",
+        "units_kwh": 398
+      },
+      {
+        "month": "2026-04",
+        "units_kwh": 251
+      },
+      {
+        "month": "2026-03",
+        "units_kwh": 186
+      }
+    ],
+    "has_solar_net_meter": false,
+    "export_units_kwh": null,
+    "meter_reading_type": "actual",
+    "pincode": "110075"
+  },
+  "notes": "Tests: clean bilingual Hindi+English Delhi bill, 201-400 unit band with partial subsidy, 6-bill history (history excludes the current bill). Amount is the net payable after subsidy."
+}

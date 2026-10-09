@@ -1,0 +1,58 @@
+{
+  "id": "delhi-tpddl-3phase-7kw-01",
+  "source": "mock",
+  "source_url": null,
+  "languages": [
+    "hi",
+    "en"
+  ],
+  "difficulty": "clean",
+  "fields": {
+    "is_electricity_bill": true,
+    "discom": "Tata Power Delhi Distribution Limited (TPDDL)",
+    "state": "Delhi",
+    "consumer_number": "60014829375",
+    "consumer_name": "RAJIV KHANNA",
+    "tariff_category": "Domestic (DX)",
+    "is_residential": true,
+    "sanctioned_load_kw": 7.0,
+    "connection_phase": "three",
+    "billing_period_start": "2026-07-20",
+    "billing_period_end": "2026-08-19",
+    "billing_days": 30,
+    "billing_cycle": "monthly",
+    "units_billed_kwh": 1186,
+    "bill_amount_rs": 10491.51,
+    "consumption_history": [
+      {
+        "month": "2026-07",
+        "units_kwh": 1342
+      },
+      {
+        "month": "2026-06",
+        "units_kwh": 1408
+      },
+      {
+        "month": "2026-05",
+        "units_kwh": 1211
+      },
+      {
+        "month": "2026-04",
+        "units_kwh": 768
+      },
+      {
+        "month": "2026-03",
+        "units_kwh": 512
+      },
+      {
+        "month": "2026-02",
+        "units_kwh": 455
+      }
+    ],
+    "has_solar_net_meter": false,
+    "export_units_kwh": null,
+    "meter_reading_type": "actual",
+    "pincode": "110052"
+  },
+  "notes": "Tests: 3-phase 7 kW connection with high summer usage (1186 kWh), no subsidy, amounts in Indian comma format. Reading table also has a KVAH row (1238) and MDI row; units billed are the KWH units."
+}

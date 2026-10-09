@@ -1,0 +1,58 @@
+{
+  "id": "delhi-bypl-zero-subsidy-01",
+  "source": "mock",
+  "source_url": null,
+  "languages": [
+    "hi",
+    "en"
+  ],
+  "difficulty": "clean",
+  "fields": {
+    "is_electricity_bill": true,
+    "discom": "BSES Yamuna Power Limited (BYPL)",
+    "state": "Delhi",
+    "consumer_number": "103746258",
+    "consumer_name": "MOHD. IMRAN QURESHI",
+    "tariff_category": "Domestic (DX)",
+    "is_residential": true,
+    "sanctioned_load_kw": 2.0,
+    "connection_phase": "single",
+    "billing_period_start": "2026-08-12",
+    "billing_period_end": "2026-09-11",
+    "billing_days": 30,
+    "billing_cycle": "monthly",
+    "units_billed_kwh": 168,
+    "bill_amount_rs": 0.0,
+    "consumption_history": [
+      {
+        "month": "2026-08",
+        "units_kwh": 192
+      },
+      {
+        "month": "2026-07",
+        "units_kwh": 214
+      },
+      {
+        "month": "2026-06",
+        "units_kwh": 231
+      },
+      {
+        "month": "2026-05",
+        "units_kwh": 187
+      },
+      {
+        "month": "2026-04",
+        "units_kwh": 143
+      },
+      {
+        "month": "2026-03",
+        "units_kwh": 121
+      }
+    ],
+    "has_solar_net_meter": false,
+    "export_units_kwh": null,
+    "meter_reading_type": "actual",
+    "pincode": "110053"
+  },
+  "notes": "Tests: zero amount payable because of the Delhi 200-free-units subsidy (bill_amount_rs = 0). Units (168) must still be read correctly; history has months above and below 200."
+}

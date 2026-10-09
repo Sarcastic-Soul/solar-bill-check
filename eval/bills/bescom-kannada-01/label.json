@@ -1,0 +1,49 @@
+{
+  "id": "bescom-kannada-01",
+  "source": "mock",
+  "source_url": null,
+  "languages": [
+    "kn",
+    "en"
+  ],
+  "difficulty": "clean",
+  "fields": {
+    "is_electricity_bill": true,
+    "discom": "Bangalore Electricity Supply Company Ltd. (BESCOM)",
+    "state": "Karnataka",
+    "consumer_number": "7854123690",
+    "consumer_name": "LAKSHMI NARAYANA H",
+    "tariff_category": [
+      "LT2A(i) ಗೃಹ",
+      "LT2A(i) Domestic"
+    ],
+    "is_residential": true,
+    "sanctioned_load_kw": 2.0,
+    "connection_phase": "single",
+    "billing_period_start": "2026-08-01",
+    "billing_period_end": "2026-09-01",
+    "billing_days": 31,
+    "billing_cycle": "monthly",
+    "units_billed_kwh": 236,
+    "bill_amount_rs": 664.47,
+    "consumption_history": [
+      {
+        "month": "2026-08",
+        "units_kwh": 221
+      },
+      {
+        "month": "2026-07",
+        "units_kwh": 209
+      },
+      {
+        "month": "2026-06",
+        "units_kwh": 248
+      }
+    ],
+    "has_solar_net_meter": false,
+    "export_units_kwh": null,
+    "meter_reading_type": "actual",
+    "pincode": "560040"
+  },
+  "notes": "Tests: narrow thermal-printer spot bill with Kannada labels and Gruha Jyothi free-units subsidy (148 eligible units). Amount = net after subsidy. Two IDs printed: Account ID 7854123690 (labelled consumer_number) and RR No. S7EH-28461. Only 3 months of history."
+}

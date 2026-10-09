@@ -1,0 +1,85 @@
+{
+  "id": "msedcl-marathi-devanagari-01-photo",
+  "source": "mock",
+  "source_url": null,
+  "languages": [
+    "mr",
+    "en"
+  ],
+  "difficulty": "phone_photo",
+  "fields": {
+    "is_electricity_bill": true,
+    "discom": "Maharashtra State Electricity Distribution Co. Ltd. (MSEDCL)",
+    "state": "Maharashtra",
+    "consumer_number": "170019284563",
+    "consumer_name": [
+      "सुरेश बाळकृष्ण जाधव",
+      "Suresh Balkrishna Jadhav"
+    ],
+    "tariff_category": "90/LT I Res 1-Phase",
+    "is_residential": true,
+    "sanctioned_load_kw": 2.5,
+    "connection_phase": "single",
+    "billing_period_start": "2026-08-01",
+    "billing_period_end": "2026-08-31",
+    "billing_days": 30,
+    "billing_cycle": "monthly",
+    "units_billed_kwh": 287,
+    "bill_amount_rs": 3580.0,
+    "consumption_history": [
+      {
+        "month": "2026-08",
+        "units_kwh": 262
+      },
+      {
+        "month": "2026-07",
+        "units_kwh": 248
+      },
+      {
+        "month": "2026-06",
+        "units_kwh": 301
+      },
+      {
+        "month": "2026-05",
+        "units_kwh": 356
+      },
+      {
+        "month": "2026-04",
+        "units_kwh": 334
+      },
+      {
+        "month": "2026-03",
+        "units_kwh": 279
+      },
+      {
+        "month": "2026-02",
+        "units_kwh": 221
+      },
+      {
+        "month": "2026-01",
+        "units_kwh": 205
+      },
+      {
+        "month": "2025-12",
+        "units_kwh": 214
+      },
+      {
+        "month": "2025-11",
+        "units_kwh": 230
+      },
+      {
+        "month": "2025-10",
+        "units_kwh": 266
+      },
+      {
+        "month": "2025-09",
+        "units_kwh": 251
+      }
+    ],
+    "has_solar_net_meter": false,
+    "export_units_kwh": null,
+    "meter_reading_type": "actual",
+    "pincode": "411052"
+  },
+  "notes": "Photo-like copy of msedcl-marathi-devanagari-01 (perspective warp, 5.5 degree rotation, uneven light from the top, blur, noise, JPEG q60). Same fields. Original notes: Tests: Marathi labels with every number printed in Devanagari digits (०-९), including dates, units and the 12-month bar-chart history. Amount = rounded payable (पूर्णांक देयक); the unrounded net is within 1%. History months are the bill months printed on the chart. Consumer name is printed in Devanagari; both the printed form and the Latin transliteration are accepted."
+}

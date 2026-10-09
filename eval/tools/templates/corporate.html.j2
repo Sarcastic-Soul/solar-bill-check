@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 20px; width: 880px; background: #fff; color: #1b1b1b;
+         font-family: "Noto Sans", "DejaVu Sans", sans-serif; font-size: 12.5px; line-height: 1.35; }
+  .page { position: relative; border: 1px solid #c9c9c9; }
+  .sample { position: absolute; bottom: 8px; left: 10px; font: 700 10px/1 monospace; letter-spacing: 2px; color: #b00; border: 1px solid #b00; padding: 3px 5px; }
+  .top { display: flex; justify-content: space-between; padding: 14px 18px; border-bottom: 4px solid {{ b.accent }}; }
+  .brand { font-size: 20px; font-weight: 800; color: {{ b.accent }}; letter-spacing: .3px; }
+  .brand small { display: block; color: #444; font-weight: 400; font-size: 11.5px; letter-spacing: 0; }
+  .doc { text-align: right; font-size: 11.5px; }
+  .doc b { font-size: 15px; display: block; color: #222; }
+  .summary { display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; border-bottom: 1px solid #ddd; }
+  .summary > div { padding: 12px 16px; border-right: 1px solid #ddd; }
+  .summary > div:last-child { border-right: 0; background: {{ b.accent_light }}; }
+  .summary .lab { color: #555; font-size: 11px; text-transform: uppercase; letter-spacing: .4px; }
+  .summary .val { font-size: 17px; font-weight: 700; margin-top: 2px; }
+  .summary .huge { font-size: 24px; font-weight: 800; color: {{ b.accent }}; }
+  .body { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+  .body > div { padding: 12px 18px; }
+  .body > div:first-child { border-right: 1px solid #ddd; }
+  h4 { margin: 0 0 6px; font-size: 12px; text-transform: uppercase; letter-spacing: .5px; color: {{ b.accent }}; border-bottom: 1px solid #ddd; padding-bottom: 3px; }
+  .kv { display: grid; grid-template-columns: 150px 1fr; row-gap: 3px; margin-bottom: 12px; }
+  .kv .k { color: #555; }
+  .kv .v { font-weight: 600; }
+  table { border-collapse: collapse; width: 100%; margin-bottom: 12px; }
+  th, td { padding: 4px 6px; border-bottom: 1px solid #e3e3e3; text-align: right; }
+  th { background: #f4f4f4; font-size: 11px; text-transform: uppercase; letter-spacing: .3px; }
+  th.l, td.l { text-align: left; }
+  tr.tot td { font-weight: 800; border-top: 2px solid #333; }
+  .msg { padding: 10px 18px 34px; border-top: 1px solid #ddd; font-size: 11px; color: #444; }
+  .chart { display: flex; align-items: flex-end; gap: 10px; height: 120px; border-bottom: 1px solid #888; margin-top: 6px; }
+  .chart .col { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; height: 100%; }
+  .chart .bar { width: 60%; background: {{ b.accent }}; opacity: .85; }
+  .chart .n { font-size: 10.5px; font-weight: 700; }
+  .clab { display: flex; gap: 10px; margin-bottom: 12px; }
+  .clab div { flex: 1; text-align: center; font-size: 10px; color: #444; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="sample">SAMPLE</div>
+  <div class="top">
+    <div class="brand">{{ b.org_line1 }}<small>{{ b.org_line2 }}</small></div>
+    <div class="doc"><b>{{ b.title }}</b>{% for x in b.doc_lines %}{{ x }}<br>{% endfor %}</div>
+  </div>
+  <div class="summary">
+    {% for lab, val in b.summary %}
+    <div><div class="lab">{{ lab }}</div><div class="{{ 'huge' if loop.last else 'val' }}">{{ val }}</div></div>
+    {% endfor %}
+  </div>
+  <div class="body">
+    <div>
+      {% for title, rows in b.left_kv %}
+      <h4>{{ title }}</h4>
+      <div class="kv">{% for k, v in rows %}<div class="k">{{ k }}</div><div class="v">{{ v }}</div>{% endfor %}</div>
+      {% endfor %}
+      <h4>{{ b.reading_title }}</h4>
+      <table>
+        <tr>{% for h in b.reading_head %}<th class="{{ 'l' if loop.first }}">{{ h }}</th>{% endfor %}</tr>
+        {% for row in b.reading_rows %}<tr>{% for c in row %}<td class="{{ 'l' if loop.first }}">{{ c }}</td>{% endfor %}</tr>{% endfor %}
+      </table>
+    </div>
+    <div>
+      <h4>{{ b.charges_title }}</h4>
+      <table>
+        {% for k, v in b.charges %}<tr class="{{ 'tot' if loop.last }}"><td class="l">{{ k }}</td><td>{{ v }}</td></tr>{% endfor %}
+      </table>
+      {% if b.history_rows %}
+      <h4>{{ b.history_title }}</h4>
+      {% if b.history_bars %}
+      <div class="chart">{% for lab, val, pct in b.history_bars %}<div class="col"><div class="n">{{ val }}</div><div class="bar" style="height: {{ pct }}%"></div></div>{% endfor %}</div>
+      <div class="clab">{% for lab, val, pct in b.history_bars %}<div>{{ lab }}</div>{% endfor %}</div>
+      {% endif %}
+      <table>
+        <tr>{% for h in b.history_head %}<th class="{{ 'l' if loop.first }}">{{ h }}</th>{% endfor %}</tr>
+        {% for row in b.history_rows %}<tr>{% for c in row %}<td class="{{ 'l' if loop.first }}">{{ c }}</td>{% endfor %}</tr>{% endfor %}
+      </table>
+      {% endif %}
+    </div>
+  </div>
+  <div class="msg">{% for m in b.messages %}<div>&bull; {{ m }}</div>{% endfor %}</div>
+</div>
+</body>
+</html>

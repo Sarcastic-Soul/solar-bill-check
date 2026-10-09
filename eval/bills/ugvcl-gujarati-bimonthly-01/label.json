@@ -1,0 +1,57 @@
+{
+  "id": "ugvcl-gujarati-bimonthly-01",
+  "source": "mock",
+  "source_url": null,
+  "languages": [
+    "gu",
+    "en"
+  ],
+  "difficulty": "clean",
+  "fields": {
+    "is_electricity_bill": true,
+    "discom": "Uttar Gujarat Vij Company Ltd. (UGVCL)",
+    "state": "Gujarat",
+    "consumer_number": "29104512678",
+    "consumer_name": "PATEL HITESHBHAI RAMESHBHAI",
+    "tariff_category": [
+      "RGP (રહેણાંક)",
+      "RGP (Residential)"
+    ],
+    "is_residential": true,
+    "sanctioned_load_kw": 3.0,
+    "connection_phase": "single",
+    "billing_period_start": "2026-07-05",
+    "billing_period_end": "2026-09-04",
+    "billing_days": 61,
+    "billing_cycle": "bimonthly",
+    "units_billed_kwh": 634,
+    "bill_amount_rs": 5122.0,
+    "consumption_history": [
+      {
+        "month": "2026-07",
+        "units_kwh": 788
+      },
+      {
+        "month": "2026-05",
+        "units_kwh": 702
+      },
+      {
+        "month": "2026-03",
+        "units_kwh": 455
+      },
+      {
+        "month": "2026-01",
+        "units_kwh": 398
+      },
+      {
+        "month": "2025-11",
+        "units_kwh": 512
+      }
+    ],
+    "has_solar_net_meter": false,
+    "export_units_kwh": null,
+    "meter_reading_type": "actual",
+    "pincode": "382021"
+  },
+  "notes": "Tests: Gujarati labels, bi-monthly billing (61 days), DD/MM/YYYY dates, kW printed as 'કિ.વો.'. History lists bi-monthly periods by the end month (Gujarati month names)."
+}

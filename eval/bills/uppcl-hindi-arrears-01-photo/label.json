@@ -1,0 +1,64 @@
+{
+  "id": "uppcl-hindi-arrears-01-photo",
+  "source": "mock",
+  "source_url": null,
+  "languages": [
+    "hi",
+    "en"
+  ],
+  "difficulty": "phone_photo",
+  "fields": {
+    "is_electricity_bill": true,
+    "discom": "Madhyanchal Vidyut Vitran Nigam Ltd. (MVVNL), UPPCL",
+    "state": "Uttar Pradesh",
+    "consumer_number": "4829173650",
+    "consumer_name": [
+      "राम प्रकाश वर्मा",
+      "Ram Prakash Verma"
+    ],
+    "tariff_category": [
+      "LMV-1 घरेलू (शहरी)",
+      "LMV-1 Domestic (Urban)"
+    ],
+    "is_residential": true,
+    "sanctioned_load_kw": 2.0,
+    "connection_phase": "single",
+    "billing_period_start": "2026-07-31",
+    "billing_period_end": "2026-08-31",
+    "billing_days": 31,
+    "billing_cycle": "monthly",
+    "units_billed_kwh": 312,
+    "bill_amount_rs": 2124.15,
+    "consumption_history": [
+      {
+        "month": "2026-07",
+        "units_kwh": 356
+      },
+      {
+        "month": "2026-06",
+        "units_kwh": 441
+      },
+      {
+        "month": "2026-05",
+        "units_kwh": 398
+      },
+      {
+        "month": "2026-04",
+        "units_kwh": 287
+      },
+      {
+        "month": "2026-03",
+        "units_kwh": 214
+      },
+      {
+        "month": "2026-02",
+        "units_kwh": 198
+      }
+    ],
+    "has_solar_net_meter": false,
+    "export_units_kwh": null,
+    "meter_reading_type": "actual",
+    "pincode": "226024"
+  },
+  "notes": "Photo-like copy of uppcl-hindi-arrears-01 (perspective warp, 8 degree rotation, uneven light from the top, blur, noise, JPEG q60). Same fields. Original notes: Tests: large arrears shown separately (₹1,12,486.00) — bill_amount_rs is the current bill only (₹2,124.15), not the total payable (₹1,14,610.15). Mostly Hindi labels, Indian comma format. Name and tariff are printed in Devanagari; label lists the printed form and an English form."
+}

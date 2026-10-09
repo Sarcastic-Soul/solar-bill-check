@@ -1,0 +1,82 @@
+{
+  "id": "msedcl-lt-official-01",
+  "source": "official_sample",
+  "source_url": "https://www.mahadiscom.in/wp-content/uploads/2026/09/lt-2026-for-web.pdf",
+  "languages": [
+    "mr",
+    "en"
+  ],
+  "difficulty": "clean",
+  "fields": {
+    "is_electricity_bill": true,
+    "discom": "Maharashtra State Electricity Distribution Co. Ltd. (MSEDCL)",
+    "state": "Maharashtra",
+    "consumer_number": null,
+    "consumer_name": null,
+    "tariff_category": "90/LT I Res 1-Phase",
+    "is_residential": true,
+    "sanctioned_load_kw": 0.26,
+    "connection_phase": "single",
+    "billing_period_start": "2026-07-01",
+    "billing_period_end": "2026-09-02",
+    "billing_days": 63,
+    "billing_cycle": "monthly",
+    "units_billed_kwh": 504,
+    "bill_amount_rs": 6150.0,
+    "consumption_history": [
+      {
+        "month": "2026-09",
+        "units_kwh": 504
+      },
+      {
+        "month": "2026-08",
+        "units_kwh": 621
+      },
+      {
+        "month": "2026-07",
+        "units_kwh": 515
+      },
+      {
+        "month": "2026-06",
+        "units_kwh": 627
+      },
+      {
+        "month": "2026-05",
+        "units_kwh": 721
+      },
+      {
+        "month": "2026-04",
+        "units_kwh": 423
+      },
+      {
+        "month": "2026-03",
+        "units_kwh": 248
+      },
+      {
+        "month": "2026-02",
+        "units_kwh": 233
+      },
+      {
+        "month": "2026-01",
+        "units_kwh": 230
+      },
+      {
+        "month": "2025-12",
+        "units_kwh": 300
+      },
+      {
+        "month": "2025-11",
+        "units_kwh": 360
+      },
+      {
+        "month": "2025-09",
+        "units_kwh": 395
+      }
+    ],
+    "has_solar_net_meter": false,
+    "export_units_kwh": null,
+    "meter_reading_type": "actual",
+    "pincode": null
+  },
+  "notes": "Tests: official MSEDCL LT residential bill format (Marathi + English), page 1 of 2. Name, address and mobile are blacked out by us; consumer number, bill number and meter number are masked with X in the original, so they are null. Annotations 'Billing Period' and 'Billing History' with red arrows are added by MSEDCL, not part of a real bill. Reading dates 01-07-2026 to 02-09-2026 give 63 days (not printed; 'Bill Period: 2.10' months is printed). MSEDCL bills monthly, so billing_cycle is monthly even though this bill covers about two months. Units 504 = 32828 - 32324. bill_amount_rs is the amount printed on page 1 (6150.00); page 2 of the PDF (not included) shows an average-bill adjustment and arrears. History: chart Aug-2026..Nov-2025 plus the comparison box (Sep-2025 395, Sep-2026 504). The Oct-2025 bar has its value cut off ('ऑक्टोबर-2025...'), so it is left out."
+}

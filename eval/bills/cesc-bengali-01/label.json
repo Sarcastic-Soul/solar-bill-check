@@ -1,0 +1,58 @@
+{
+  "id": "cesc-bengali-01",
+  "source": "mock",
+  "source_url": null,
+  "languages": [
+    "bn",
+    "en"
+  ],
+  "difficulty": "clean",
+  "fields": {
+    "is_electricity_bill": true,
+    "discom": "CESC Limited",
+    "state": "West Bengal",
+    "consumer_number": "03117452890",
+    "consumer_name": "SUBRATA CHATTERJEE",
+    "tariff_category": "Domestic Urban (LT)",
+    "is_residential": true,
+    "sanctioned_load_kw": 3.0,
+    "connection_phase": "single",
+    "billing_period_start": "2026-08-04",
+    "billing_period_end": "2026-09-03",
+    "billing_days": 30,
+    "billing_cycle": "monthly",
+    "units_billed_kwh": 274,
+    "bill_amount_rs": 1995.62,
+    "consumption_history": [
+      {
+        "month": "2026-08",
+        "units_kwh": 301
+      },
+      {
+        "month": "2026-07",
+        "units_kwh": 318
+      },
+      {
+        "month": "2026-06",
+        "units_kwh": 336
+      },
+      {
+        "month": "2026-05",
+        "units_kwh": 342
+      },
+      {
+        "month": "2026-04",
+        "units_kwh": 288
+      },
+      {
+        "month": "2026-03",
+        "units_kwh": 196
+      }
+    ],
+    "has_solar_net_meter": false,
+    "export_units_kwh": null,
+    "meter_reading_type": "actual",
+    "pincode": "700026"
+  },
+  "notes": "Tests: Bengali+English labels, dotted dates (DD.MM.YYYY), history as a vertical bar chart with Bengali month names and 2-digit years (oldest left). Amount = net payable with 1% rebate."
+}

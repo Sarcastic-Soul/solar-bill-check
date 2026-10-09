@@ -1,0 +1,82 @@
+{
+  "id": "msedcl-marathi-estimated-01",
+  "source": "mock",
+  "source_url": null,
+  "languages": [
+    "mr",
+    "en"
+  ],
+  "difficulty": "clean",
+  "fields": {
+    "is_electricity_bill": true,
+    "discom": "Maharashtra State Electricity Distribution Co. Ltd. (MSEDCL)",
+    "state": "Maharashtra",
+    "consumer_number": "049012345671",
+    "consumer_name": "ANJALI PRAKASH DESHMUKH",
+    "tariff_category": "90/LT I Res 1-Phase",
+    "is_residential": true,
+    "sanctioned_load_kw": 1.2,
+    "connection_phase": "single",
+    "billing_period_start": "2026-08-03",
+    "billing_period_end": "2026-09-02",
+    "billing_days": 30,
+    "billing_cycle": "monthly",
+    "units_billed_kwh": 176,
+    "bill_amount_rs": 1940.0,
+    "consumption_history": [
+      {
+        "month": "2026-08",
+        "units_kwh": 168
+      },
+      {
+        "month": "2026-07",
+        "units_kwh": 181
+      },
+      {
+        "month": "2026-06",
+        "units_kwh": 179
+      },
+      {
+        "month": "2026-05",
+        "units_kwh": 232
+      },
+      {
+        "month": "2026-04",
+        "units_kwh": 214
+      },
+      {
+        "month": "2026-03",
+        "units_kwh": 177
+      },
+      {
+        "month": "2026-02",
+        "units_kwh": 150
+      },
+      {
+        "month": "2026-01",
+        "units_kwh": 142
+      },
+      {
+        "month": "2025-12",
+        "units_kwh": 149
+      },
+      {
+        "month": "2025-11",
+        "units_kwh": 158
+      },
+      {
+        "month": "2025-10",
+        "units_kwh": 171
+      },
+      {
+        "month": "2025-09",
+        "units_kwh": 183
+      }
+    ],
+    "has_solar_net_meter": false,
+    "export_units_kwh": null,
+    "meter_reading_type": "estimated",
+    "pincode": "422013"
+  },
+  "notes": "Tests: estimated/average bill — meter status RNA (reading not available), current reading printed as 'RNA', units (176) are the 3-month average. meter_reading_type must be 'estimated'."
+}

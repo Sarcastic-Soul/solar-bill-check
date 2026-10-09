@@ -1,0 +1,57 @@
+{
+  "id": "tnpdcl-tamil-bimonthly-01-photo",
+  "source": "mock",
+  "source_url": null,
+  "languages": [
+    "ta",
+    "en"
+  ],
+  "difficulty": "phone_photo",
+  "fields": {
+    "is_electricity_bill": true,
+    "discom": "Tamil Nadu Power Distribution Corporation Ltd (TNPDCL)",
+    "state": "Tamil Nadu",
+    "consumer_number": "06-215-004-1234",
+    "consumer_name": "K. SELVAKUMAR",
+    "tariff_category": [
+      "LA 1A (வீட்டு உபயோகம்)",
+      "LA 1A Domestic"
+    ],
+    "is_residential": true,
+    "sanctioned_load_kw": 3.0,
+    "connection_phase": "single",
+    "billing_period_start": "2026-07-10",
+    "billing_period_end": "2026-09-08",
+    "billing_days": 60,
+    "billing_cycle": "bimonthly",
+    "units_billed_kwh": 486,
+    "bill_amount_rs": 1482.0,
+    "consumption_history": [
+      {
+        "month": "2026-07",
+        "units_kwh": 512
+      },
+      {
+        "month": "2026-05",
+        "units_kwh": 598
+      },
+      {
+        "month": "2026-03",
+        "units_kwh": 455
+      },
+      {
+        "month": "2026-01",
+        "units_kwh": 402
+      },
+      {
+        "month": "2025-11",
+        "units_kwh": 438
+      }
+    ],
+    "has_solar_net_meter": false,
+    "export_units_kwh": null,
+    "meter_reading_type": "actual",
+    "pincode": "600042"
+  },
+  "notes": "Photo-like copy of tnpdcl-tamil-bimonthly-01 (perspective warp, 7 degree rotation, uneven light from the right, blur, noise, JPEG q60). Same fields. Original notes: Tests: Tamil-only labels and bi-monthly billing (60 days, 486 units for two months). History rows are bi-monthly periods; month = end month of each period. Consumer number is printed with dashes (06-215-004-1234)."
+}

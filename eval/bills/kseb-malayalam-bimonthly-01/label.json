@@ -1,0 +1,46 @@
+{
+  "id": "kseb-malayalam-bimonthly-01",
+  "source": "mock",
+  "source_url": null,
+  "languages": [
+    "ml",
+    "en"
+  ],
+  "difficulty": "clean",
+  "fields": {
+    "is_electricity_bill": true,
+    "discom": "Kerala State Electricity Board Ltd. (KSEB)",
+    "state": "Kerala",
+    "consumer_number": "1145678012345",
+    "consumer_name": "ANNIE GEORGE",
+    "tariff_category": "LT-1A Domestic",
+    "is_residential": true,
+    "sanctioned_load_kw": 3.245,
+    "connection_phase": "single",
+    "billing_period_start": "2026-07-14",
+    "billing_period_end": "2026-09-12",
+    "billing_days": 60,
+    "billing_cycle": "bimonthly",
+    "units_billed_kwh": 398,
+    "bill_amount_rs": 2452.0,
+    "consumption_history": [
+      {
+        "month": "2026-07",
+        "units_kwh": 412
+      },
+      {
+        "month": "2026-05",
+        "units_kwh": 466
+      },
+      {
+        "month": "2026-03",
+        "units_kwh": 371
+      }
+    ],
+    "has_solar_net_meter": false,
+    "export_units_kwh": null,
+    "meter_reading_type": "actual",
+    "pincode": "695014"
+  },
+  "notes": "Tests: Malayalam thermal spot bill, bi-monthly (60 days). Load is printed as connected load in watts (3245 W -> 3.245 kW). History lists bi-monthly bills by bill month."
+}

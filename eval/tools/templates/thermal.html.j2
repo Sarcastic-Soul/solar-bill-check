@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="{{ b.html_lang }}">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; }
+  html { background: #fff; }
+  body { margin: 0; padding: 14px; width: 420px; background: #fff; }
+  .slip {
+    background: #fbfbf7; color: #1d1d1d; padding: 14px 16px 18px; position: relative;
+    font-family: "Noto Mono", "DejaVu Sans Mono", "Noto Sans Kannada", "Noto Sans Malayalam", monospace;
+    font-size: 13px; line-height: 1.38; border: 1px solid #ddd;
+  }
+  .sample { position: absolute; top: 4px; right: 6px; font: 700 9px/1 monospace; letter-spacing: 2px; color: #b00; border: 1px solid #b00; padding: 2px 4px; }
+  .c { text-align: center; }
+  .b { font-weight: 700; }
+  .big { font-size: 20px; font-weight: 800; }
+  .hr { border-top: 1px dashed #444; margin: 6px 0; }
+  .row { display: flex; justify-content: space-between; gap: 8px; }
+  .row span:last-child { text-align: right; white-space: nowrap; }
+  .loc { font-family: "Noto Sans Kannada", "Noto Sans Malayalam", "Noto Sans", sans-serif; }
+  .barcode { height: 34px; margin-top: 8px; background: repeating-linear-gradient(90deg, #111 0 2px, #fff 2px 3px, #111 3px 4px, #fff 4px 7px, #111 7px 10px, #fff 10px 11px); }
+</style>
+</head>
+<body>
+<div class="slip">
+  <div class="sample">SAMPLE</div>
+  {% for line in b.head %}<div class="c {{ 'b' if loop.first }}">{{ line }}</div>{% endfor %}
+  <div class="hr"></div>
+  {% for sec in b.sections %}
+    {% if sec.title %}<div class="c b loc">{{ sec.title }}</div>{% endif %}
+    {% for k, v in sec.rows %}<div class="row"><span class="loc">{{ k }}</span><span>{{ v }}</span></div>{% endfor %}
+    <div class="hr"></div>
+  {% endfor %}
+  <div class="c loc">{{ b.pay_label }}</div>
+  <div class="c big">{{ b.pay_value }}</div>
+  {% for k, v in b.pay_rows %}<div class="row"><span class="loc">{{ k }}</span><span>{{ v }}</span></div>{% endfor %}
+  <div class="hr"></div>
+  {% for line in b.tail %}<div class="c loc" style="font-size:11.5px">{{ line }}</div>{% endfor %}
+  <div class="barcode"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="{{ b.html_lang }}">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 18px; width: {{ b.width | default(860) }}px; background: #fff; color: #111;
+    font-family: {% if b.serif %}"Noto Serif", "Noto Serif Devanagari", "Noto Serif Tamil", "Noto Serif Bengali", "Noto Serif Gujarati", serif{% else %}"Noto Sans", "Noto Sans Devanagari", "Noto Sans Tamil", "Noto Sans Kannada", "Noto Sans Bengali", "Noto Sans Gujarati", "Noto Sans Telugu", "Noto Sans Malayalam", sans-serif{% endif %};
+    font-size: 12.5px; line-height: 1.32;
+  }
+  .page { border: 1.5px solid {{ b.accent }}; position: relative; }
+  .sample { position: absolute; top: 6px; right: 8px; font: 700 10px/1 monospace; letter-spacing: 2px;
+            color: #b00; border: 1px solid #b00; padding: 3px 5px; transform: rotate(4deg); background: #fff; }
+  .hdr { background: {{ b.accent }}; color: #fff; padding: 10px 14px 8px; display: flex; justify-content: space-between; align-items: flex-end; }
+  .hdr .org { font-size: 18px; font-weight: 700; }
+  .hdr .org2 { font-size: 12px; opacity: .92; }
+  .hdr .title { text-align: right; font-size: 14px; font-weight: 700; padding-right: 70px; }
+  .hdr .title small { display: block; font-weight: 400; font-size: 11.5px; }
+  .band { background: {{ b.accent_light }}; padding: 4px 14px; font-size: 11.5px; display: flex; justify-content: space-between; border-bottom: 1px solid {{ b.accent }}; }
+  .grid { display: grid; grid-template-columns: {{ b.grid_cols | default('1.25fr 1fr 1fr') }}; gap: 0; border-bottom: 1px solid {{ b.accent }}; }
+  .grid > div { padding: 8px 12px; border-right: 1px solid #ccc; }
+  .grid > div:last-child { border-right: 0; }
+  .kv { display: grid; grid-template-columns: auto 1fr; column-gap: 8px; row-gap: 3px; }
+  .kv .k { color: #333; white-space: nowrap; }
+  .kv .v { font-weight: 600; }
+  .sec { padding: 8px 12px; border-bottom: 1px solid {{ b.accent }}; }
+  .sec h3 { margin: 0 0 6px; font-size: 12.5px; background: {{ b.accent_light }}; color: {{ b.accent_dark }}; padding: 3px 6px; border-left: 4px solid {{ b.accent }}; }
+  table { border-collapse: collapse; width: 100%; }
+  th, td { border: 1px solid #999; padding: 3px 6px; text-align: center; }
+  th { background: {{ b.th_bg | default('#eee') }}; font-weight: 600; font-size: 11.5px; }
+  td.l, th.l { text-align: left; }
+  td.r { text-align: right; }
+  .two { display: grid; grid-template-columns: {{ b.two_cols | default('1.35fr 1fr') }}; gap: 12px; }
+  .paybox { border: 2px solid {{ b.accent }}; background: {{ b.pay_bg | default('#fff8d6') }}; padding: 10px; text-align: center; }
+  .paybox .big { font-size: 26px; font-weight: 800; margin: 4px 0; }
+  .paybox .row { display: flex; justify-content: space-between; font-size: 12px; margin-top: 3px; text-align: left; }
+  .bars .bar-row { display: grid; grid-template-columns: 120px 1fr 50px; align-items: center; gap: 6px; margin: 2px 0; font-size: 11.5px; }
+  .bars .bar { height: 12px; background: {{ b.bar_color | default(b.accent) }}; }
+  .bars .num { text-align: right; font-weight: 600; }
+  .vbars { display: flex; align-items: flex-end; gap: 6px; height: 150px; border-bottom: 1px solid #666; padding: 0 4px; }
+  .vbars .col { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; }
+  .vbars .col .num { font-size: 10.5px; font-weight: 700; }
+  .vbars .col .bar { width: 70%; background: {{ b.bar_color | default(b.accent) }}; }
+  .vlabels { display: flex; gap: 6px; padding: 2px 4px 0; }
+  .vlabels div { flex: 1; text-align: center; font-size: 10px; }
+  .foot { padding: 8px 12px; font-size: 10.5px; color: #333; }
+  .foot ol { margin: 2px 0 0 16px; padding: 0; }
+  .stub { border-top: 2px dashed #777; margin-top: 4px; padding: 8px 12px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; font-size: 11.5px; }
+  .note-strip { background: #fff3c4; border: 1px solid #e0c060; padding: 5px 8px; margin-top: 6px; font-size: 11.5px; }
+  .neg { color: #0a6b2a; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="sample">SAMPLE</div>
+  <div class="hdr">
+    <div>
+      <div class="org">{{ b.org_line1 }}</div>
+      {% if b.org_line2 %}<div class="org2">{{ b.org_line2 }}</div>{% endif %}
+    </div>
+    <div class="title">{{ b.title }}{% if b.title2 %}<small>{{ b.title2 }}</small>{% endif %}</div>
+  </div>
+  {% if b.band %}<div class="band">{% for x in b.band %}<span>{{ x }}</span>{% endfor %}</div>{% endif %}
+
+  <div class="grid">
+    {% for col in b.info_cols %}
+    <div class="kv">
+      {% for k, v in col %}<div class="k">{{ k }}</div><div class="v">{{ v }}</div>{% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="sec">
+    <h3>{{ b.reading_title }}</h3>
+    <table>
+      <tr>{% for h in b.reading_head %}<th>{{ h }}</th>{% endfor %}</tr>
+      {% for row in b.reading_rows %}<tr>{% for c in row %}<td>{{ c }}</td>{% endfor %}</tr>{% endfor %}
+    </table>
+    {% if b.reading_note %}<div class="note-strip">{{ b.reading_note }}</div>{% endif %}
+  </div>
+
+  {% if b.solar_rows %}
+  <div class="sec">
+    <h3>{{ b.solar_title }}</h3>
+    <table>
+      <tr>{% for h in b.solar_head %}<th>{{ h }}</th>{% endfor %}</tr>
+      {% for row in b.solar_rows %}<tr>{% for c in row %}<td>{{ c }}</td>{% endfor %}</tr>{% endfor %}
+    </table>
+  </div>
+  {% endif %}
+
+  <div class="sec">
+    <div class="two">
+      <div>
+        <h3>{{ b.charges_title }}</h3>
+        {% if b.slab_rows %}
+        <table style="margin-bottom:6px">
+          <tr>{% for h in b.slab_head %}<th>{{ h }}</th>{% endfor %}</tr>
+          {% for row in b.slab_rows %}<tr>{% for c in row %}<td>{{ c }}</td>{% endfor %}</tr>{% endfor %}
+        </table>
+        {% endif %}
+        <table>
+          {% for k, v in b.charges %}<tr><td class="l">{{ k }}</td><td class="r">{{ v }}</td></tr>{% endfor %}
+        </table>
+      </div>
+      <div>
+        <div class="paybox">
+          <div>{{ b.pay_label }}</div>
+          <div class="big">{{ b.pay_value }}</div>
+          {% for k, v in b.pay_rows %}<div class="row"><span>{{ k }}</span><b>{{ v }}</b></div>{% endfor %}
+        </div>
+        {% if b.history_side %}
+        <div style="margin-top:10px">
+          <h3>{{ b.history_title }}</h3>
+          <table>
+            <tr>{% for h in b.history_head %}<th>{{ h }}</th>{% endfor %}</tr>
+            {% for row in b.history_rows %}<tr>{% for c in row %}<td>{{ c }}</td>{% endfor %}</tr>{% endfor %}
+          </table>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  {% if b.history_rows and not b.history_side %}
+  <div class="sec">
+    <h3>{{ b.history_title }}</h3>
+    {% if b.history_style == 'hbars' %}
+      <div class="bars">
+      {% for lab, val, pct in b.history_bars %}
+        <div class="bar-row"><span>{{ lab }}</span><div class="bar" style="width: {{ pct }}%"></div><span class="num">{{ val }}</span></div>
+      {% endfor %}
+      </div>
+    {% elif b.history_style == 'vbars' %}
+      <div class="vbars">
+      {% for lab, val, pct in b.history_bars %}
+        <div class="col"><div class="num">{{ val }}</div><div class="bar" style="height: {{ pct }}%"></div></div>
+      {% endfor %}
+      </div>
+      <div class="vlabels">{% for lab, val, pct in b.history_bars %}<div>{{ lab }}</div>{% endfor %}</div>
+    {% else %}
+      <table>
+        <tr>{% for h in b.history_head %}<th>{{ h }}</th>{% endfor %}</tr>
+        {% for row in b.history_rows %}<tr>{% for c in row %}<td>{{ c }}</td>{% endfor %}</tr>{% endfor %}
+      </table>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  {% if b.footer %}
+  <div class="foot">
+    <b>{{ b.footer_title }}</b>
+    <ol>{% for f in b.footer %}<li>{{ f }}</li>{% endfor %}</ol>
+  </div>
+  {% endif %}
+
+  {% if b.stub %}
+  <div class="stub">{% for x in b.stub %}<div>{{ x | safe }}</div>{% endfor %}</div>
+  {% endif %}
+</div>
+</body>
+</html>

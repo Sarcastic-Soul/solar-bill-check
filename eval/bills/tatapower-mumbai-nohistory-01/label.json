@@ -1,0 +1,32 @@
+{
+  "id": "tatapower-mumbai-nohistory-01",
+  "source": "mock",
+  "source_url": null,
+  "languages": [
+    "en"
+  ],
+  "difficulty": "clean",
+  "fields": {
+    "is_electricity_bill": true,
+    "discom": "The Tata Power Company Ltd. (Mumbai Distribution)",
+    "state": "Maharashtra",
+    "consumer_number": "900012345678",
+    "consumer_name": "ARJUN MEHTA",
+    "tariff_category": "LT-I Residential",
+    "is_residential": true,
+    "sanctioned_load_kw": 3.0,
+    "connection_phase": "single",
+    "billing_period_start": "2026-08-08",
+    "billing_period_end": "2026-09-07",
+    "billing_days": 30,
+    "billing_cycle": "monthly",
+    "units_billed_kwh": 218,
+    "bill_amount_rs": 2156.0,
+    "consumption_history": null,
+    "has_solar_net_meter": false,
+    "export_units_kwh": null,
+    "meter_reading_type": "actual",
+    "pincode": "400071"
+  },
+  "notes": "Tests: English-only bill with just the current month and no consumption history; consumption_history must be null (a model should not invent past months)."
+}

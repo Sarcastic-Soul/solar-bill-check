@@ -1,0 +1,58 @@
+{
+  "id": "tgspdcl-telugu-commercial-01",
+  "source": "mock",
+  "source_url": null,
+  "languages": [
+    "te",
+    "en"
+  ],
+  "difficulty": "clean",
+  "fields": {
+    "is_electricity_bill": true,
+    "discom": "Telangana Southern Power Distribution Company Ltd. (TGSPDCL)",
+    "state": "Telangana",
+    "consumer_number": "104582731",
+    "consumer_name": "SRI VENKATESWARA TIFFIN CENTRE",
+    "tariff_category": "LT-II(A) Non-Domestic/Commercial",
+    "is_residential": false,
+    "sanctioned_load_kw": 4.0,
+    "connection_phase": "single",
+    "billing_period_start": "2026-08-10",
+    "billing_period_end": "2026-09-09",
+    "billing_days": 30,
+    "billing_cycle": "monthly",
+    "units_billed_kwh": 642,
+    "bill_amount_rs": 6740.52,
+    "consumption_history": [
+      {
+        "month": "2026-08",
+        "units_kwh": 610
+      },
+      {
+        "month": "2026-07",
+        "units_kwh": 588
+      },
+      {
+        "month": "2026-06",
+        "units_kwh": 702
+      },
+      {
+        "month": "2026-05",
+        "units_kwh": 745
+      },
+      {
+        "month": "2026-04",
+        "units_kwh": 690
+      },
+      {
+        "month": "2026-03",
+        "units_kwh": 612
+      }
+    ],
+    "has_solar_net_meter": false,
+    "export_units_kwh": null,
+    "meter_reading_type": "actual",
+    "pincode": "500072"
+  },
+  "notes": "Tests: commercial (non-residential) LT-II(A) category, is_residential=false. Telugu labels. Two IDs printed: USC No. 104582731 (labelled as consumer_number) and Service No. B2-114-0451."
+}

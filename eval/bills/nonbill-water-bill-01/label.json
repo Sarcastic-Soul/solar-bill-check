@@ -1,0 +1,33 @@
+{
+  "id": "nonbill-water-bill-01",
+  "source": "mock",
+  "source_url": null,
+  "languages": [
+    "mr",
+    "en"
+  ],
+  "difficulty": "clean",
+  "fields": {
+    "is_electricity_bill": false,
+    "discom": null,
+    "state": null,
+    "consumer_number": null,
+    "consumer_name": null,
+    "tariff_category": null,
+    "is_residential": null,
+    "sanctioned_load_kw": null,
+    "connection_phase": null,
+    "billing_period_start": null,
+    "billing_period_end": null,
+    "billing_days": null,
+    "billing_cycle": null,
+    "units_billed_kwh": null,
+    "bill_amount_rs": null,
+    "consumption_history": null,
+    "has_solar_net_meter": null,
+    "export_units_kwh": null,
+    "meter_reading_type": null,
+    "pincode": null
+  },
+  "notes": "Tests: not an electricity bill — a municipal water bill that looks like a utility bill (meter readings, consumption history in KL, amount). is_electricity_bill=false and every other field null."
+}

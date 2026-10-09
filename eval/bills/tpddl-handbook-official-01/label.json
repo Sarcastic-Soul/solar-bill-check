@@ -1,0 +1,62 @@
+{
+  "id": "tpddl-handbook-official-01",
+  "source": "official_sample",
+  "source_url": "https://tatapower-ddl.com/Editor_UploadedDocuments/Content/Customer_Handbook_FY26.pdf",
+  "languages": [
+    "hi",
+    "en"
+  ],
+  "difficulty": "blurry",
+  "fields": {
+    "is_electricity_bill": true,
+    "discom": "Tata Power Delhi Distribution Limited (TPDDL)",
+    "state": "Delhi",
+    "consumer_number": null,
+    "consumer_name": null,
+    "tariff_category": "Domestic Lighting DL",
+    "is_residential": true,
+    "sanctioned_load_kw": 1.0,
+    "connection_phase": "single",
+    "billing_period_start": "2024-12-27",
+    "billing_period_end": "2025-01-21",
+    "billing_days": 26,
+    "billing_cycle": "monthly",
+    "units_billed_kwh": 100,
+    "bill_amount_rs": 0.0,
+    "consumption_history": [
+      {
+        "month": "2025-01",
+        "units_kwh": 100
+      },
+      {
+        "month": "2024-12",
+        "units_kwh": 70
+      },
+      {
+        "month": "2024-10",
+        "units_kwh": 286
+      },
+      {
+        "month": "2024-09",
+        "units_kwh": 283
+      },
+      {
+        "month": "2024-08",
+        "units_kwh": 366
+      },
+      {
+        "month": "2024-07",
+        "units_kwh": 311
+      }
+    ],
+    "has_solar_net_meter": false,
+    "export_units_kwh": null,
+    "meter_reading_type": "actual",
+    "pincode": null
+  },
+  "notes": "Tests: official TPDDL sample bill from the FY26 customer handbook (page labelled 08), Hindi + English. Low resolution in the source PDF, and orange 'Step N' stickers cover parts of the bill, hence difficulty blurry. Name and address are blank; the CA number is cut off ('60...'), so null. Readings 184 - 77 = 107 units consumed; 7 CCT/LED/WiFi units are deducted and energy is charged on 100 units, so units_billed_kwh = 100. Net current demand 448.56 is fully cancelled by the Delhi subsidy (-448.56); the pay box says NOT TO PAY, so bill_amount_rs = 0. History is the last-six-bills table on the right (period end months); the second row's period (27/10/24 to 26/12/24, 70 units) is hard to read.",
+  "low_confidence_fields": [
+    "consumption_history",
+    "billing_period_start"
+  ]
+}

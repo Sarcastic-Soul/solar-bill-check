@@ -1,0 +1,57 @@
+{
+  "id": "adani-mumbai-solar-english-01-photo",
+  "source": "mock",
+  "source_url": null,
+  "languages": [
+    "en"
+  ],
+  "difficulty": "phone_photo",
+  "fields": {
+    "is_electricity_bill": true,
+    "discom": "Adani Electricity Mumbai Ltd. (AEML)",
+    "state": "Maharashtra",
+    "consumer_number": "100387462",
+    "consumer_name": "MEERA KRISHNAN IYER",
+    "tariff_category": "LT-I(B) Residential — Net Metering",
+    "is_residential": true,
+    "sanctioned_load_kw": 5.0,
+    "connection_phase": "single",
+    "billing_period_start": "2026-08-01",
+    "billing_period_end": "2026-08-31",
+    "billing_days": 30,
+    "billing_cycle": "monthly",
+    "units_billed_kwh": 274,
+    "bill_amount_rs": 3024.0,
+    "consumption_history": [
+      {
+        "month": "2026-07",
+        "units_kwh": 217
+      },
+      {
+        "month": "2026-06",
+        "units_kwh": 258
+      },
+      {
+        "month": "2026-05",
+        "units_kwh": 338
+      },
+      {
+        "month": "2026-04",
+        "units_kwh": 289
+      },
+      {
+        "month": "2026-03",
+        "units_kwh": 198
+      },
+      {
+        "month": "2026-02",
+        "units_kwh": 155
+      }
+    ],
+    "has_solar_net_meter": true,
+    "export_units_kwh": 238,
+    "meter_reading_type": "actual",
+    "pincode": "400076"
+  },
+  "notes": "Photo-like copy of adani-mumbai-solar-english-01 (perspective warp, 6 degree rotation, uneven light from the left, blur, noise, JPEG q60). Same fields. Original notes: Tests: home that already has rooftop solar with a net meter (import 512, export 238, net billed 274). units_billed_kwh = net billed units; history = net billed units per month (the table also prints import and export columns, which should not be used as history)."
+}

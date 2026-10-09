@@ -1,0 +1,85 @@
+{
+  "id": "msedcl-solar-official-01",
+  "source": "official_sample",
+  "source_url": "https://www.mahadiscom.in/wp-content/uploads/2026/09/ltip-solar-2026-for-web.pdf",
+  "languages": [
+    "en"
+  ],
+  "difficulty": "clean",
+  "fields": {
+    "is_electricity_bill": true,
+    "discom": "Maharashtra State Electricity Distribution Co. Ltd. (MSEDCL)",
+    "state": "Maharashtra",
+    "consumer_number": null,
+    "consumer_name": null,
+    "tariff_category": "35 LT-III A Public Water Works",
+    "is_residential": false,
+    "sanctioned_load_kw": 2.98,
+    "connection_phase": null,
+    "billing_period_start": "2026-07-31",
+    "billing_period_end": "2026-08-31",
+    "billing_days": 31,
+    "billing_cycle": "monthly",
+    "units_billed_kwh": 384,
+    "bill_amount_rs": 2706.79,
+    "consumption_history": [
+      {
+        "month": "2026-08",
+        "units_kwh": 369
+      },
+      {
+        "month": "2026-07",
+        "units_kwh": 416
+      },
+      {
+        "month": "2026-06",
+        "units_kwh": 471
+      },
+      {
+        "month": "2026-05",
+        "units_kwh": 411
+      },
+      {
+        "month": "2026-04",
+        "units_kwh": 461
+      },
+      {
+        "month": "2026-03",
+        "units_kwh": 407
+      },
+      {
+        "month": "2026-02",
+        "units_kwh": 362
+      },
+      {
+        "month": "2026-01",
+        "units_kwh": 477
+      },
+      {
+        "month": "2025-12",
+        "units_kwh": 313
+      },
+      {
+        "month": "2025-11",
+        "units_kwh": 442
+      },
+      {
+        "month": "2025-10",
+        "units_kwh": 359
+      },
+      {
+        "month": "2025-09",
+        "units_kwh": 313
+      },
+      {
+        "month": "2025-08",
+        "units_kwh": 329
+      }
+    ],
+    "has_solar_net_meter": true,
+    "export_units_kwh": 1,
+    "meter_reading_type": "actual",
+    "pincode": null
+  },
+  "notes": "Tests: official MSEDCL LT-IP solar net-meter bill format (English), pages 1 and 2 side by side; page 3 of the PDF is blank. Non-residential (public water works, LT-III A). Consumer number, name, address and pincode are masked with X in the original, so null. Sanctioned load is printed as 4.00 HP; labelled as 2.98 kW (1 HP = 0.746 kW). No phase printed. Units billed 384 = 385 import - 1 export (Total Consumption 384.00; 'Billed: 384.00'). bill_amount_rs is TOTAL CURRENT BILL 2706.79; principal arrears 2054.45 are separate (rounded total 4760.00). History is the 13-month BILLING HISTORY table. The yellow highlight boxes and the 'Billing History' arrow are MSEDCL annotations."
+}
