@@ -1,6 +1,6 @@
-# Solar Bill Check: writeup (draft)
+# Solar Bill Check: writeup
 
-**Track:** Waste and Energy · **Live app:** https://main.d2y09rdd9synq1.amplifyapp.com · **Repo:** https://github.com/Sarcastic-Soul/solar-bill-check
+**Track:** Waste and Energy · **Live app:** https://main.d2y09rdd9synq1.amplifyapp.com · **Repo:** https://github.com/Sarcastic-Soul/solar-bill-check · **Demo video:** VIDEO_LINK
 
 ## The problem
 
