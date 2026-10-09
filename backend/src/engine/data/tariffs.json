@@ -1,0 +1,247 @@
+{
+  "version": "2026-10-09",
+  "notes": [
+    "Slab bounds are cumulative units per billing period ('up_to': null means no upper bound). Billing is telescopic.",
+    "Charge 'base' lists what a percentage charge is applied to: 'fixed', 'energy' or the code of an earlier charge.",
+    "accuracy: 'exact' = regulator tariff order; 'estimate' = news / installer sources, flagged in the UI.",
+    "status on a single number: 'official', 'approx' (official structure, value moves month to month), 'reported' (news), 'default' (our assumption)."
+  ],
+  "fallback": {
+    "export_rate_rs_per_kwh": 2.0,
+    "export_rate_status": "default",
+    "export_rate_note": "Conservative default where the state's year-end surplus rate is not confirmed.",
+    "default_effective_rate_rs_per_kwh": 7.0,
+    "default_effective_rate_note": "Used only when the bill has no usable amount (e.g. a zero bill) and the DISCOM is unknown."
+  },
+  "schedules": {
+    "DELHI_DOMESTIC": {
+      "label": "Delhi domestic (DX), DERC tariff order",
+      "category": "Domestic",
+      "accuracy": "exact",
+      "source_url": "https://www.derc.gov.in/",
+      "secondary_source_url": "https://tatapower-ddl.com/Editor_UploadedDocuments/Content/Customer_Handbook_FY26.pdf",
+      "as_of": "2026-10-09",
+      "billing_cycle": "monthly",
+      "fixed_charge": {
+        "basis": "per_kw_band",
+        "note": "Whole sanctioned load billed at the rate of the band it falls in (not telescopic). Bands above 15 kW not verified; 100/kW used.",
+        "bands": [
+          {"up_to_kw": 2, "rate": 20},
+          {"up_to_kw": 5, "rate": 50},
+          {"up_to_kw": null, "rate": 100}
+        ]
+      },
+      "energy_slabs": [
+        {"up_to": 200, "rate": 3.00},
+        {"up_to": 400, "rate": 4.50},
+        {"up_to": 800, "rate": 6.50},
+        {"up_to": 1200, "rate": 7.00},
+        {"up_to": null, "rate": 8.00}
+      ],
+      "charges": [
+        {"code": "PPAC", "label": "Power Purchase Adjustment Charge", "kind": "pct", "rate": 0.18, "base": ["fixed", "energy"], "status": "approx",
+         "note": "Varies by DISCOM and quarter (about 16-19%). Override per bill if printed."},
+        {"code": "SURCHARGE", "label": "Surcharge (regulatory asset recovery)", "kind": "pct", "rate": 0.08, "base": ["fixed", "energy"], "status": "official"},
+        {"code": "PENSION_TRUST", "label": "Pension Trust surcharge", "kind": "pct", "rate": 0.07, "base": ["fixed", "energy"], "status": "approx",
+         "note": "RESEARCH.md lists 5%; recent Delhi bills (and our mock bills) print 7%. Using 7%."},
+        {"code": "ELECTRICITY_TAX", "label": "Electricity tax", "kind": "pct", "rate": 0.05, "base": ["fixed", "energy", "PPAC", "SURCHARGE", "PENSION_TRUST"], "status": "official"}
+      ],
+      "free_units": {
+        "kind": "band_waiver",
+        "label": "Delhi Govt. domestic subsidy",
+        "requires_opt_in": true,
+        "default_on": true,
+        "source_url": "https://www.bsesdelhi.com/",
+        "note": "Up to 200 units: whole bill waived. 201-400 units: 50% of energy charges, capped at Rs 800. Above 400: no subsidy.",
+        "bands": [
+          {"up_to": 200, "waive": "bill"},
+          {"up_to": 400, "waive": "energy_share", "share": 0.5, "cap_rs": 800},
+          {"up_to": null, "waive": "none"}
+        ]
+      },
+      "net_metering": {
+        "export_rate_rs_per_kwh": 2.0,
+        "status": "default",
+        "note": "Delhi pays year-end surplus at the DISCOM's average power purchase cost; the exact figure is not published per year, so a conservative Rs 2 is used."
+      }
+    },
+    "MSEDCL_LT1B": {
+      "label": "MSEDCL LT I(B) Residential, FY 2026-27",
+      "category": "LT I(B) Residential",
+      "accuracy": "exact",
+      "source_url": "https://www.mahadiscom.in/wp-content/uploads/2026/09/lt-2026-for-web.pdf",
+      "secondary_source_url": "https://merc.gov.in/",
+      "as_of": "2026-10-09",
+      "billing_cycle": "monthly",
+      "fixed_charge": {
+        "basis": "per_phase",
+        "single": 130,
+        "three": 435
+      },
+      "energy_slabs": [
+        {"up_to": 100, "rate": 5.56},
+        {"up_to": 300, "rate": 12.40},
+        {"up_to": 500, "rate": 16.64},
+        {"up_to": null, "rate": 19.13}
+      ],
+      "energy_slabs_note": "Rates include the wheeling charge (about Rs 1.60/unit). FAC is left out because it changes every month.",
+      "charges": [
+        {"code": "ELECTRICITY_DUTY", "label": "Electricity duty", "kind": "pct", "rate": 0.16, "base": ["fixed", "energy"], "status": "approx",
+         "note": "16% is the urban residential duty; it differs by area. Approximate."}
+      ],
+      "free_units": null,
+      "net_metering": {
+        "export_rate_rs_per_kwh": 2.82,
+        "status": "official",
+        "source_url": "https://merc.gov.in/",
+        "note": "Year-end surplus paid at Rs 2.82/kWh for FY 2026-27."
+      }
+    },
+    "UPPCL_LMV1_URBAN": {
+      "label": "UPPCL LMV-1 Domestic (urban, metered)",
+      "category": "LMV-1 Domestic Urban",
+      "accuracy": "exact",
+      "source_url": "https://www.uperc.org/",
+      "as_of": "2026-10-09",
+      "billing_cycle": "monthly",
+      "fixed_charge": {
+        "basis": "per_kw",
+        "rate": 110,
+        "min_kw": 1
+      },
+      "energy_slabs": [
+        {"up_to": 150, "rate": 5.50},
+        {"up_to": 300, "rate": 6.00},
+        {"up_to": null, "rate": 6.50}
+      ],
+      "charges": [
+        {"code": "ELECTRICITY_DUTY", "label": "Electricity duty", "kind": "pct", "rate": 0.05, "base": ["fixed", "energy"], "status": "approx"}
+      ],
+      "free_units": null,
+      "net_metering": {
+        "export_rate_rs_per_kwh": 2.0,
+        "status": "default",
+        "note": "UP year-end surplus rate not confirmed (sources say Rs 0.50-2)."
+      }
+    },
+    "BESCOM_LT2A": {
+      "label": "BESCOM LT-2(a) Domestic",
+      "category": "LT-2(a) Domestic",
+      "accuracy": "estimate",
+      "source_url": "https://kerc.karnataka.gov.in/",
+      "as_of": "2026-10-09",
+      "billing_cycle": "monthly",
+      "fixed_charge": {
+        "basis": "per_kw",
+        "rate": 145,
+        "min_kw": 1,
+        "note": "News reports give Rs 145-175/kW; lower end used."
+      },
+      "energy_slabs": [
+        {"up_to": null, "rate": 5.80}
+      ],
+      "charges": [
+        {"code": "ELECTRICITY_TAX", "label": "Electricity tax", "kind": "pct", "rate": 0.09, "base": ["energy"], "status": "reported"}
+      ],
+      "free_units": {
+        "kind": "free_units",
+        "label": "Gruha Jyothi",
+        "requires_opt_in": true,
+        "default_on": true,
+        "source_url": "https://sevasindhugs.karnataka.gov.in/",
+        "note": "Free units up to last year's average + 10%, capped at 200. If a month goes above 200 units the whole bill is payable.",
+        "tiers": [
+          {"up_to": 200, "free_units": 200},
+          {"up_to": null, "free_units": 0}
+        ],
+        "entitlement": {"multiplier": 1.1, "cap": 200},
+        "prorate_fixed": true
+      },
+      "net_metering": {
+        "export_rate_rs_per_kwh": 2.14,
+        "status": "official",
+        "note": "KERC rates for subsidised domestic systems from 25 Aug 2026. Whether domestic surplus is net- or gross-metered is unconfirmed.",
+        "by_size": [
+          {"up_to_kw": 2, "rate": 1.96},
+          {"up_to_kw": 3, "rate": 2.14},
+          {"up_to_kw": null, "rate": 2.58}
+        ]
+      }
+    },
+    "TNPDCL_LT1A": {
+      "label": "TNPDCL LT-IA Domestic (bi-monthly)",
+      "category": "LT-IA Domestic",
+      "accuracy": "estimate",
+      "source_url": "https://www.tnerc.gov.in/",
+      "as_of": "2026-10-09",
+      "billing_cycle": "bimonthly",
+      "fixed_charge": {
+        "basis": "none"
+      },
+      "energy_slabs": [
+        {"up_to": 400, "rate": 4.70},
+        {"up_to": 500, "rate": 6.30},
+        {"up_to": 600, "rate": 8.40},
+        {"up_to": 800, "rate": 9.45},
+        {"up_to": 1000, "rate": 10.50},
+        {"up_to": null, "rate": 11.55}
+      ],
+      "energy_slabs_note": "Consumer-paid rates per 2-month bill after the state subsidy. Free units come off the bottom of these slabs.",
+      "charges": [],
+      "free_units": {
+        "kind": "free_units",
+        "label": "TN free units",
+        "requires_opt_in": false,
+        "default_on": true,
+        "source_url": "https://www.tnerc.gov.in/",
+        "note": "Per 2-month bill: first 200 units free when the bill is 500 units or less; above 500, only the first 100 are free.",
+        "tiers": [
+          {"up_to": 500, "free_units": 200},
+          {"up_to": null, "free_units": 100}
+        ],
+        "prorate_fixed": false
+      },
+      "net_metering": {
+        "export_rate_rs_per_kwh": 2.0,
+        "status": "default",
+        "note": "TN year-end surplus rate not confirmed."
+      }
+    }
+  },
+  "discoms": {
+    "BRPL": {"name": "BSES Rajdhani Power Limited", "state": "Delhi", "schedule": "DELHI_DOMESTIC",
+             "aliases": ["BRPL", "BSES RAJDHANI"]},
+    "BYPL": {"name": "BSES Yamuna Power Limited", "state": "Delhi", "schedule": "DELHI_DOMESTIC",
+             "aliases": ["BYPL", "BSES YAMUNA"]},
+    "TPDDL": {"name": "Tata Power Delhi Distribution Limited", "state": "Delhi", "schedule": "DELHI_DOMESTIC",
+              "aliases": ["TPDDL", "TATA POWER DELHI", "TATA POWER-DDL", "TATA POWER DDL", "NDPL"]},
+    "MSEDCL": {"name": "Maharashtra State Electricity Distribution Co. Ltd.", "state": "Maharashtra", "schedule": "MSEDCL_LT1B",
+               "aliases": ["MSEDCL", "MAHADISCOM", "MAHAVITARAN", "MAHARASHTRA STATE ELECTRICITY DISTRIBUTION", "महावितरण"]},
+    "UPPCL": {"name": "Uttar Pradesh Power Corporation Ltd. (incl. MVVNL, PVVNL, DVVNL, PuVVNL, KESCo)", "state": "Uttar Pradesh",
+              "schedule": "UPPCL_LMV1_URBAN",
+              "aliases": ["UPPCL", "MVVNL", "PVVNL", "DVVNL", "PUVVNL", "KESCO", "MADHYANCHAL", "PASCHIMANCHAL", "DAKSHINANCHAL", "PURVANCHAL", "KANPUR ELECTRICITY SUPPLY"]},
+    "BESCOM": {"name": "Bangalore Electricity Supply Company Ltd.", "state": "Karnataka", "schedule": "BESCOM_LT2A",
+               "aliases": ["BESCOM", "BANGALORE ELECTRICITY SUPPLY", "BENGALURU ELECTRICITY SUPPLY"]},
+    "MESCOM": {"name": "Mangalore Electricity Supply Company Ltd.", "state": "Karnataka", "schedule": "BESCOM_LT2A",
+               "aliases": ["MESCOM", "MANGALORE ELECTRICITY SUPPLY"]},
+    "HESCOM": {"name": "Hubli Electricity Supply Company Ltd.", "state": "Karnataka", "schedule": "BESCOM_LT2A",
+               "aliases": ["HESCOM", "HUBLI ELECTRICITY SUPPLY"]},
+    "GESCOM": {"name": "Gulbarga Electricity Supply Company Ltd.", "state": "Karnataka", "schedule": "BESCOM_LT2A",
+               "aliases": ["GESCOM", "GULBARGA ELECTRICITY SUPPLY", "KALABURAGI ELECTRICITY SUPPLY"]},
+    "CESC_MYSORE": {"name": "Chamundeshwari Electricity Supply Corporation Ltd.", "state": "Karnataka", "schedule": "BESCOM_LT2A",
+                    "aliases": ["CESC MYSORE", "CESC MYSURU", "CHAMUNDESHWARI"]},
+    "TNPDCL": {"name": "Tamil Nadu Power Distribution Corporation Ltd.", "state": "Tamil Nadu", "schedule": "TNPDCL_LT1A",
+               "aliases": ["TNPDCL", "TANGEDCO", "TNEB", "TAMIL NADU POWER DISTRIBUTION", "TAMIL NADU GENERATION AND DISTRIBUTION"]}
+  },
+  "state_defaults": {
+    "Delhi": "BRPL",
+    "Uttar Pradesh": "UPPCL",
+    "Tamil Nadu": "TNPDCL",
+    "Maharashtra": "MSEDCL",
+    "Karnataka": "BESCOM"
+  },
+  "state_default_notes": {
+    "Maharashtra": "Mumbai (pincodes 400xxx) is served by BEST, Adani and Tata Power, so MSEDCL is not assumed there.",
+    "Karnataka": "Other Karnataka ESCOMs (MESCOM, HESCOM, GESCOM, CESC Mysore) follow the same KERC domestic tariff; BESCOM's schedule is used (fixed charges differ slightly)."
+  }
+}
