@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build",
     "preview": "vite preview",
     "lint": "oxlint src",
-    "typecheck": "tsc -b"
+    "typecheck": "tsc -b",
+    "e2e": "node e2e/flow.mjs"
   },
   "dependencies": {
     "@fontsource/hind": "5.3.0",
@@ -29,6 +30,7 @@
     "@types/react-dom": "19.3.0",
     "@vitejs/plugin-react": "6.1.2",
     "oxlint": "1.87.0",
+    "playwright": "1.64.0",
     "tailwindcss": "4.3.3",
     "typescript": "6.0.3",
     "vite": "8.3.4"

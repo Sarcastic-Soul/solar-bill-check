@@ -46,3 +46,12 @@ Flow state between screens is kept in `sessionStorage` (`sbc.flow.v1`); the bill
 - CloudFront: add custom error responses for 403 and 404 that return `/index.html` with status 200.
 
 The backend has to allow the site's origin in CORS.
+
+## End-to-end test
+
+`e2e/flow.mjs` drives the whole flow in Chrome with real test bills from `eval/bills/` against the live API: home, Delhi bill to plan (Listen and chat), share link in Hindi, a phone photo with disagreements, a water bill, manual entry and an expired link.
+
+```sh
+npm run build && npm run preview        # in one terminal, or skip and point BASE at the live site
+BASE=https://main.d2y09rdd9synq1.amplifyapp.com npm run e2e
+```
