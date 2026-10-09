@@ -5,6 +5,7 @@
     POST /plan         {fields, pincode, answers, overrides} -> plan + planId (saved, masked)
     GET  /plan/{id}                                         -> stored plan (shareable link)
     POST /speak        {text, lang: hi|en}                 -> base64 MP3 (Polly Kajal neural)
+    POST /chat         {sessionId?, planId?, message, lang?} -> {reply, sessionId} (Strands agent)
     GET  /health
 
 CORS is configured on the Function URL (template.yaml), so no CORS headers are added here.
@@ -24,6 +25,7 @@ from aws_lambda_powertools.event_handler import (
 )
 from aws_lambda_powertools.event_handler.exceptions import NotFoundError
 
+from . import chat as chat_mod
 from . import extract as extract_mod
 from . import plan as plan_mod
 from . import speak as speak_mod
@@ -102,6 +104,11 @@ def get_plan(plan_id: str):
 @app.post("/speak")
 def speak():
     return _json(200, speak_mod.speak(_body()))
+
+
+@app.post("/chat")
+def chat():
+    return _json(200, chat_mod.chat(_body()))
 
 
 @logger.inject_lambda_context(log_event=False, clear_state=True)

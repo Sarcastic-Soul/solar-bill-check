@@ -8,6 +8,7 @@ from functools import cache
 REGION = os.environ.get("AWS_REGION", "ap-south-1")
 BILLS_BUCKET = os.environ.get("BILLS_BUCKET", "")
 PLANS_TABLE = os.environ.get("PLANS_TABLE", "")
+CHATS_TABLE = os.environ.get("CHATS_TABLE", "")
 MAX_UPLOAD_BYTES = int(os.environ.get("MAX_UPLOAD_BYTES", str(8 * 1024 * 1024)))
 PLAN_TTL_DAYS = int(os.environ.get("PLAN_TTL_DAYS", "30"))
 

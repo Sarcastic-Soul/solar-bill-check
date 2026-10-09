@@ -34,10 +34,10 @@ Checked on 2026-10-09 with `npm view`, PyPI, GitHub releases and the AWS docs.
 | boto3 | 1.43.110 |
 | strands-agents | 1.59.0. **Not** strands-agents-tools: it doubles the package to 164 MB. We write our own `@tool` functions |
 | CORS | Set only in SAM `FunctionUrlConfig.Cors` |
-| SnapStart | Only on the chat function, through `AutoPublishAlias`; delete old versions |
+| Chat | `POST /chat` on the same function and Function URL. Strands is imported only on the chat route, so other routes keep a fast cold start. Model: Kimi K2.5 (`ChatModelId` parameter) |
 | Chat responses | Returned in one piece. Python Lambdas can't stream without Lambda Web Adapter |
 
-Package size with strands-agents + powertools + pydantic is 79 MB unzipped, so a zip deploy works and no container is needed.
+The deployed package (strands-agents, powertools, pydantic, boto3, Pillow, pypdfium2) is 109 MB unzipped, well under Lambda's 250 MB limit, so a zip deploy works and no container is needed.
 
 ## Hosting
 
