@@ -24,7 +24,7 @@ from pydantic import BaseModel, ConfigDict, Field, ValidationError
 
 from . import aws
 from .chat_prompt import system_prompt
-from .chat_tools import load_stored_plan, make_tools
+from .chat_tools import get_plan_data, load_stored_plan, make_tools
 from .errors import ApiError
 from .plan import PLAN_ID_RE
 
@@ -163,12 +163,18 @@ def run_agent(history: list[dict], message: str, plan_id: str | None, lang: str 
     """Returns (reply text, metrics without any text)."""
     from strands import Agent
 
-    agent = Agent(model=_model(), system_prompt=system_prompt(plan_id, lang, message),
+    # The plan goes into the system prompt, so most follow-ups need no tool round trip (and no retry).
+    try:
+        facts = get_plan_data(plan_id, load_stored_plan) if plan_id else None
+    except Exception:  # noqa: BLE001 - the get_plan tool is still there as a fallback
+        facts = None
+    has_facts = bool(facts) and "error" not in facts
+    agent = Agent(model=_model(), system_prompt=system_prompt(plan_id, lang, message, facts if has_facts else None),
                   tools=make_tools(plan_id, load_stored_plan), messages=history, callback_handler=None)
     result = agent(message)
     reply = str(result).strip()
     retried = False
-    if not _tool_calls(result) and HAS_NUMBER_RE.search(reply):
+    if not has_facts and not _tool_calls(result) and HAS_NUMBER_RE.search(reply):
         # Kimi ignores toolChoice, so tool use can't be forced; ask once more instead.
         result = agent(RETRY_NOTE)
         reply, retried = str(result).strip() or reply, True

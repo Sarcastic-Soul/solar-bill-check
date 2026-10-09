@@ -300,13 +300,15 @@ def test_run_agent_with_stubbed_bedrock(stub_model):
     stub.add_response("converse", _converse([{"text": "Haan, 5.7 saal mein paisa wapas."}], "end_turn"))
     reply, metrics = chat_mod.run_agent([], "Kya ye worth it hai?", PID, "hi")
     assert reply == "Haan, 5.7 saal mein paisa wapas."
-    assert seen == [PID] and metrics["tools"] == {"get_plan": 1} and metrics["cycles"] == 2
+    assert seen == [PID, PID] and metrics["tools"] == {"get_plan": 1} and metrics["cycles"] == 2
     assert metrics["retried"] is False
 
 
-def test_run_agent_retries_numbers_without_tools(stub_model):
+def test_run_agent_retries_numbers_without_tools(stub_model, monkeypatch):
     stub, seen = stub_model
-    # First answer has a number but no tool call (taken from history): asked again, then uses the tool.
+    # Plan facts failed to load, so the prompt has none. First answer has a number but no tool call
+    # (taken from history): asked again, then uses the tool.
+    monkeypatch.setattr(chat_mod, "get_plan_data", lambda pid, loader: {"error": "PLAN_NOT_FOUND"})
     stub.add_response("converse", _converse([{"text": "Subsidy ₹78,000 milegi."}], "end_turn"))
     stub.add_response("converse", _converse(TOOL_CALL, "tool_use"))
     stub.add_response("converse", _converse([{"text": "Subsidy ₹69,000 milegi."}], "end_turn"))
@@ -319,7 +321,22 @@ def test_run_agent_no_retry_without_numbers(stub_model):
     stub, seen = stub_model
     stub.add_response("converse", _converse([{"text": "I can only help with solar and electricity."}], "end_turn"))
     reply, metrics = chat_mod.run_agent([], "Best biryani in Delhi?", PID, "en")
-    assert reply.startswith("I can only help") and metrics["retried"] is False and not seen
+    assert reply.startswith("I can only help") and metrics["retried"] is False and seen == [PID]
+
+
+def test_run_agent_no_retry_when_plan_facts_in_prompt(stub_model):
+    stub, seen = stub_model
+    stub.add_response("converse", _converse([{"text": "Subsidy ₹69,000 milegi."}], "end_turn"))
+    reply, metrics = chat_mod.run_agent([], "Subsidy kitni?", PID, "hi")
+    assert reply == "Subsidy ₹69,000 milegi." and metrics["retried"] is False and seen == [PID]
+
+
+def test_prompt_includes_plan_facts():
+    from api.chat_prompt import system_prompt
+
+    p = system_prompt(PID, "en", "hi", {"plan_id": PID, "recommended": {"kw": 2.5}})
+    assert "PLAN FACTS (the get_plan" in p and '"kw":2.5' in p
+    assert "PLAN FACTS (the get_plan" not in system_prompt(PID, "en", "hi", {"error": "PLAN_NOT_FOUND"})
 
 
 # ---------------------------------------------------------------- prompt
@@ -335,3 +352,14 @@ def test_detect_script_and_prompt():
     assert PID in p and "Devanagari script" in p and "App language: Hindi" in p
     assert "Aadhaar" in p and "check with your DISCOM" in p
     assert "no saved plan" in system_prompt(None, None, "hi")
+
+
+def test_hinglish_detection_in_prompt():
+    from api.chat_prompt import is_hinglish, system_prompt
+
+    assert is_hinglish("Loan EMI kitna hoga?")
+    assert is_hinglish("Mera bill kitna kam hoga?")
+    assert not is_hinglish("What if I install 3 kW?")
+    assert not is_hinglish("Is it worth it for me?")
+    assert "reply in Hinglish" in system_prompt(PID, "en", "Loan EMI kitna hoga?")
+    assert "reply in English." in system_prompt(PID, "en", "Is it worth it for me?")

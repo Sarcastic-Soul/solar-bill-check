@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import json
+
 LANG_NAMES = {
     "en": "English", "hi": "Hindi", "mr": "Marathi", "bn": "Bengali", "ta": "Tamil", "te": "Telugu",
     "gu": "Gujarati", "kn": "Kannada", "ml": "Malayalam", "pa": "Punjabi", "or": "Odia", "ur": "Urdu",
@@ -19,12 +21,12 @@ Plain text only: no markdown bold, no tables, no headings, no links in brackets,
   - Hindi in Devanagari (e.g. "मुझे कितनी सब्सिडी मिलेगी?") -> Hindi in Devanagari.
   - Hindi in English letters (Hinglish, e.g. "Loan EMI kitna hoga?") -> Hinglish in English letters.
   - Marathi, Tamil, Bengali and other languages -> that language in its own script.
-- Use numbers ONLY from tool results you get in THIS turn (get_plan, what_if, loan_emi, scheme_facts). \
-Numbers in earlier messages of this chat are NOT a source: call the tool again. Never calculate, guess or \
+- Use numbers ONLY from the PLAN FACTS block below (fresh for this turn) or from tool results you get in THIS \
+turn (get_plan, what_if, loan_emi, scheme_facts). Numbers in earlier messages of this chat are NOT a source. Never calculate, guess or \
 remember a rupee amount, size, payback, EMI, subsidy, rate or date yourself. If no tool gives it, say you \
 don't know.
-- For any question about the user's own savings, subsidy, size, payback, loan, EMI or "is it worth it", call \
-get_plan. For a different size, call what_if. For scheme rules, steps, deadline, DCR panels, net metering or \
+- For any question about the user's own savings, subsidy, size, payback, loan, EMI or "is it worth it", use \
+PLAN FACTS (or call get_plan if there is no PLAN FACTS block). For a different size, call what_if. For scheme rules, steps, deadline, DCR panels, net metering or \
 scams, call scheme_facts.
 - Loans: the plan's loan (in get_plan / what_if) is the Jan Samarth loan on the full cost before subsidy, \
 because the subsidy arrives only after installation. Use that for "EMI kitna hoga". Use loan_emi only when \
@@ -61,10 +63,28 @@ def detect_script(text: str) -> str | None:
     return max(counts, key=counts.__getitem__) if counts else None
 
 
-def system_prompt(plan_id: str | None, lang: str | None, message: str = "") -> str:
+# Common Hindi words written in English letters. Two or more hits means the message is Hinglish.
+_HINGLISH = {
+    "kya", "kitna", "kitni", "kitne", "hai", "hain", "hoga", "hogi", "honge", "mera", "meri", "mere", "mujhe",
+    "mujhko", "humko", "hume", "kaise", "kaisa", "kab", "kahan", "kyun", "kyon", "nahi", "nahin", "haan", "ji",
+    "milega", "milegi", "milenge", "bachega", "bachegi", "bachat", "paisa", "paise", "lagega", "lagegi", "sakta",
+    "sakti", "sakte", "chahiye", "karna", "karu", "karoon", "karein", "batao", "bataiye", "aur", "lekin", "toh",
+    "ghar", "bijli", "mahina", "mahine", "saal", "kar", "ke", "ka", "ki", "ko", "se", "par", "liye", "wala",
+}
+
+
+def is_hinglish(text: str) -> bool:
+    words = [w.strip(".,?!:;'\"()").lower() for w in text.split()]
+    return sum(w in _HINGLISH for w in words) >= 2
+
+
+def system_prompt(plan_id: str | None, lang: str | None, message: str = "", plan_facts: dict | None = None) -> str:
     parts = [_BASE]
     if plan_id:
         parts.append(f"The user's plan id is {plan_id}. Pass it to get_plan and what_if.")
+        if plan_facts and "error" not in plan_facts:
+            parts.append("PLAN FACTS (the get_plan result, loaded for this turn; use these numbers directly):\n"
+                         + json.dumps(plan_facts, ensure_ascii=False, separators=(",", ":")))
     else:
         parts.append("The user has no saved plan yet. For questions about their own numbers, ask them to scan "
                      "their bill in the app first; you can still answer general scheme questions with scheme_facts.")
@@ -73,7 +93,9 @@ def system_prompt(plan_id: str | None, lang: str | None, message: str = "") -> s
     script = detect_script(message)
     if script:
         parts.append(f"The user's latest message is written in {script} script: reply in {script} script.")
+    elif is_hinglish(message):
+        parts.append("The user's latest message is Hinglish (Hindi written in English letters): reply in Hinglish "
+                     "in English letters, like \"Aapko ₹69,000 subsidy milegi\". Not English, not Devanagari.")
     else:
-        parts.append("The user's latest message is in English letters: reply in English, or in Hinglish (English "
-                     "letters) if the message is Hindi written in English letters.")
+        parts.append("The user's latest message is in English: reply in English.")
     return "\n\n".join(parts)
