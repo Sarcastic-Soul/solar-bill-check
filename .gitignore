@@ -1,0 +1,27 @@
+# Tool logs
+.playwright-mcp/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+
+# Node
+node_modules/
+dist/
+
+# AWS SAM
+.aws-sam/
+samconfig.local.toml
+
+# Env and secrets
+.env
+.env.*
+!.env.example
+
+# Eval run outputs
+eval/results/raw/
+
+# OS
+.DS_Store
