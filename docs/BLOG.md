@@ -1,7 +1,7 @@
 # Is rooftop solar worth it for my home? Answering it from one photo of an electricity bill, on AWS
 
 *Built for Environmental Hacks (WeMakeDevs × AWS Builder Center), Waste and Energy track.*
-*Live app: https://main.d2y09rdd9synq1.amplifyapp.com · Code: https://github.com/Sarcastic-Soul/solar-bill-check*
+*Live app: https://main.d2y09rdd9synq1.amplifyapp.com · Code: https://github.com/Sarcastic-Soul/solar-bill-check · Demo video: https://youtu.be/biS2BCbBY50*
 
 > Images to upload with this post: `docs/shots/plan-delhi-1440.png` (cover), `docs/architecture.png`, `docs/shots/check-msedcl-390.png`, `docs/shots/chat-1440.png`, `docs/shots/plan-hi-390.png`.
 

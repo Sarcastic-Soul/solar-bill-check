@@ -2,7 +2,7 @@
 
 **One photo of your electricity bill. One honest answer on rooftop solar.**
 
-Live app: **https://main.d2y09rdd9synq1.amplifyapp.com** · Demo video: VIDEO_LINK
+Live app: **https://main.d2y09rdd9synq1.amplifyapp.com** · Demo video: https://youtu.be/biS2BCbBY50
 
 Take a photo of your electricity bill. In about 10 seconds the app tells you whether rooftop solar is worth it for your home: the right system size, the PM Surya Ghar subsidy, what you actually pay, when it pays back, the loan EMI next to your monthly saving, and how to apply without getting rejected. It reads bills in any Indian language, works in English and Hindi, and has a chat assistant that answers in Hindi, English or Hinglish using your own numbers.
 
