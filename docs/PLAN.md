@@ -98,15 +98,15 @@ The LLM only reads the bill and explains results. All numbers come from code, so
 |---|---|---|
 | Frontend | Vite + React + TypeScript, static build, Phosphor icons | Simple static site, no server-side rendering gotchas |
 | Hosting | **AWS Amplify Hosting** (ap-south-1) | HTTPS URL for judges, clearly AWS |
-| Backend | **AWS SAM**, Python 3.12 Lambdas with **Function URLs** | One `template.yaml`, one deploy; Function URLs avoid API Gateway's 30 s limit |
-| Bill reading | **Amazon Bedrock**, `in.anthropic.claude-haiku-4-5-20251001-v1:0`, forced tool use for JSON, Pydantic checks | Reads Hindi/Marathi labels and tables; Textract can't. Data stays in India (`in.` profile) |
+| Backend | **AWS SAM**, Python 3.14 arm64 Lambdas with **Function URLs** | One `template.yaml`, one deploy; Function URLs avoid API Gateway's 30 s limit |
+| Bill reading | **Amazon Bedrock**, Kimi K2.5 and Mistral Large 3 run side by side in ap-south-1, forced tool use for JSON, code checks | Picked by benchmark (`eval/`). Fields where the two models disagree are flagged for the user to check. Reads Hindi/Marathi labels and tables; Textract can't. Data stays in India |
 | Assistant | **Strands Agents SDK** (AWS open source) with tools `calculate_plan`, `get_solar_yield`, `scheme_facts` | Counts for the open-source rule too; simple Python tools |
 | Voice | **Amazon Polly**, Kajal neural hi-IN | "Listen in Hindi" button, cheap |
-| Storage | **S3** (bill uploads by presigned URL, deleted after 7 days), **DynamoDB** (results, chat history) | Always-free DynamoDB; bills not kept long (privacy) |
+| Storage | **S3** (bill uploads by presigned URL, deleted right after reading, 1-day expiry as backup), **DynamoDB** (results, chat history) | Always-free DynamoDB; bills not kept long (privacy) |
 | Ops | CloudWatch logs, **AWS Budgets** alarm at $30 | Cost safety |
 | External | PVGIS, postalpincode.in, Nominatim (cached) | Free, no keys |
 
-All AWS resources go in **ap-south-1 (Mumbai)**. The model ID is an env var, with `in.anthropic.claude-sonnet-5` as the fallback (Haiku 4.5 may be retired after Oct 16).
+All AWS resources go in **ap-south-1 (Mumbai)**. The extraction model IDs are set by the `ExtractModels` stack parameter, so they can change without code edits. Claude models get benchmarked once Anthropic model access is approved.
 
 ## Architecture
 
@@ -115,8 +115,8 @@ Browser (Amplify Hosting, static React)
    |
    |-- POST /upload-url ------> ApiFunction (Lambda, Function URL)
    |                              returns S3 presigned PUT
-   |-- PUT bill -------------> S3 bills bucket (7-day expiry)
-   |-- POST /extract ---------> ApiFunction -> Bedrock Haiku 4.5 (reads bill)
+   |-- PUT bill -------------> S3 bills bucket (deleted after read)
+   |-- POST /extract ---------> ApiFunction -> Bedrock Kimi K2.5 + Mistral Large 3 (read bill)
    |                              -> Pydantic checks -> fields + confidence
    |-- POST /plan ------------> ApiFunction -> postalpincode + Nominatim + PVGIS
    |                              -> engine -> DynamoDB (results) -> plan JSON
@@ -144,7 +144,7 @@ docs/                    PLAN.md, RESEARCH.md, architecture diagram
 
 Assuming 500 bill reads and 2,000 chat messages:
 
-- Bedrock with Haiku 4.5: about $35–50 total, mostly chat.
+- Bedrock bill reading: about $0.01 per bill for both models, so about $5. Chat model cost comes on top.
 - Lambda, DynamoDB and CloudWatch: about $0.
 - Polly: a few dollars.
 - Amplify: about $0–2.
@@ -190,8 +190,8 @@ This fits in the account credits. Keep `max_tokens` capped and trim chat history
 
 | Risk | Fallback |
 |---|---|
-| Bedrock misreads a bill | Confirm screen with editable fields; retry once with Sonnet 5; manual units entry |
-| Haiku 4.5 retired after Oct 16 | Model ID in env var; switch to `in.anthropic.claude-sonnet-5` |
+| Bedrock misreads a bill | Confirm screen with editable fields; two-model agreement check; manual units entry |
+| A Bedrock model is slow or unavailable | Model IDs in the `ExtractModels` parameter; one model alone still works, with medium confidence |
 | PVGIS down or slow | Global Solar Atlas, then 1450 constant |
 | Nominatim blocks us | Cache by pincode; Photon; state-capital coordinates |
 | Tariff for an unknown DISCOM | Effective rate from the bill (amount ÷ units), labelled as an estimate |

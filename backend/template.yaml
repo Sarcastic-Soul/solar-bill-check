@@ -1,0 +1,223 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: >-
+  Solar Bill Check backend: one API Lambda behind a Function URL (no API Gateway),
+  an S3 bucket for short-lived bill uploads, and two on-demand DynamoDB tables.
+
+Parameters:
+  AllowedOrigin:
+    Type: String
+    Default: "*"
+    Description: Browser origin allowed by the Function URL and S3 CORS (lock to the Amplify domain later).
+  ExtractModels:
+    Type: String
+    Default: ""
+    Description: >-
+      JSON list of {id, region, mode} for bill extraction (mode tool | tool_auto | json_text).
+      Empty = code default (Kimi K2.5 json_text + Mistral Large 3 tool, both ap-south-1, in parallel).
+  PlanTtlDays:
+    Type: Number
+    Default: 30
+    MinValue: 1
+    Description: Days a saved plan (shareable link) is kept before DynamoDB TTL removes it.
+  LogRetentionDays:
+    Type: Number
+    Default: 14
+
+Globals:
+  Function:
+    Runtime: python3.14
+    Architectures: [arm64]
+    MemorySize: 512
+    Timeout: 30
+    Environment:
+      Variables:
+        POWERTOOLS_SERVICE_NAME: solar-bill-check
+        POWERTOOLS_LOG_LEVEL: INFO
+
+Resources:
+  # ------------------------------------------------------------------ storage
+  BillsBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      OwnershipControls:
+        Rules:
+          - ObjectOwnership: BucketOwnerEnforced
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      CorsConfiguration:
+        CorsRules:
+          - AllowedOrigins: [!Ref AllowedOrigin]
+            AllowedMethods: [PUT, POST]
+            AllowedHeaders: ["*"]
+            ExposedHeaders: [ETag]
+            MaxAge: 3000
+      LifecycleConfiguration:
+        Rules:
+          # Backup only: the API deletes each bill right after reading it.
+          - Id: ExpireBills
+            Status: Enabled
+            ExpirationInDays: 1
+            AbortIncompleteMultipartUpload:
+              DaysAfterInitiation: 1
+
+  BillsBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref BillsBucket
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: DenyInsecureTransport
+            Effect: Deny
+            Principal: "*"
+            Action: "s3:*"
+            Resource:
+              - !GetAtt BillsBucket.Arn
+              - !Sub "${BillsBucket.Arn}/*"
+            Condition:
+              Bool:
+                aws:SecureTransport: "false"
+
+  PlansTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: planId
+          AttributeType: S
+      KeySchema:
+        - AttributeName: planId
+          KeyType: HASH
+      TimeToLiveSpecification:
+        AttributeName: expiresAt
+        Enabled: true
+
+  ChatsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: sessionId
+          AttributeType: S
+        - AttributeName: ts
+          AttributeType: N
+      KeySchema:
+        - AttributeName: sessionId
+          KeyType: HASH
+        - AttributeName: ts
+          KeyType: RANGE
+      TimeToLiveSpecification:
+        AttributeName: expiresAt
+        Enabled: true
+
+  # ------------------------------------------------------------------ API
+  ApiLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub "/aws/lambda/${AWS::StackName}-api"
+      RetentionInDays: !Ref LogRetentionDays
+
+  ApiFunction:
+    Type: AWS::Serverless::Function
+    DependsOn: ApiLogGroup
+    Properties:
+      FunctionName: !Sub "${AWS::StackName}-api"
+      Description: Solar Bill Check API (upload-url, extract, plan, speak)
+      CodeUri: src/
+      Handler: api.handler.lambda_handler
+      MemorySize: 1024
+      Timeout: 60
+      Environment:
+        Variables:
+          BILLS_BUCKET: !Ref BillsBucket
+          PLANS_TABLE: !Ref PlansTable
+          EXTRACT_MODELS: !Ref ExtractModels
+          PLAN_TTL_DAYS: !Ref PlanTtlDays
+          MAX_UPLOAD_BYTES: "8388608"
+      FunctionUrlConfig:
+        AuthType: NONE
+        InvokeMode: BUFFERED
+        Cors:
+          AllowOrigins: [!Ref AllowedOrigin]
+          AllowMethods: [GET, POST]
+          AllowHeaders: [content-type]
+          MaxAge: 300
+      Policies:
+        - Version: "2012-10-17"
+          Statement:
+            - Sid: BillObjects
+              Effect: Allow
+              Action: [s3:PutObject, s3:GetObject, s3:DeleteObject]
+              Resource: !Sub "${BillsBucket.Arn}/bills/*"
+            - Sid: Plans
+              Effect: Allow
+              Action: [dynamodb:PutItem, dynamodb:GetItem]
+              Resource: !GetAtt PlansTable.Arn
+            - Sid: BedrockExtraction
+              Effect: Allow
+              Action: [bedrock:InvokeModel]
+              Resource:
+                # Default models, plus the same providers' other models and the India-only (in.)
+                # inference profiles, so EXTRACT_MODELS can be switched without a policy change.
+                - !Sub "arn:${AWS::Partition}:bedrock:ap-south-1::foundation-model/moonshotai.*"
+                - !Sub "arn:${AWS::Partition}:bedrock:ap-south-1::foundation-model/mistral.*"
+                - !Sub "arn:${AWS::Partition}:bedrock:ap-south-2::foundation-model/moonshotai.*"
+                - !Sub "arn:${AWS::Partition}:bedrock:ap-south-2::foundation-model/mistral.*"
+                - !Sub "arn:${AWS::Partition}:bedrock:ap-south-1:${AWS::AccountId}:inference-profile/in.*"
+            - Sid: BedrockMarketplaceCheck
+              Effect: Allow
+              Action: [aws-marketplace:ViewSubscriptions]
+              Resource: "*"
+            - Sid: Speech
+              Effect: Allow
+              Action: [polly:SynthesizeSpeech]
+              Resource: "*"
+
+  # Note: SAM adds both public permissions a NONE-auth Function URL needs
+  # (lambda:InvokeFunctionUrl and lambda:InvokeFunction via the URL), so none are declared here.
+
+  # ------------------------------------------------------------------ chat (built in a separate task)
+  # ChatFunction:
+  #   Type: AWS::Serverless::Function
+  #   Properties:
+  #     FunctionName: !Sub "${AWS::StackName}-chat"
+  #     CodeUri: src/
+  #     Handler: chat.handler.lambda_handler
+  #     MemorySize: 1024
+  #     Timeout: 120
+  #     AutoPublishAlias: live
+  #     SnapStart: {ApplyOn: PublishedVersions}
+  #     Environment:
+  #       Variables:
+  #         CHATS_TABLE: !Ref ChatsTable
+  #     FunctionUrlConfig:
+  #       AuthType: NONE
+  #       Cors: {AllowOrigins: [!Ref AllowedOrigin], AllowMethods: [POST], AllowHeaders: [content-type], MaxAge: 300}
+  #     Policies:
+  #       - DynamoDBCrudPolicy: {TableName: !Ref ChatsTable}
+  #       - Statement:
+  #           - Effect: Allow
+  #             Action: [bedrock:InvokeModel]
+  #             Resource: [...]
+
+Outputs:
+  ApiUrl:
+    Description: API base URL (Lambda Function URL)
+    Value: !GetAtt ApiFunctionUrl.FunctionUrl
+  BucketName:
+    Description: S3 bucket for bill uploads (objects deleted after read; 1-day expiry)
+    Value: !Ref BillsBucket
+  PlansTableName:
+    Value: !Ref PlansTable
+  ChatsTableName:
+    Value: !Ref ChatsTable
+  ApiFunctionName:
+    Value: !Ref ApiFunction

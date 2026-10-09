@@ -1,7 +1,14 @@
 import pytest
 
 from engine.models import SolarResource
-from engine.savings import emi, lifetime_savings, loan_view, payback_years, simulate_year, solar_monthly
+from engine.savings import (
+    emi,
+    lifetime_savings,
+    loan_view,
+    payback_years,
+    simulate_year,
+    solar_monthly,
+)
 from engine.tariffs import EffectiveRateTariff, SlabTariff
 
 

@@ -1,0 +1,26 @@
+[project]
+name = "solar-bill-check-backend"
+version = "0.1.0"
+description = "Solar Bill Check API (AWS SAM, Lambda Function URL)"
+requires-python = ">=3.14"
+# Runtime deps shipped in the Lambda zip. boto3 comes with the Lambda runtime, so it is dev-only here.
+# Regenerate src/requirements.txt after changing these:
+#   uv export --no-hashes --no-dev --no-emit-project -o src/requirements.txt
+dependencies = [
+    "aws-lambda-powertools==3.35.0",
+    "pydantic==2.14.0",
+    "pillow==12.3.0",
+    "pypdfium2==5.14.0",
+]
+
+[dependency-groups]
+dev = [
+    "boto3[crt]==1.43.110",
+    "pytest>=8",
+]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

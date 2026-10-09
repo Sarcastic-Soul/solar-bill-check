@@ -6,7 +6,6 @@ from engine.fetchers import Fetchers
 from engine.models import Answers, BillFields
 from engine.readiness import check_readiness
 
-
 # ---------------------------------------------------------------- readiness
 
 

@@ -44,6 +44,7 @@ sys.path.insert(0, str(ROOT / "backend" / "src"))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from api import extract_prompt as P  # noqa: E402
+from api.bedrock_client import RETRYABLE, build_request, extract_json, parse_response  # noqa: E402,F401
 import score as S  # noqa: E402
 
 BILLS_DIR = ROOT / "eval" / "bills"
@@ -130,8 +131,7 @@ MODELS: list[ModelCfg] = [
 MODEL_BY_KEY = {m.key: m for m in MODELS}
 
 NON_LATIN = {"hi", "mr", "ta", "te", "kn", "ml", "bn", "gu", "pa", "or", "as", "ur", "ne", "kok", "sa"}
-RETRYABLE = {"ThrottlingException", "ServiceUnavailableException", "ModelNotReadyException", "InternalServerException",
-             "ModelErrorException", "ServiceQuotaExceededException", "TooManyRequestsException"}
+# RETRYABLE comes from api.bedrock_client.
 
 _clients: dict[str, object] = {}
 _clients_lock = threading.Lock()
@@ -266,105 +266,15 @@ def content_blocks(bill: Bill, m: ModelCfg, args) -> tuple[list[dict], str]:
     return _input_cache[key], ("pdf_document" if use_doc else ("pdf_rendered" if bill.kind == "pdf" else "image"))
 
 
-# ------------------------------------------------------------------ JSON extraction
-def _strip_reasoning(text: str) -> str:
-    text = re.sub(r"<think>.*?</think>", "", text, flags=re.S | re.I)
-    text = re.sub(r"<reasoning>.*?</reasoning>", "", text, flags=re.S | re.I)
-    return text
-
-
-def _loads_lenient(s: str):
-    try:
-        return json.loads(s)
-    except json.JSONDecodeError:
-        pass
-    t = re.sub(r",\s*([}\]])", r"\1", s)  # trailing commas
-    t = re.sub(r"//[^\n\"]*\n", "\n", t)  # line comments
-    t = re.sub(r"\bNone\b", "null", t)
-    t = re.sub(r"\bTrue\b", "true", t)
-    t = re.sub(r"\bFalse\b", "false", t)
-    return json.loads(t)
-
-
-def extract_json(text: str) -> dict | None:
-    """Find the best JSON object in free text (fences, prose, think tags)."""
-    text = _strip_reasoning(text or "")
-    candidates = re.findall(r"```(?:json|JSON)?\s*(.*?)```", text, flags=re.S)
-    # every balanced {...} span, longest first
-    spans, depth, start, in_str, esc = [], 0, None, False, False
-    for i, ch in enumerate(text):
-        if in_str:
-            if esc:
-                esc = False
-            elif ch == "\\":
-                esc = True
-            elif ch == '"':
-                in_str = False
-            continue
-        if ch == '"':
-            in_str = True
-        elif ch == "{":
-            if depth == 0:
-                start = i
-            depth += 1
-        elif ch == "}" and depth:
-            depth -= 1
-            if depth == 0:
-                spans.append(text[start:i + 1])
-    candidates += sorted(spans, key=len, reverse=True)
-    if text.strip().startswith("{"):
-        candidates.append(text.strip())
-    for c in candidates:
-        try:
-            obj = _loads_lenient(c.strip())
-        except (json.JSONDecodeError, ValueError):
-            continue
-        if isinstance(obj, dict):
-            return obj
-    return None
-
-
-def unwrap(obj: dict) -> dict:
-    """Models sometimes nest the fields: {"record_bill": {...}}, {"fields": {...}}, {"properties": {...}},
-    or echo the schema per field: {"state": {"type": ["string", "null"], "value": "Delhi"}}."""
-    for _ in range(3):
-        if any(k in obj for k in P.FIELD_ORDER):
-            break
-        dicts = [v for v in obj.values() if isinstance(v, dict)]
-        if len(dicts) == 1:
-            obj = dicts[0]
-        else:
-            break
-    out = {}
-    for k, v in obj.items():
-        if isinstance(v, dict) and k != "consumption_history" and ("value" in v or "type" in v or "description" in v):
-            v = v.get("value")
-        if k == "consumption_history" and isinstance(v, dict):
-            v = v.get("value", v.get("items"))
-        out[k] = v
-    return out
+# JSON extraction (extract_json, unwrap) lives in backend/src/api/bedrock_client.py.
 
 
 # ------------------------------------------------------------------ one call
 def call_model(m: ModelCfg, bill: Bill, args) -> dict:
     blocks, input_kind = content_blocks(bill, m, args)
     mode = m.mode
-    instruction = P.USER_INSTRUCTION_JSON if mode == "json" else P.USER_INSTRUCTION_TOOL
-    if m.system_in_user:
-        instruction = P.SYSTEM_PROMPT + "\n\n" + instruction
-    req = {
-        "modelId": m.model_id,
-        "messages": [{"role": "user", "content": blocks + [{"text": instruction}]}],
-        "inferenceConfig": {"maxTokens": m.max_tokens},
-    }
-    if not m.system_in_user:
-        req["system"] = [{"text": P.SYSTEM_PROMPT}]
-    if m.temperature:
-        req["inferenceConfig"]["temperature"] = 0
-    if mode == "tool":
-        req["toolConfig"] = {"tools": [P.tool_spec()], "toolChoice": {"tool": {"name": P.TOOL_NAME}}}
-    elif mode == "tool_auto":
-        req["toolConfig"] = {"tools": [P.tool_spec()], "toolChoice": {"auto": {}}}
+    req = build_request(m.model_id, mode, blocks, max_tokens=m.max_tokens, temperature=m.temperature,
+                        system_in_user=m.system_in_user)
 
     rec = {"model": m.key, "model_id": m.model_id, "region": m.region, "bill": bill.id, "mode": mode,
            "input_kind": input_kind, "n_images": sum("image" in b for b in blocks)}
@@ -394,21 +304,7 @@ def call_model(m: ModelCfg, bill: Bill, args) -> dict:
     latency = time.time() - t0
     usage = resp.get("usage", {})
     itok, otok = usage.get("inputTokens", 0), usage.get("outputTokens", 0)
-    content = resp.get("output", {}).get("message", {}).get("content", [])
-    tool_inputs = [c["toolUse"]["input"] for c in content if "toolUse" in c]
-    text = "\n".join(c["text"] for c in content if "text" in c)
-    pred, used = None, mode
-    if tool_inputs:
-        ti = tool_inputs[0]
-        if isinstance(ti, str):
-            ti = extract_json(ti)
-        pred = ti if isinstance(ti, dict) else None
-        used = "tool_forced" if mode == "tool" else "tool_auto"
-    if pred is None:
-        pred = extract_json(text)
-        used = "json_text" if mode == "json" else f"{mode}->text_fallback"
-    if pred is not None:
-        pred = unwrap(pred)
+    pred, used, text, tool_inputs = parse_response(resp, mode)
     rec.update(
         error=None,
         latency_s=round(latency, 2),

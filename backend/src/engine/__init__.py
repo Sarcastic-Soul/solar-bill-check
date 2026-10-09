@@ -6,7 +6,15 @@
 Network lookups for location and solar yield live in engine.fetchers.
 """
 
-from .models import Answers, BillFields, Location, Options, Plan, PlanInput, SolarResource
+from .models import (
+    Answers,
+    BillFields,
+    Location,
+    Options,
+    Plan,
+    PlanInput,
+    SolarResource,
+)
 from .plan import PlanError, build_plan, build_plan_dict
 from .tariffs import monthly_bill, period_bill
 

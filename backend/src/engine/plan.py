@@ -20,11 +20,11 @@ from .models import (
 )
 from .readiness import check_readiness
 from .savings import (
-    settlement_periods,
     co2_kg,
     lifetime_savings,
     loan_view,
     payback_years,
+    settlement_periods,
     simulate_year,
     solar_monthly,
     trees,

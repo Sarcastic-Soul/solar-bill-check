@@ -2,8 +2,13 @@ import pytest
 
 from engine.models import BillFields, HistoryPoint
 from engine.sizing import cost_per_kw, normalize_consumption, size_system
-from engine.subsidy import central_cfa, compute_subsidy, is_special_category, rwa_cfa, rwa_eligible_kw
-
+from engine.subsidy import (
+    central_cfa,
+    compute_subsidy,
+    is_special_category,
+    rwa_cfa,
+    rwa_eligible_kw,
+)
 
 # ---------------------------------------------------------------- subsidy
 
