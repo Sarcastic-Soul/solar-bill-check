@@ -45,7 +45,7 @@ All images are in `docs/blog/`. Each one is under 2 MB.
 | `plan-delhi.png` | IMAGE 1, end of "What Solar Bill Check does" |
 | `architecture.png` | IMAGE 2, top of "How it's built on AWS" |
 | `check-disagree.png` | IMAGE 3, end of "Two models, and the user settles disagreements" |
-| `chat.png` | IMAGE 4, end of "A chat assistant that can't make up numbers" |
+| `chat-hinglish.png` | IMAGE 4, end of "A chat assistant that can't make up numbers" |
 | `plan-hindi.png` | IMAGE 5, end of "Hindi from the start" |
 
 ## Body
@@ -155,8 +155,8 @@ def what_if(plan_id: str, kw: float) -> dict:
 
 The others are `get_plan` (the saved plan), `loan_emi` and `scheme_facts` (fixed, sourced rules about the subsidy and loans). The user's plan is loaded into the prompt for each turn, so most answers need no extra tool call and come back in about a second. If a reply contains numbers but no plan was loaded and no tool was called, the agent is asked again to use a tool. The assistant replies in Hinglish when you write in Hinglish, and chat history lives in DynamoDB with a 7-day TTL.
 
->>> IMAGE 4: upload `docs/blog/chat.png`
->>> Caption: The chat assistant answers a loan question with the user's own numbers.
+>>> IMAGE 4: upload `docs/blog/chat-hinglish.png` (if that is flagged too, try `docs/blog/chat-loan.png`)
+>>> Caption: Asked in Hinglish, the assistant answers in Hinglish with the roof space this plan needs.
 
 The chat route imports Strands only when it is called, so the other routes stay fast on a cold start. Everything still fits in a single Lambda function.
 
