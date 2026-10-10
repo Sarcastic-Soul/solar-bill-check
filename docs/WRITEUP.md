@@ -58,4 +58,4 @@ Everything runs in the Mumbai region (ap-south-1), so bill data stays in India.
 
 - Official sample bills: MSEDCL and Tata Power-DDL public consumer handbooks, with personal details masked. See [`eval/bills/INDEX.md`](../eval/bills/INDEX.md).
 - Sunlight data: PVGIS (European Commission JRC). Pincode lookup: postalpincode.in, OpenStreetMap Nominatim.
-- Fonts: Clash Display and Switzer (Fontshare, free licence), Hind (SIL OFL). Icons: Phosphor (MIT).
+- Fonts: Clash Display and Switzer (Fontshare, free licence), Hind (SIL OFL). Icons: Phosphor (MIT). Architecture diagram: AWS Architecture Icons, Simple Icons (CC0) for React and Python.
