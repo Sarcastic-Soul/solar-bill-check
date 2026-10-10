@@ -10,7 +10,7 @@ Is rooftop solar worth it for my home? Answering it from one photo of an electri
 
 I built Solar Bill Check for Environmental Hacks: snap your electricity bill and get an honest rooftop solar plan in 10 seconds, with the PM Surya Ghar subsidy, payback, loan EMI and how to apply. Built on Amazon Bedrock, AWS Lambda, Strands Agents and Amazon Polly, all in the Mumbai region.
 
-Shorter version, if the field has a limit:
+(Use only the paragraph above. The one below is a shorter backup in case the field has a character limit; do not paste both.)
 
 Snap your electricity bill, get an honest rooftop solar plan: subsidy, payback, EMI and how to apply. Built on Amazon Bedrock, Lambda and Strands Agents.
 
@@ -80,7 +80,7 @@ I wanted something a family could use in under a minute, in Hindi or English, wi
 You take a photo of your electricity bill. About 10 seconds later you get:
 
 - **The right system size** for your usage, capped by your sanctioned load.
-- **Cost, subsidy and what you actually pay.** For a sample Delhi home: a 2.5 kW system costs about ₹1.6 lakh, the subsidy is ₹69,000, so you pay ₹93,500.
+- **Cost, subsidy and what you actually pay.** For a sample Delhi home: a 2.5 kW system costs ₹1,62,500, the subsidy is ₹69,000, so you pay ₹93,500.
 - **Payback and 25-year savings**, worked out against your own electricity company's slab tariff and the real sunlight data for your pincode. That Delhi home pays back in 5.7 years.
 - **Loan EMI next to your monthly saving**, so you can see whether the loan pays for itself (₹1,624 EMI against ₹1,367 saved a month).
 - **A verdict that can say no.** If free units already keep your bill near zero, the app tells you solar won't save you much right now.
