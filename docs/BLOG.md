@@ -61,6 +61,10 @@ Paste everything below this line.
 >>> VIDEO: paste https://youtu.be/biS2BCbBY50 on its own line. If it stays a plain link, upload `docs/blog/video-thumb.png` here instead, link the image to the video if the editor allows it, and use the caption below.
 >>> Caption: Watch the 2:48 demo: https://youtu.be/biS2BCbBY50
 
+The first time I asked my own chat assistant about a 2.5 kW system for a Delhi home, it told me the subsidy was ₹78,000 and the loan EMI was ₹1,038. Both were wrong. The subsidy for 2.5 kW is ₹69,000, and it had worked out the EMI on the wrong loan amount. It sounded completely sure of itself.
+
+That is the problem this project is about. A family deciding whether to spend ₹1.6 lakh on their roof gets confident answers from salespeople, forums and now chatbots, and very few of those answers start from their own bill. This post is about how I built one that does, and the things that broke along the way.
+
 ## The money is there. The answer isn't.
 
 India's PM Surya Ghar scheme pays households up to ₹78,000 to put solar panels on their roof. Loans run at about 6%, with no collateral. Net metering is free in most states. The target is 1 crore homes by March 2027, and with six months to go, about half of them have signed up.
@@ -157,7 +161,17 @@ def what_if(plan_id: str, kw: float) -> dict:
     savings, payback and EMI for that size, next to the original recommendation."""
 ```
 
-The others are `get_plan` (the saved plan), `loan_emi` and `scheme_facts` (fixed, sourced rules about the subsidy and loans). The user's plan is loaded into the prompt for each turn, so most answers need no extra tool call and come back in about a second. If a reply contains numbers but no plan was loaded and no tool was called, the agent is asked again to use a tool. The assistant replies in Hinglish when you write in Hinglish, and chat history lives in DynamoDB with a 7-day TTL.
+The others are `get_plan` (the saved plan), `loan_emi` and `scheme_facts` (fixed, sourced rules about the subsidy and loans).
+
+Tools alone weren't enough. The wrong ₹78,000 from the start of this post came from the first live test: on turns 3 and 4 the model called no tool at all and reused numbers from earlier in the chat. The prompt already said "use the tools". Kimi ignores Bedrock's `toolChoice` setting, so I couldn't force a tool call either. What worked was a check in code: if a reply contains a number and no tool ran that turn, the agent is asked once more to call the right tool and answer again.
+
+```python
+if not has_facts and not _tool_calls(result) and HAS_NUMBER_RE.search(reply):
+    # Kimi ignores toolChoice, so tool use can't be forced; ask once more instead.
+    result = agent(RETRY_NOTE)
+```
+
+That retry doubled the input tokens on those turns (about 6,000 instead of 3,000), so I moved the user's plan into the system prompt. Now most answers need no tool call, and follow-up replies dropped from 2 to 5 seconds to about 1 second. The assistant replies in Hinglish when you write in Hinglish, and chat history lives in DynamoDB with a 7-day TTL.
 
 >>> IMAGE 4: upload `docs/blog/chat-hinglish.png` (if that is flagged too, try `docs/blog/chat-loan.png`)
 >>> Caption: Asked in Hinglish, the assistant answers in Hinglish with the roof space this plan needs.
@@ -181,6 +195,20 @@ The app is in English and Hindi (the plan page switches with one tap), and bills
 >>> IMAGE 5: upload `docs/blog/plan-hindi.png`
 >>> Caption: The same plan in Hindi, on a phone.
 
+## What fought back
+
+**The models copied my examples.** My first extraction prompt had example values in the schema: a power company name, a tariff category, a unit count. Weaker models sent those examples back instead of reading the bill. I made the examples neutral and gave the prompt a version number, so every benchmark result says which prompt it used. Llama 4 Maverick had a different habit: it returned the schema's own shape (`{"type": [...], "value": ...}`) with the answer tucked inside. Unwrapping that took its score from 70 to 96.7 on the early test run.
+
+**Arrears look a lot like the bill.** Indian bills often print the old unpaid amount next to the current bill, and models sometimes picked the wrong one. Devanagari digits caused trouble too (१ and ९ are easy to mix up). The code now turns digits from any Indian script into plain digits before checking anything, and a bill amount that is too high for the units gets flagged with a hint: "arrears included?"
+
+**A wrong consumer number got through.** On the blurry Marathi photo, one model misread two digits of the 12-digit consumer number, and the app only marked it "medium" confidence. The consumer number wasn't on my list of key fields, because it doesn't change the plan. But it goes on the application sheet, and a wrong one gets the application rejected. It is a key field now, so any disagreement goes to the user.
+
+**S3 said AccessDenied for a file that wasn't there.** The Lambda role can read and delete bill images but can't list the bucket, on purpose. Without `s3:ListBucket`, S3 doesn't answer "no such key" for a missing file. It answers `AccessDenied`. So a request for an upload that had already been read and deleted came back as a 500 error. It is now a clear 404 that asks the user to upload the bill again.
+
+**"Exact" tariffs still move.** The plan engine matched a BSES Rajdhani test bill to the paisa, ₹1,323.01, but only with the 18.19% PPAC surcharge printed on that bill. With the 18% default it gives ₹1,320.24. Small, but it is why every plan says which tariff level it used: exact, estimate or rough.
+
+**A failed build still got deployed.** Once, a build step failed but my command chain carried on to the deploy, and the API returned 502 errors for about a minute until a clean build went out. A good reminder to stop the chain on the first error.
+
 ## Privacy
 
 There is no login. The bill image is deleted as soon as it is read. Names are never stored, consumer numbers are masked, and no personal data goes into logs. Plans are saved under a random ID so they can be shared with family. Chats expire after 7 days.
@@ -189,14 +217,31 @@ There is no login. The bill image is deleted as soon as it is read. Names are ne
 
 The app runs inside the AWS free tier, apart from Bedrock. A bill read with two models costs under one US cent, and a chat reply costs a fraction of that.
 
+## What it doesn't do yet
+
+- **Tariffs:** exact for Delhi, Maharashtra and Uttar Pradesh, estimates for Karnataka and Tamil Nadu, and a rough rate from the bill's own amount everywhere else.
+- **Maharashtra** comes out about 3% low, because the monthly fuel adjustment charge isn't included.
+- **Not counted:** Delhi's extra state subsidy (I couldn't confirm it from an official source), Delhi's generation incentive, and replacing the inverter during the 25 years. Extra units sent to the grid are paid at one flat rate.
+- **Missing months:** if the bill shows less than a year of usage, the gaps are filled with a seasonal pattern, and the plan marks the result as an estimate.
+- **The test set** has 6 phone-photo versions made from clean bills, but no photos from real users yet.
+- **The chat** still sometimes does small sums itself, like the gap between two EMIs.
+
 ## What I'd do next
 
 - Add exact tariffs for more of India's roughly 70 electricity companies. Each one is a data file, not new code.
 - Let installers see a plan the family chooses to share, so quotes start from real numbers.
 - Track the application status alongside the 7-step guide.
 
+## Three things I'd tell myself on day one
+
+1. **Benchmark on your own data before picking a model.** The two highest scorers on my bills couldn't be used: one took 44 seconds a bill, the other only runs in the US.
+2. **Don't ask the model to behave. Check in code.** "Use the tools" in the prompt didn't stop made-up numbers. A three-line check did.
+3. **Two models that disagree beat one that is always sure.** The disagreement shows the user exactly which line on the bill to look at.
+
 ## AI tools used
 
 I used Claude Code for planning, research, code, tests and docs. Inside the product, Amazon Bedrock models (Kimi K2.5 and Mistral Large 3) read the bills and power the chat.
 
 Try it with your own bill: **https://main.d2y09rdd9synq1.amplifyapp.com**
+
+If you've looked at rooftop solar for your own home, what stopped you? Tell me in the comments, and I'll make that the next question the app answers.
