@@ -42,6 +42,7 @@ All images are in `docs/blog/`. Each one is under 2 MB.
 | File | Where it goes |
 |---|---|
 | `cover.png` | Cover image field (not in the body) |
+| `video-thumb.png` | VIDEO, under the header lines, only if the editor can't embed YouTube |
 | `plan-delhi.png` | IMAGE 1, end of "What Solar Bill Check does" |
 | `architecture.png` | IMAGE 2, top of "How it's built on AWS" |
 | `check-disagree.png` | IMAGE 3, end of "Two models, and the user settles disagreements" |
@@ -56,6 +57,9 @@ Paste everything below this line.
 
 *Built for Environmental Hacks (WeMakeDevs × AWS Builder Center), Waste and Energy track.*
 *Live app: https://main.d2y09rdd9synq1.amplifyapp.com · Code: https://github.com/Sarcastic-Soul/solar-bill-check · Demo video: https://youtu.be/biS2BCbBY50*
+
+>>> VIDEO: paste https://youtu.be/biS2BCbBY50 on its own line. If it stays a plain link, upload `docs/blog/video-thumb.png` here instead, link the image to the video if the editor allows it, and use the caption below.
+>>> Caption: Watch the 2:48 demo: https://youtu.be/biS2BCbBY50
 
 ## The money is there. The answer isn't.
 
