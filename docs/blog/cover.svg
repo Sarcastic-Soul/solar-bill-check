@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <!-- Blog cover: a bill with a check stamp, a dotted path, a house with rooftop solar under the sun. No text. -->
+  <defs><marker id="h" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1A1814"/></marker></defs>
+  <rect width="1200" height="675" fill="#ECEDEA"/>
+
+  <!-- sun -->
+  <circle cx="985" cy="200" r="112" fill="#F2A900"/>
+  <g stroke="#F2A900" stroke-width="10" stroke-linecap="round"><path d="M1125 200L1153 200"/><path d="M1084 299L1104 319"/><path d="M985 340L985 368"/><path d="M886 299L866 319"/><path d="M845 200L817 200"/><path d="M886 101L866 81"/><path d="M985 60L985 32"/><path d="M1084 101L1104 81"/></g>
+
+  <!-- ground -->
+  <path d="M0 610H1200" stroke="#1A1814" stroke-width="4"/>
+
+  <!-- house -->
+  <rect x="700" y="400" width="400" height="210" fill="#F7F7F4" stroke="#1A1814" stroke-width="5"/>
+  <rect x="860" y="480" width="80" height="130" fill="#1A1814"/>
+  <rect x="740" y="450" width="80" height="70" fill="#ECEDEA" stroke="#1A1814" stroke-width="4"/>
+  <rect x="980" y="450" width="80" height="70" fill="#ECEDEA" stroke="#1A1814" stroke-width="4"/>
+  <path d="M660 412L900 268L1140 412Z" fill="#1A1814"/>
+  <!-- panels on the left roof slope -->
+  <g transform="translate(770 354) skewY(-30.96)">
+    <rect width="110" height="44" fill="#F2A900"/>
+    <g stroke="#1A1814" stroke-width="3">
+      <path d="M27.5 0V44M55 0V44M82.5 0V44M0 22H110"/>
+    </g>
+  </g>
+  <!-- panels on the right roof slope -->
+  <g transform="translate(920 288) skewY(30.96)">
+    <rect width="110" height="44" fill="#F2A900"/>
+    <g stroke="#1A1814" stroke-width="3">
+      <path d="M27.5 0V44M55 0V44M82.5 0V44M0 22H110"/>
+    </g>
+  </g>
+
+  <!-- dotted path from bill to house -->
+  <path d="M440 290C520 190 610 220 640 316" marker-end="url(#h)" fill="none" stroke="#1A1814" stroke-width="4" stroke-dasharray="2 14" stroke-linecap="round"/>
+  
+
+  <!-- bill -->
+  <g transform="rotate(-6 270 360)">
+    <rect x="120" y="120" width="300" height="420" fill="#1A1814"/>
+    <rect x="108" y="108" width="300" height="420" fill="#FBFAF6" stroke="#1A1814" stroke-width="5"/>
+    <rect x="140" y="146" width="110" height="18" fill="#1A1814"/>
+    <rect x="140" y="178" width="200" height="8" fill="#B9B4A8"/>
+    <rect x="140" y="196" width="160" height="8" fill="#B9B4A8"/>
+    <!-- usage bars -->
+    <g fill="#1A1814">
+      <rect x="140" y="300" width="18" height="40"/><rect x="168" y="280" width="18" height="60"/>
+      <rect x="196" y="262" width="18" height="78"/><rect x="224" y="250" width="18" height="90"/>
+      <rect x="252" y="270" width="18" height="70"/><rect x="280" y="292" width="18" height="48"/>
+      <rect x="308" y="306" width="18" height="34"/><rect x="336" y="288" width="18" height="52"/>
+    </g>
+    <path d="M140 352H376" stroke="#1A1814" stroke-width="3"/>
+    <rect x="140" y="384" width="236" height="8" fill="#B9B4A8"/>
+    <rect x="140" y="402" width="180" height="8" fill="#B9B4A8"/>
+    <rect x="140" y="452" width="236" height="44" fill="#F2A900"/>
+  </g>
+
+  <!-- check stamp -->
+  <circle cx="405" cy="500" r="62" fill="#F2A900" stroke="#1A1814" stroke-width="5"/>
+  <path d="M376 500L397 521L436 480" fill="none" stroke="#1A1814" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

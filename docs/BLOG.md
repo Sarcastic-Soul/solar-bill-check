@@ -1,9 +1,61 @@
-# Is rooftop solar worth it for my home? Answering it from one photo of an electricity bill, on AWS
+# Builder Center post: Solar Bill Check
+
+How to post: copy each field below into the Builder Center editor. In the body, every `>>> IMAGE` line marks where an image goes: delete the two `>>>` lines, upload that file in the same spot and paste the caption under it.
+
+## Title
+
+Is rooftop solar worth it for my home? Answering it from one photo of an electricity bill, on AWS
+
+## Description
+
+I built Solar Bill Check for Environmental Hacks: snap your electricity bill and get an honest rooftop solar plan in 10 seconds, with the PM Surya Ghar subsidy, payback, loan EMI and how to apply. Built on Amazon Bedrock, AWS Lambda, Strands Agents and Amazon Polly, all in the Mumbai region.
+
+Shorter version, if the field has a limit:
+
+Snap your electricity bill, get an honest rooftop solar plan: subsidy, payback, EMI and how to apply. Built on Amazon Bedrock, Lambda and Strands Agents.
+
+## Cover image
+
+Upload `docs/blog/cover.png` (1200 x 675, no text, 45 KB).
+
+## Tags
+
+Pick the ones the editor offers, in this order:
+
+1. Amazon Bedrock
+2. AWS Lambda
+3. Generative AI
+4. Sustainability
+5. Strands Agents
+6. Amazon DynamoDB
+7. Amazon Polly
+8. AWS Amplify
+9. Serverless
+10. Hackathon
+
+If the editor lets you pick a space, post it in the WeMakeDevs space (https://bit.ly/wmd-space). Then put the post link in the hackathon submission form, because the AirPods prize needs it.
+
+## Images
+
+All images are in `docs/blog/`. Each one is under 2 MB.
+
+| File | Where it goes |
+|---|---|
+| `cover.png` | Cover image field (not in the body) |
+| `plan-delhi.png` | IMAGE 1, end of "What Solar Bill Check does" |
+| `architecture.png` | IMAGE 2, top of "How it's built on AWS" |
+| `check-disagree.png` | IMAGE 3, end of "Two models, and the user settles disagreements" |
+| `chat.png` | IMAGE 4, end of "A chat assistant that can't make up numbers" |
+| `plan-hindi.png` | IMAGE 5, end of "Hindi from the start" |
+
+## Body
+
+Paste everything below this line.
+
+---
 
 *Built for Environmental Hacks (WeMakeDevs × AWS Builder Center), Waste and Energy track.*
 *Live app: https://main.d2y09rdd9synq1.amplifyapp.com · Code: https://github.com/Sarcastic-Soul/solar-bill-check · Demo video: https://youtu.be/biS2BCbBY50*
-
-> Images to upload with this post: `docs/shots/plan-delhi-1440.png` (cover), `docs/architecture.png`, `docs/shots/check-msedcl-390.png`, `docs/shots/chat-1440.png`, `docs/shots/plan-hi-390.png`.
 
 ## The money is there. The answer isn't.
 
@@ -27,11 +79,13 @@ You take a photo of your electricity bill. About 10 seconds later you get:
 - **The paperwork, made clear.** The app can't apply for you, because the portal needs your Aadhaar OTP, and it should. Instead it checks the things that get applications rejected (like the name on the bill not matching your bank account), fills in an application sheet you can copy, and walks you through the 7 real steps.
 - **A chat assistant** that answers follow-up questions in English, Hindi or Hinglish using your own numbers, and a **Listen** button that reads the plan aloud.
 
-![The plan screen for a Delhi bill](shots/plan-delhi-1440.png)
+>>> IMAGE 1: upload `docs/blog/plan-delhi.png`
+>>> Caption: The plan for a Delhi home: 2.5 kW, ₹93,500 after subsidy, pays back in 5.7 years.
 
 ## How it's built on AWS
 
-![Architecture](architecture.png)
+>>> IMAGE 2: upload `docs/blog/architecture.png`
+>>> Caption: Everything runs on AWS in the Mumbai region.
 
 Everything runs in the Mumbai region (ap-south-1). Electricity bills carry a name, address and consumer number, so I wanted the data to stay in India.
 
@@ -69,7 +123,8 @@ elif k in KEY_FIELDS or k == "is_electricity_bill":
 
 Running them in parallel means the second opinion costs almost no extra time. Code checks run after the merge too: a bill amount that doesn't fit the units, a usage month in the future, or a billing period that doesn't match the number of days also gets flagged.
 
-![A phone photo of a Marathi bill, with one field to confirm](shots/check-msedcl-390.png)
+>>> IMAGE 3: upload `docs/blog/check-disagree.png`
+>>> Caption: A blurry phone photo of a Marathi bill. The two models disagreed on the consumer number, the units and the amount, so the user picks the right value for each.
 
 ### Picking the models by testing, not by habit
 
@@ -100,7 +155,8 @@ def what_if(plan_id: str, kw: float) -> dict:
 
 The others are `get_plan` (the saved plan), `loan_emi` and `scheme_facts` (fixed, sourced rules about the subsidy and loans). The user's plan is loaded into the prompt for each turn, so most answers need no extra tool call and come back in about a second. If a reply contains numbers but no plan was loaded and no tool was called, the agent is asked again to use a tool. The assistant replies in Hinglish when you write in Hinglish, and chat history lives in DynamoDB with a 7-day TTL.
 
-![Chat answering a loan question with the user's own numbers](shots/chat-1440.png)
+>>> IMAGE 4: upload `docs/blog/chat.png`
+>>> Caption: The chat assistant answers a loan question with the user's own numbers.
 
 The chat route imports Strands only when it is called, so the other routes stay fast on a cold start. Everything still fits in a single Lambda function.
 
@@ -118,7 +174,8 @@ Keeping the maths out of the model means the same bill always gives the same ans
 
 The app is in English and Hindi (the plan page switches with one tap), and bills in any Indian script are read. Amazon Polly's Kajal voice reads the plan summary in Hindi or Indian English, which helps people who would rather listen than read numbers.
 
-![The plan in Hindi on a phone](shots/plan-hi-390.png)
+>>> IMAGE 5: upload `docs/blog/plan-hindi.png`
+>>> Caption: The same plan in Hindi, on a phone.
 
 ## Privacy
 
